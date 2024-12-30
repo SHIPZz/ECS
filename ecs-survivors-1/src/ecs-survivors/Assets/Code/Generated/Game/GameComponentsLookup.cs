@@ -8,15 +8,51 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Dead = 0;
+    public const int Direction = 0;
+    public const int Id = 1;
+    public const int SpriteRenderer = 2;
+    public const int Transform = 3;
+    public const int WorldPosition = 4;
+    public const int Dead = 5;
+    public const int Hero = 6;
+    public const int HeroAnimator = 7;
+    public const int AxisInput = 8;
+    public const int Input = 9;
+    public const int Moving = 10;
+    public const int Speed = 11;
+    public const int TurnAlongDirection = 12;
 
-    public const int TotalComponents = 1;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
-        "Dead"
+        "Direction",
+        "Id",
+        "SpriteRenderer",
+        "Transform",
+        "WorldPosition",
+        "Dead",
+        "Hero",
+        "HeroAnimator",
+        "AxisInput",
+        "Input",
+        "Moving",
+        "Speed",
+        "TurnAlongDirection"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Code.Gameplay.Features.Death.Dead)
+        typeof(Code.Gameplay.Common.Direction),
+        typeof(Code.Gameplay.Common.Id),
+        typeof(Code.Gameplay.Common.SpriteRendererComponent),
+        typeof(Code.Gameplay.Common.TransformComponent),
+        typeof(Code.Gameplay.Common.WorldPosition),
+        typeof(Code.Gameplay.Features.Death.Dead),
+        typeof(Code.Gameplay.Features.Hero.Hero),
+        typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
+        typeof(Code.Gameplay.Input.AxisInput),
+        typeof(Code.Gameplay.Input.Input),
+        typeof(Moving),
+        typeof(Speed),
+        typeof(TurnAlongDirection)
     };
 }

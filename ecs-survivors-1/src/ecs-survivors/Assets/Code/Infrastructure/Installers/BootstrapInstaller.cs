@@ -3,6 +3,7 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
@@ -18,12 +19,18 @@ namespace Code.Infrastructure.Installers
     public override void InstallBindings()
     {
       BindInputService();
+      BindSystemFactory();
       BindInfrastructureServices();
       BindAssetManagementServices();
       BindCommonServices();
       BindContexts();
       BindGameplayServices();
       BindCameraProvider();
+    }
+
+    private void BindSystemFactory()
+    {
+       Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
     }
 
     private void BindContexts()

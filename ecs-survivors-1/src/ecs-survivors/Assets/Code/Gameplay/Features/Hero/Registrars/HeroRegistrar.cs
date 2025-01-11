@@ -3,39 +3,32 @@ using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Hero.Behaviours;
 using Code.Infrastructure.Identifiers;
+using Code.Infrastructure.View.Registrars;
 using UnityEngine;
 using Zenject;
 
 namespace Code.Gameplay.Features.Hero.Registrars
 {
-    public class HeroRegistrar : MonoBehaviour
+    public class HeroRegistrar : EntityComponentRegistrar
     {
         public float Speed = 3f;
-        public HeroAnimator HeroAnimator;
-        public SpriteRenderer Sprite;
-        
-        private IIdentifierService _identifierService;
 
-        [Inject]
-        private void Construct(IIdentifierService identifierService)
+        public override void RegisterComponents()
         {
-            _identifierService = identifierService;
-        }
-        
-        private void Awake()
-        {
-            CreateEntity
-                .Empty()
-                .AddId(_identifierService.Next())
+            Entity
                 .AddWorldPosition(transform.position)
-                .AddTransform(transform)
-                .AddHeroAnimator(HeroAnimator)
-                .AddSpriteRenderer(Sprite)
-                .With(entity => entity.isHero = true)
-                .With(entity => entity.isTurnAlongDirection = true)
                 .AddDirection(Vector3.zero)
                 .AddSpeed(Speed)
+                .AddCurrentHp(100)
+                .AddDamage(5)
+                .AddMaxHp(100)
+                .With(entity => entity.isHero = true)
+                .With(entity => entity.isTurnAlongDirection = true)
                 ;
+        }
+
+        public override void UnregisterComponents()
+        {
         }
     }
 }

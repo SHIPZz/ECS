@@ -8,31 +8,63 @@
 //------------------------------------------------------------------------------
 public static class GameComponentsLookup {
 
-    public const int Direction = 0;
-    public const int Id = 1;
-    public const int SpriteRenderer = 2;
-    public const int Transform = 3;
-    public const int WorldPosition = 4;
-    public const int Dead = 5;
-    public const int Hero = 6;
-    public const int HeroAnimator = 7;
-    public const int AxisInput = 8;
-    public const int Input = 9;
-    public const int Moving = 10;
-    public const int Speed = 11;
-    public const int TurnAlongDirection = 12;
+    public const int Destructed = 0;
+    public const int LayerMask = 1;
+    public const int SelfDestructTimer = 2;
+    public const int View = 3;
+    public const int Damage = 4;
+    public const int DamageTakenAnimator = 5;
+    public const int Direction = 6;
+    public const int Id = 7;
+    public const int SpriteRenderer = 8;
+    public const int Transform = 9;
+    public const int WorldPosition = 10;
+    public const int Dead = 11;
+    public const int Enemy = 12;
+    public const int EnemyAnimator = 13;
+    public const int EnemyTypeId = 14;
+    public const int Hero = 15;
+    public const int HeroAnimator = 16;
+    public const int CurrentHp = 17;
+    public const int MaxHp = 18;
+    public const int CollectTargetsInterval = 19;
+    public const int CollectTargetsTimer = 20;
+    public const int Radius = 21;
+    public const int ReadyToCollectTargets = 22;
+    public const int TargetsBuffer = 23;
+    public const int AxisInput = 24;
+    public const int Input = 25;
+    public const int Moving = 26;
+    public const int Speed = 27;
+    public const int TurnAlongDirection = 28;
 
-    public const int TotalComponents = 13;
+    public const int TotalComponents = 29;
 
     public static readonly string[] componentNames = {
+        "Destructed",
+        "LayerMask",
+        "SelfDestructTimer",
+        "View",
+        "Damage",
+        "DamageTakenAnimator",
         "Direction",
         "Id",
         "SpriteRenderer",
         "Transform",
         "WorldPosition",
         "Dead",
+        "Enemy",
+        "EnemyAnimator",
+        "EnemyTypeId",
         "Hero",
         "HeroAnimator",
+        "CurrentHp",
+        "MaxHp",
+        "CollectTargetsInterval",
+        "CollectTargetsTimer",
+        "Radius",
+        "ReadyToCollectTargets",
+        "TargetsBuffer",
         "AxisInput",
         "Input",
         "Moving",
@@ -41,14 +73,30 @@ public static class GameComponentsLookup {
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Code.Common.Destructed),
+        typeof(Code.Common.LayerMaskComponent),
+        typeof(Code.Common.SelfDestructTimer),
+        typeof(Code.Common.View),
+        typeof(Code.Gameplay.Common.Damage),
+        typeof(Code.Gameplay.Common.DamageTakenAnimatorComponent),
         typeof(Code.Gameplay.Common.Direction),
         typeof(Code.Gameplay.Common.Id),
         typeof(Code.Gameplay.Common.SpriteRendererComponent),
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Death.Dead),
+        typeof(Code.Gameplay.Features.Enemies.Enemy),
+        typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
+        typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
+        typeof(Code.Gameplay.Features.Lifetime.CurrentHp),
+        typeof(Code.Gameplay.Features.Lifetime.MaxHp),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
+        typeof(Code.Gameplay.Features.TargetCollection.Radius),
+        typeof(Code.Gameplay.Features.TargetCollection.ReadyToCollectTargets),
+        typeof(Code.Gameplay.Features.TargetCollection.TargetsBuffer),
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Input),
         typeof(Moving),

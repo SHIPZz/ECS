@@ -21,8 +21,7 @@ namespace Code.Gameplay.Input.Systems
             foreach (GameEntity entity in _entities)
             {
                 if (_inputService.HasAxisInput())
-                    entity.ReplaceAxisInput(new Vector3(_inputService.GetHorizontalAxis(), _inputService.GetVerticalAxis(),
-                        0));
+                    entity.ReplaceAxisInput(new Vector3(_inputService.GetHorizontalAxis(), _inputService.GetVerticalAxis(), 0));
                 else if(entity.hasAxisInput)
                     entity.RemoveAxisInput();
             }

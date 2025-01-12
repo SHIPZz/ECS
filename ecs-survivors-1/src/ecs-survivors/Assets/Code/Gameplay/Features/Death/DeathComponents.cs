@@ -6,5 +6,5 @@ namespace Code.Gameplay.Features.Death
     
     [Game] public class DeathProcessing : IComponent { }
     
-    [Game] public class DeathAnimationTime : IComponent { public float Value; }
+    [Game] public class DeathAnimationDuration : IComponent { public float Value; }
 }

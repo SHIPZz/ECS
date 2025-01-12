@@ -5,7 +5,7 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
     public class ApplyDamageOnTargetsSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _damageDealers;
-        private GameContext _game;
+        private readonly GameContext _game;
 
         public ApplyDamageOnTargetsSystem(GameContext game)
         {
@@ -26,7 +26,7 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
                 {
                     GameEntity target = _game.GetEntityWithId(targetId);
 
-                    if (!target.hasCurrentHp)
+                    if (!target.hasCurrentHp || target.isDead)
                         continue;
                     
                     target.ReplaceCurrentHp(target.CurrentHp - damageDealer.Damage);

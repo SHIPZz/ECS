@@ -16,7 +16,8 @@ namespace Code.Gameplay.Features.TargetCollection
                 .AllOf(
                     GameMatcher.CollectTargetsInterval,
                     GameMatcher.TargetsBuffer,
-                    GameMatcher.CollectTargetsTimer
+                    GameMatcher.CollectTargetsTimer,
+                    GameMatcher.CollectingAvailable
                 ));
         }
 

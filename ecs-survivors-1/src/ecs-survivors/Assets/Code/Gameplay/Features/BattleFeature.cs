@@ -1,7 +1,7 @@
 ﻿using Code.Common;
-using Code.Common.Systems;
 using Code.Gameplay.Cameras;
 using Code.Gameplay.Features.DamageApplication;
+using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero.Systems;
 using Code.Gameplay.Features.Movement;
@@ -22,6 +22,7 @@ namespace Code.Gameplay.Features
             Add(systems.Create<ProcessDestructedFeature>());
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<DamageApplicationFeature>());
+            Add(systems.Create<DeathFeature>());
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.TargetCollection.Systems;
 
 namespace Code.Gameplay.Features.TargetCollection
 {
@@ -6,6 +7,8 @@ namespace Code.Gameplay.Features.TargetCollection
     {
         public CollectTargetsFeature(ISystemFactory systems)
         {
+            Add(systems.Create<DestructOnTargetBufferLimitReachedSystem>());
+            
             Add(systems.Create<CollectTargetsIntervalSystem>());
             
             Add(systems.Create<CastForTargetsSystem>());

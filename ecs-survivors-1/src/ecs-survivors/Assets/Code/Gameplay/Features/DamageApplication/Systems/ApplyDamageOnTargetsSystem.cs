@@ -5,7 +5,8 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
     public class ApplyDamageOnTargetsSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _damageDealers;
-        private GameContext _game;
+        private readonly GameContext _game;
+        private readonly IGroup<GameEntity> _targets;
 
         public ApplyDamageOnTargetsSystem(GameContext game)
         {
@@ -16,6 +17,8 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
                     GameMatcher.TargetsBuffer,
                     GameMatcher.Damage
                 ));
+
+            _targets = game.GetGroup(GameMatcher.AllOf(GameMatcher.Id, GameMatcher.CurrentHp));
         }
 
         public void Execute()
@@ -26,7 +29,7 @@ namespace Code.Gameplay.Features.DamageApplication.Systems
                 {
                     GameEntity target = _game.GetEntityWithId(targetId);
 
-                    if (!target.hasCurrentHp)
+                    if (!_targets.ContainsEntity(target))
                         continue;
                     
                     target.ReplaceCurrentHp(target.CurrentHp - damageDealer.Damage);

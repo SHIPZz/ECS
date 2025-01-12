@@ -1,31 +1,12 @@
-﻿using Entitas;
+﻿using Code.Gameplay.Features.Movement;
 
 namespace Code.Gameplay.Features.Death
 {
     public class DeathFeature : Feature
     {
-        public DeathFeature()
+        public DeathFeature(ISystemFactory systemFactory)
         {
-            
-        }
-    }
-
-    public class DeathSystem : IExecuteSystem
-    {
-        private readonly IGroup<GameEntity> _entities;
-
-        public DeathSystem(GameContext game)
-        {
-            // _entities = game.GetGroup(GameMatcher
-                // .AllOf(GameMatcher.matcher));
-        }
-
-        public void Execute()
-        {
-            foreach (GameEntity entity in _entities)
-            {
-                
-            }
+            Add(systemFactory.Create<MarkDeadSystem>());
         }
     }
 }

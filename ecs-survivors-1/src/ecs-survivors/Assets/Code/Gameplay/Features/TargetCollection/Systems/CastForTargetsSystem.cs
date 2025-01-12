@@ -3,7 +3,7 @@ using System.Linq;
 using Code.Gameplay.Common.Physics;
 using Entitas;
 
-namespace Code.Gameplay.Features.TargetCollection
+namespace Code.Gameplay.Features.TargetCollection.Systems
 {
     public class CastForTargetsSystem : IExecuteSystem
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Death
+namespace Code.Gameplay.Features.Hero.Systems
 {
     public class FinishHeroDeathProcessingSystem : IExecuteSystem
     {

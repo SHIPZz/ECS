@@ -1,7 +1,7 @@
 ﻿using Code.Gameplay.Common.Time;
 using Entitas;
 
-namespace Code.Gameplay.Features.TargetCollection
+namespace Code.Gameplay.Features.TargetCollection.Systems
 {
     public class CollectTargetsIntervalSystem : IExecuteSystem
     {

@@ -1,14 +1,11 @@
-﻿using System.Collections.Generic;
-using Code.Gameplay.Features.TargetCollection;
+﻿using Code.Gameplay.Features.TargetCollection;
 using Entitas;
-using UnityEngine;
 
-namespace Code.Gameplay.Features.Death
+namespace Code.Gameplay.Features.Enemies.Systems
 {
     public class EnemyDeathSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _enemies;
-        private readonly List<GameEntity> _buffer = new List<GameEntity>(128);
 
         public EnemyDeathSystem(GameContext game)
         {
@@ -22,7 +19,7 @@ namespace Code.Gameplay.Features.Death
 
         public void Execute()
         {
-            foreach (GameEntity enemy in _enemies.GetEntities(_buffer))
+            foreach (GameEntity enemy in _enemies)
             {
                 enemy.RemoveTargetCollectionComponents();
                 enemy.isTurnAlongDirection = false;
@@ -30,8 +27,8 @@ namespace Code.Gameplay.Features.Death
                 
                 enemy.EnemyAnimator.PlayDied();
 
-                if (enemy.hasSelfDestructTimer)
-                    enemy.ReplaceSelfDestructTimer(enemy.DeathAnimationTime);
+                if (enemy.hasDeathAnimationDuration)
+                    enemy.ReplaceSelfDestructTimer(enemy.DeathAnimationDuration);
             }
         }
     }

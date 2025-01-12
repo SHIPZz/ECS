@@ -20,7 +20,7 @@ public static class GameComponentsLookup {
     public const int Transform = 9;
     public const int WorldPosition = 10;
     public const int Dead = 11;
-    public const int DeathAnimationTime = 12;
+    public const int DeathAnimationDuration = 12;
     public const int DeathProcessing = 13;
     public const int Enemy = 14;
     public const int EnemyAnimator = 15;
@@ -30,19 +30,20 @@ public static class GameComponentsLookup {
     public const int CurrentHp = 19;
     public const int MaxHp = 20;
     public const int CollectingAvailable = 21;
-    public const int CollectTargetsInterval = 22;
-    public const int CollectTargetsTimer = 23;
-    public const int Radius = 24;
-    public const int ReadyToCollectTargets = 25;
-    public const int TargetsBuffer = 26;
-    public const int AxisInput = 27;
-    public const int Input = 28;
-    public const int Moving = 29;
-    public const int MovingAvailable = 30;
-    public const int Speed = 31;
-    public const int TurnAlongDirection = 32;
+    public const int CollectingTargetsContinuously = 22;
+    public const int CollectTargetsInterval = 23;
+    public const int CollectTargetsTimer = 24;
+    public const int Radius = 25;
+    public const int ReadyToCollectTargets = 26;
+    public const int TargetsBuffer = 27;
+    public const int AxisInput = 28;
+    public const int Input = 29;
+    public const int Moving = 30;
+    public const int MovingAvailable = 31;
+    public const int Speed = 32;
+    public const int TurnAlongDirection = 33;
 
-    public const int TotalComponents = 33;
+    public const int TotalComponents = 34;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -57,7 +58,7 @@ public static class GameComponentsLookup {
         "Transform",
         "WorldPosition",
         "Dead",
-        "DeathAnimationTime",
+        "DeathAnimationDuration",
         "DeathProcessing",
         "Enemy",
         "EnemyAnimator",
@@ -67,6 +68,7 @@ public static class GameComponentsLookup {
         "CurrentHp",
         "MaxHp",
         "CollectingAvailable",
+        "CollectingTargetsContinuously",
         "CollectTargetsInterval",
         "CollectTargetsTimer",
         "Radius",
@@ -93,7 +95,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Death.Dead),
-        typeof(Code.Gameplay.Features.Death.DeathAnimationTime),
+        typeof(Code.Gameplay.Features.Death.DeathAnimationDuration),
         typeof(Code.Gameplay.Features.Death.DeathProcessing),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
@@ -103,6 +105,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Features.Lifetime.MaxHp),
         typeof(Code.Gameplay.Features.TargetCollection.CollectingAvailable),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectingTargetsContinuously),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
         typeof(Code.Gameplay.Features.TargetCollection.Radius),

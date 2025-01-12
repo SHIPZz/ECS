@@ -3,6 +3,7 @@ using Code.Gameplay.Cameras;
 using Code.Gameplay.Features.DamageApplication;
 using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Enemies;
+using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Systems;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.TargetCollection;

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.TargetCollection
+namespace Code.Gameplay.Features.TargetCollection.Systems
 {
     public class StopCollectTargetsOnHeroDeadSystem : IExecuteSystem
     {

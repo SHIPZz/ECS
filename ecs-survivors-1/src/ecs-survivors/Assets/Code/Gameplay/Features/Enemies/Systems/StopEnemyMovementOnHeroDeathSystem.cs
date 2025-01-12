@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
-    public class StopMovementOnHeroDeathSystem : IExecuteSystem
+    public class StopEnemyMovementOnHeroDeathSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _enemies;
         private readonly IGroup<GameEntity> _heroes;
         private readonly List<GameEntity> _buffer = new();
 
-        public StopMovementOnHeroDeathSystem(GameContext game)
+        public StopEnemyMovementOnHeroDeathSystem(GameContext game)
         {
             _heroes = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.Hero, GameMatcher.Dead));

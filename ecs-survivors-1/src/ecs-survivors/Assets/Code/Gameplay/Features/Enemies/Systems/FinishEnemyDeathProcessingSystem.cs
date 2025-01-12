@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Death
+namespace Code.Gameplay.Features.Enemies.Systems
 {
     public class FinishEnemyDeathProcessingSystem : IExecuteSystem
     {
@@ -10,9 +10,9 @@ namespace Code.Gameplay.Features.Death
         
         public FinishEnemyDeathProcessingSystem(GameContext game)
         {
-            _entities = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Enemy,
-                    GameMatcher.DeathProcessing,
+            _entities = game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.Enemy, 
+                GameMatcher.DeathProcessing,
                     GameMatcher.Dead));
         }
 

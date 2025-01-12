@@ -1,6 +1,7 @@
-﻿using Code.Gameplay.Features.Movement;
+﻿using Code.Gameplay.Features.Hero.Systems;
+using Code.Gameplay.Features.Movement;
 
-namespace Code.Gameplay.Features.Hero.Systems
+namespace Code.Gameplay.Features.Hero
 {
     public sealed class HeroFeature : Feature
     {
@@ -8,6 +9,8 @@ namespace Code.Gameplay.Features.Hero.Systems
         {
             Add(systems.Create<SetHeroDirectionByInputSystem>());
             Add(systems.Create<AnimateHeroOnMovementSystem>());
+            Add(systems.Create<HeroDeathSystem>());
+            Add(systems.Create<FinishHeroDeathProcessingSystem>());
         }
     }
 }

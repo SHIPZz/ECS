@@ -41,7 +41,7 @@ namespace Code.Gameplay.Features.Enemies
                     .AddCurrentHp(100)
                     .AddMaxHp(100)
                     .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
-                    .AddDeathAnimationDuration(3f)
+                    .AddDeathAnimationTime(3f)
                     .AddTargetsBuffer(new List<int>(1))
                     .AddCollectTargetsInterval(0.5f)
                     .AddCollectTargetsTimer(0)

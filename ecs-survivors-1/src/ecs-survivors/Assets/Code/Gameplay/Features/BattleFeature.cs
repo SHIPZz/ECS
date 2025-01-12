@@ -1,5 +1,7 @@
 ﻿using Code.Common;
 using Code.Gameplay.Cameras;
+using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.Features.DamageApplication;
 using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.Enemies;
@@ -21,6 +23,8 @@ namespace Code.Gameplay.Features
             Add(systems.Create<HeroFeature>());
             Add(systems.Create<CameraFeature>());
             Add(systems.Create<EnemyFeature>());
+            Add(systems.Create<CooldownFeature>());
+            Add(systems.Create<AbilityFeature>());
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
             Add(systems.Create<CollectTargetsFeature>());

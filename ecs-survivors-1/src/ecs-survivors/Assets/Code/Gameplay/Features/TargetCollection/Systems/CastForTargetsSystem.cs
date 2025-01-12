@@ -20,8 +20,8 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     GameMatcher.ReadyToCollectTargets,
                     GameMatcher.WorldPosition,
                     GameMatcher.Radius,
-                    GameMatcher.LayerMask
-                    ));
+                    GameMatcher.CollectTargetsLayerMask
+                ));
         }
 
         public void Execute()
@@ -29,13 +29,14 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
                 entity.TargetsBuffer.AddRange(TargetsInRadius(entity));
+
                 entity.isReadyToCollectTargets = false;
             }
         }
 
         private IEnumerable<int> TargetsInRadius(GameEntity entity)
         {
-            return _physicsService.CircleCast(entity.WorldPosition, entity.Radius, entity.LayerMask)
+            return _physicsService.CircleCast(entity.WorldPosition, entity.Radius, entity.CollectTargetsLayerMask)
                 .Select(x => x.Id);
         }
     }

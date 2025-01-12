@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.TargetCollection;
+using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -9,9 +11,11 @@ namespace Code.Gameplay.Features.Hero
     public class HeroFactory : IHeroFactory
     {
         private readonly IIdentifierService _identifierService;
+        private readonly IStaticDataService _staticDataService;
 
-        public HeroFactory(IIdentifierService identifierService)
+        public HeroFactory(IIdentifierService identifierService, IStaticDataService staticDataService)
         {
+            _staticDataService = staticDataService;
             _identifierService = identifierService;
         }
 
@@ -22,17 +26,16 @@ namespace Code.Gameplay.Features.Hero
                     .AddWorldPosition(at)
                     .AddDirection(Vector3.zero)
                     .AddSpeed(3f)
-                    .AddDeathAnimationTime(3f)
-                    .AddCurrentHp(100)
+                    .AddDeathAnimationDuration(3f)
+                    .AddCurrentHp(1230232)
                     .AddViewPath("Gameplay/Hero/hero")
-                    .AddTargetsBuffer(new List<int>(128))
-                    .AddCollectTargetsInterval(0.5f)
-                    .AddCollectTargetsTimer(0f)
-                    .AddDamage(5)
+                    .SetupTargetCollectionComponents(_staticDataService.CollisionLayerConfig.PlayerMask)
+                    .AddDamage(3)
                     .AddMaxHp(100)
+                    .AddRadius(0.5f)
+                    .AddLayerMask(_staticDataService.CollisionLayerConfig.PlayerMask)
                     .With(entity => entity.isHero = true)
                     .With(entity => entity.isMovingAvailable = true)
-                    .With(entity => entity.isCollectingAvailable = true)
                     .With(entity => entity.isTurnAlongDirection = true)
                 ;
         }

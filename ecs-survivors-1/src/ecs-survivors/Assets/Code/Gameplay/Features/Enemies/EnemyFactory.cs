@@ -1,7 +1,8 @@
 using System;
-using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.TargetCollection;
+using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -10,9 +11,11 @@ namespace Code.Gameplay.Features.Enemies
     public class EnemyFactory : IEnemyFactory
     {
         private readonly IIdentifierService _identifierService;
+        private readonly IStaticDataService _staticDataService;
 
-        public EnemyFactory(IIdentifierService identifierService)
+        public EnemyFactory(IIdentifierService identifierService, IStaticDataService staticDataService)
         {
+            _staticDataService = staticDataService;
             _identifierService = identifierService;
         }
 
@@ -41,17 +44,13 @@ namespace Code.Gameplay.Features.Enemies
                     .AddCurrentHp(100)
                     .AddMaxHp(100)
                     .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
-                    .AddDeathAnimationTime(3f)
-                    .AddTargetsBuffer(new List<int>(1))
-                    .AddCollectTargetsInterval(0.5f)
-                    .AddCollectTargetsTimer(0)
+                    .AddDeathAnimationDuration(3f)
+                    .SetupTargetCollectionComponents(_staticDataService.CollisionLayerConfig.EnemyMask)
                     .AddRadius(0.3f)
                     .AddLayerMask(CollisionLayer.Hero.AsMask())
                     .With(x => x.isTurnAlongDirection = true)
                     .With(x => x.isEnemy = true)
-                    .With(x => x.isCollectingAvailable = true)
                     .With(x => x.isMovingAvailable = true)
-                    .With(x => x.isReadyToCollectTargets = true)
                 ;
         }
     }

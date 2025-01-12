@@ -11,7 +11,9 @@ namespace Code.Gameplay.Features.Movement.Systems
         public DisableMovingAvailableOnDeadSystem(GameContext game)
         {
             _entities = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Dead,GameMatcher.MovingAvailable));
+                .AllOf(
+                    GameMatcher.Dead,
+                    GameMatcher.MovingAvailable));
         }
 
         public void Execute()

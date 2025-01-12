@@ -13,7 +13,7 @@ namespace Code.Gameplay.Features.TargetCollection
                 .With(x => x.AddCollectTargetsTimer(0))
                 .With(x => x.isReadyToCollectTargets = true)
                 .With(x => x.isCollectingAvailable = true)
-                .AddLayerMask(layerMask)
+                .AddCollectTargetsLayerMask(layerMask)
                 ;
         }
         

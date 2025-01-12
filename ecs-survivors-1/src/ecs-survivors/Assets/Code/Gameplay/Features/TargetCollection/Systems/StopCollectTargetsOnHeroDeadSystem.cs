@@ -17,7 +17,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                 GameMatcher.CollectingAvailable,
                 GameMatcher.CollectTargetsInterval,
                 GameMatcher.CollectTargetsTimer
-                ).NoneOf(GameMatcher.Hero));
+                ));
         }
 
         public void Execute()

@@ -3,6 +3,8 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Armament;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Movement;
@@ -60,6 +62,8 @@ namespace Code.Infrastructure.Installers
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
+            Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();
+            Container.Bind<IArmamentFactory>().To<ArmamentFactory>().AsSingle();
         }
 
         private void BindInfrastructureServices()

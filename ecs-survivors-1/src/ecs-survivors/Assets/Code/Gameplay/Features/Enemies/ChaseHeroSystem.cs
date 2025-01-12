@@ -1,7 +1,7 @@
 ﻿using Entitas;
 using UnityEngine;
 
-namespace Code.Gameplay.Features.Enemies.Systems
+namespace Code.Gameplay.Features.Enemies
 {
     public class ChaseHeroSystem : IExecuteSystem
     {
@@ -21,6 +21,13 @@ namespace Code.Gameplay.Features.Enemies.Systems
             foreach (GameEntity enemy in _enemies)
             foreach (GameEntity hero in _heroes)
             {
+                if (hero.isDestructed)
+                {
+                    enemy.ReplaceDirection(Vector3.zero);
+                    enemy.isMoving = false;
+                    continue;
+                }
+                
                 enemy.ReplaceDirection((hero.WorldPosition - enemy.WorldPosition).normalized);
                 enemy.isMoving = true;
             }

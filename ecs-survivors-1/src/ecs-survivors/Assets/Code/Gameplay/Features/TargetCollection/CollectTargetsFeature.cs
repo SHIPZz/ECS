@@ -6,7 +6,6 @@ namespace Code.Gameplay.Features.TargetCollection
     {
         public CollectTargetsFeature(ISystemFactory systems)
         {
-            Add(systems.Create<StopCollectTargetsOnHeroDeadSystem>());
             Add(systems.Create<CollectTargetsIntervalSystem>());
             
             Add(systems.Create<CastForTargetsSystem>());

@@ -12,9 +12,8 @@ public class DirectionalDeltaMoveSystem : IExecuteSystem
         _entities = game.GetGroup(GameMatcher
             .AllOf(GameMatcher.WorldPosition,
                 GameMatcher.Direction,
-                GameMatcher.Speed,
-                GameMatcher.MovingAvailable
-            ));
+                GameMatcher.Speed
+                ));
     }
 
     public void Execute()

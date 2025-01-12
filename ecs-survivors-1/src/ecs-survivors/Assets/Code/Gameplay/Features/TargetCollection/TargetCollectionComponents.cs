@@ -12,6 +12,4 @@ namespace Code.Gameplay.Features.TargetCollection
     [Game] public class Radius : IComponent { public float Value; }
     
     [Game] public class ReadyToCollectTargets : IComponent {  }
-    
-    [Game] public class CollectingAvailable : IComponent {  }
 }

@@ -2,7 +2,6 @@
 {
   public class StaticDataService : IStaticDataService
   {
-
     public void LoadAll()
     {
     }

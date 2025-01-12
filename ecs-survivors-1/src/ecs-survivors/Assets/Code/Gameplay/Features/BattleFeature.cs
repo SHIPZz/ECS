@@ -7,6 +7,7 @@ using Code.Gameplay.Features.Hero.Systems;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.Input;
+using Code.Infrastructure.View;
 
 namespace Code.Gameplay.Features
 {
@@ -15,6 +16,7 @@ namespace Code.Gameplay.Features
         public BattleFeature(ISystemFactory systems)
         {
             Add(systems.Create<InputFeature>());
+            Add(systems.Create<BindViewFeature>());
             Add(systems.Create<HeroFeature>());
             Add(systems.Create<CameraFeature>());
             Add(systems.Create<EnemyFeature>());

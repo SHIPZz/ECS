@@ -20,25 +20,29 @@ public static class GameComponentsLookup {
     public const int Transform = 9;
     public const int WorldPosition = 10;
     public const int Dead = 11;
-    public const int Enemy = 12;
-    public const int EnemyAnimator = 13;
-    public const int EnemyTypeId = 14;
-    public const int Hero = 15;
-    public const int HeroAnimator = 16;
-    public const int CurrentHp = 17;
-    public const int MaxHp = 18;
-    public const int CollectTargetsInterval = 19;
-    public const int CollectTargetsTimer = 20;
-    public const int Radius = 21;
-    public const int ReadyToCollectTargets = 22;
-    public const int TargetsBuffer = 23;
-    public const int AxisInput = 24;
-    public const int Input = 25;
-    public const int Moving = 26;
-    public const int Speed = 27;
-    public const int TurnAlongDirection = 28;
+    public const int DeathAnimationTime = 12;
+    public const int DeathProcessing = 13;
+    public const int Enemy = 14;
+    public const int EnemyAnimator = 15;
+    public const int EnemyTypeId = 16;
+    public const int Hero = 17;
+    public const int HeroAnimator = 18;
+    public const int CurrentHp = 19;
+    public const int MaxHp = 20;
+    public const int CollectingAvailable = 21;
+    public const int CollectTargetsInterval = 22;
+    public const int CollectTargetsTimer = 23;
+    public const int Radius = 24;
+    public const int ReadyToCollectTargets = 25;
+    public const int TargetsBuffer = 26;
+    public const int AxisInput = 27;
+    public const int Input = 28;
+    public const int Moving = 29;
+    public const int MovingAvailable = 30;
+    public const int Speed = 31;
+    public const int TurnAlongDirection = 32;
 
-    public const int TotalComponents = 29;
+    public const int TotalComponents = 33;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -53,6 +57,8 @@ public static class GameComponentsLookup {
         "Transform",
         "WorldPosition",
         "Dead",
+        "DeathAnimationTime",
+        "DeathProcessing",
         "Enemy",
         "EnemyAnimator",
         "EnemyTypeId",
@@ -60,6 +66,7 @@ public static class GameComponentsLookup {
         "HeroAnimator",
         "CurrentHp",
         "MaxHp",
+        "CollectingAvailable",
         "CollectTargetsInterval",
         "CollectTargetsTimer",
         "Radius",
@@ -68,6 +75,7 @@ public static class GameComponentsLookup {
         "AxisInput",
         "Input",
         "Moving",
+        "MovingAvailable",
         "Speed",
         "TurnAlongDirection"
     };
@@ -85,6 +93,8 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.TransformComponent),
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Death.Dead),
+        typeof(Code.Gameplay.Features.Death.DeathAnimationTime),
+        typeof(Code.Gameplay.Features.Death.DeathProcessing),
         typeof(Code.Gameplay.Features.Enemies.Enemy),
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
@@ -92,6 +102,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
         typeof(Code.Gameplay.Features.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Features.Lifetime.MaxHp),
+        typeof(Code.Gameplay.Features.TargetCollection.CollectingAvailable),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsInterval),
         typeof(Code.Gameplay.Features.TargetCollection.CollectTargetsTimer),
         typeof(Code.Gameplay.Features.TargetCollection.Radius),
@@ -100,6 +111,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Input.AxisInput),
         typeof(Code.Gameplay.Input.Input),
         typeof(Moving),
+        typeof(MovingAvailable),
         typeof(Speed),
         typeof(TurnAlongDirection)
     };

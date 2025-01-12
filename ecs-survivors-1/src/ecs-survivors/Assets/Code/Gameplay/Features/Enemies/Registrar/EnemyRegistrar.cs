@@ -19,6 +19,7 @@ namespace Code.Gameplay.Features.Enemies.Registrar
                 .AddDamage(10)
                 .AddCurrentHp(100)
                 .AddMaxHp(100)
+                .AddDeathAnimationTime(3f)
                 .AddTargetsBuffer(new List<int>(1))
                 .AddCollectTargetsInterval(0.5f)
                 .AddCollectTargetsTimer(0)
@@ -27,6 +28,8 @@ namespace Code.Gameplay.Features.Enemies.Registrar
                 .AddWorldPosition(transform.position)
                 .With(x => x.isTurnAlongDirection = true)
                 .With(x => x.isEnemy = true)
+                .With(x => x.isCollectingAvailable = true)
+                .With(x => x.isMovingAvailable = true)
                 .With(x => x.isReadyToCollectTargets = true)
                 ;
             

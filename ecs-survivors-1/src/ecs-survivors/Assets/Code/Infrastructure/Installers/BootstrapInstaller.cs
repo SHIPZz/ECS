@@ -3,6 +3,7 @@ using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
+using Code.Gameplay.Features.Hero.Registrars;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;

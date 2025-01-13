@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Features.DamageApplication.Systems;
 using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
 
 namespace Code.Gameplay.Features.DamageApplication
 {

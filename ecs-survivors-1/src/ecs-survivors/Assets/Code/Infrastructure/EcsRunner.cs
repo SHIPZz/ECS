@@ -1,5 +1,6 @@
 ﻿using Code.Gameplay.Features;
 using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
 using UnityEngine;
 using Zenject;
 

@@ -1,8 +1,7 @@
 ﻿using Code.Gameplay.Features.Hero.Systems;
-using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.TargetCollection.Systems;
+using Code.Gameplay.Features.Movement.Factory;
 
-namespace Code.Gameplay.Features.Hero
+namespace Code.Gameplay.Features.Hero.Factory
 {
     public sealed class HeroFeature : Feature
     {

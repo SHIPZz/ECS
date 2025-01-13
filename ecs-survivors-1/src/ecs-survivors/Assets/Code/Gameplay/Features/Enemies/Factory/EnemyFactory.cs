@@ -6,7 +6,7 @@ using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
-namespace Code.Gameplay.Features.Enemies
+namespace Code.Gameplay.Features.Enemies.Factory
 {
     public class EnemyFactory : IEnemyFactory
     {

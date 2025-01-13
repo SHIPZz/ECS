@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
 using Code.Gameplay.Input.Systems;
 
 namespace Code.Gameplay.Input

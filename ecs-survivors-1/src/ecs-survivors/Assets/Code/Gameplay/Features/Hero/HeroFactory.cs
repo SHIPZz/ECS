@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;

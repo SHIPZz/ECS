@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly TurnAlongDirection turnAlongDirectionComponent = new TurnAlongDirection();
+    static readonly Code.Gameplay.Features.Movement.TurnAlongDirection turnAlongDirectionComponent = new Code.Gameplay.Features.Movement.TurnAlongDirection();
 
     public bool isTurnAlongDirection {
         get { return HasComponent(GameComponentsLookup.TurnAlongDirection); }

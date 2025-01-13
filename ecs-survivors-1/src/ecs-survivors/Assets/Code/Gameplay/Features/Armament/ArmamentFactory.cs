@@ -1,6 +1,8 @@
-﻿using Code.Common.Entity;
+﻿using System.Collections.Generic;
+using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Ability.Config;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
@@ -18,26 +20,107 @@ namespace Code.Gameplay.Features.Armament
             _identifierService = identifierService;
             _staticDataService = staticDataService;
         }
+        
+        public GameEntity CreateScatteringBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Scattering, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddScale(Vector3.one)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddScatteringCount(projectileSetup.ScatteringCount)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
+                    .With(x => x.isScatteringArmament = true)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isRotateAlongDirection = true)
+                ;
+        }
+
+        public GameEntity CreateBouncingBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Bounce, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddMaxBouncingCount(projectileSetup.BouncingCount)
+                    .AddBouncingCount(0)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
+                    .With(x => x.isBouncingArmament = true)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isRotateAlongDirection = true)
+                ;
+        }
+
+        public GameEntity CreateRadialBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Radial, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddSelfDestructTimer(projectileSetup.Lifetime)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
+                    .With(x => x.isRadialBoltArmament = true)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isCollectingTargetsContinuously = true)
+                    .With(x => x.isRotateAlongDirection = true)
+                ;
+        }
 
         public GameEntity CreateVegetableBolt(int level, Vector3 at)
         {
-            ProjectileSetup projectileSetup = _staticDataService.GetAbilityLevel(AbilityTypeId.VegetableBolt, level).ProjectileSetup;
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.VegetableBolt, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
 
             LayerMask mask = _staticDataService.CollisionLayerConfig.PlayerProjectileMask;
-            
+
             return CreateEntity
-                .Empty()
-                .AddId(_identifierService.Next())
-                .AddDamage(projectileSetup.Damage)
-                .AddSpeed(projectileSetup.Speed)
-                .AddRadius(0.3f)
-                .AddTargetLimit(projectileSetup.Pierce)
-                .AddViewPrefab(projectileSetup.Prefab)
-                .AddWorldPosition(at)
-                .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
-                .With(x => x.isVegetableBolt = true)
-                .With(x => x.isCollectingTargetsContinuously = true)
-                .With(x => x.isTurnAlongDirection = true)
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddSelfDestructTimer(projectileSetup.Lifetime)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(),
+                        projectileSetup.CollectTargetInterval)
+                    .With(x => x.isVegetableBoltArmament = true)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isCollectingTargetsContinuously = true)
+                    .With(x => x.isRotateAlongDirection = true)
                 ;
         }
     }

@@ -12,16 +12,17 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
         {
             _entities = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.TargetsBuffer,
+                    GameMatcher.ProcessedTargetsBuffer,
                     GameMatcher.TargetLimit
-                    ));
+                    )
+                .NoneOf(GameMatcher.OverflowProcessedTargetsBuffer));
         }
 
         public void Execute()
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                if (entity.TargetsBuffer.Count >= entity.TargetLimit)
+                if (entity.ProcessedTargetsBuffer.Count >= entity.TargetLimit)
                 {
                     entity.RemoveTargetCollectionComponents();
                     entity.isDestructed = true;

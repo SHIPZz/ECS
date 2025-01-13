@@ -1,22 +1,25 @@
 ﻿using Entitas;
 
-public class UpdateTransformPositionSystem : IExecuteSystem
+namespace Code.Gameplay.Features.Movement.Systems
 {
-    private readonly IGroup<GameEntity> _entities;
-
-    public UpdateTransformPositionSystem(GameContext game)
+    public class UpdateTransformPositionSystem : IExecuteSystem
     {
-        _entities = game.GetGroup(GameMatcher
-            .AllOf(GameMatcher.Transform,
-                GameMatcher.WorldPosition
-                ));
-    }
+        private readonly IGroup<GameEntity> _entities;
 
-    public void Execute()
-    {
-        foreach (GameEntity entity in _entities)
+        public UpdateTransformPositionSystem(GameContext game)
         {
-            entity.Transform.position = entity.WorldPosition;
+            _entities = game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.Transform,
+                    GameMatcher.WorldPosition
+                ));
+        }
+
+        public void Execute()
+        {
+            foreach (GameEntity entity in _entities)
+            {
+                entity.Transform.position = entity.WorldPosition;
+            }
         }
     }
 }

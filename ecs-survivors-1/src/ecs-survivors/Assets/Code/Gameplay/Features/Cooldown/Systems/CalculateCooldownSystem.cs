@@ -1,4 +1,5 @@
-﻿using Code.Gameplay.Common.Time;
+﻿using System.Collections.Generic;
+using Code.Gameplay.Common.Time;
 using Entitas;
 
 namespace Code.Gameplay.Features.Cooldown.Systems
@@ -7,6 +8,7 @@ namespace Code.Gameplay.Features.Cooldown.Systems
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly ITimeService _timeService;
+        private readonly List<GameEntity> _buffer = new(16);
 
         public CalculateCooldownSystem(GameContext game, ITimeService timeService)
         {
@@ -20,15 +22,15 @@ namespace Code.Gameplay.Features.Cooldown.Systems
 
         public void Execute()
         {
-            foreach (GameEntity entity in _entities)
+            foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
                 entity.ReplaceCooldownLeft(entity.CooldownLeft - _timeService.DeltaTime);
                 entity.isCooldownUp = false;
 
                 if (entity.CooldownLeft <= 0)
                 {
-                    entity.ReplaceCooldownLeft(entity.Cooldown);
                     entity.isCooldownUp = true;
+                    entity.RemoveCooldownLeft();
                 }
             }
         }

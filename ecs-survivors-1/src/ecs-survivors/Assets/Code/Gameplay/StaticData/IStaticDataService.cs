@@ -1,5 +1,6 @@
 ﻿using Code.Common.Configs;
 using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Ability.Config;
 
 namespace Code.Gameplay.StaticData
 {

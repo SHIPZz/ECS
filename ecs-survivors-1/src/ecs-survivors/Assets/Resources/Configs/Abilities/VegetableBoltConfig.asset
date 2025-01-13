@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: VegetableBoltConfig
   m_EditorClassIdentifier: 
   AbilityTypeId: 1
-  Cooldown: 1
   AbilityLevels:
-  - ProjectileSetup:
-      Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+  - Cooldown: 1
+    Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+    ProjectileSetup:
       Speed: 3
       Pierce: 2
+      ContactRadius: 0.3
       CollectTargetInterval: 0.2
+      Lifetime: 5
       Damage: 100

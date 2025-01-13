@@ -2,6 +2,7 @@
 using System.Linq;
 using Code.Common.Configs;
 using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Ability.Config;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -13,10 +14,9 @@ namespace Code.Gameplay.StaticData
 
         public void LoadAll()
         {
-            CollisionLayerConfig = Resources.Load<CollisionLayerConfig>("Configs/CollisionLayer/CollisionLayerConfig");
+            LoadCollisionLayerConfig();
 
-            _abilityConfigs = Resources.LoadAll<AbilityConfig>("Configs/Abilities")
-                .ToDictionary(x => x.AbilityTypeId , x => x);
+            LoadAbilities();
         }
 
         public AbilityConfig GetAbilityConfig(AbilityTypeId abilityTypeId) => _abilityConfigs[abilityTypeId];
@@ -28,6 +28,17 @@ namespace Code.Gameplay.StaticData
             List<AbilityLevel> abilityLevels = abilityConfig.AbilityLevels;
             
             return abilityLevels.Count > level ? abilityLevels[^1] : abilityLevels[level - 1];
+        }
+
+        private void LoadCollisionLayerConfig()
+        {
+            CollisionLayerConfig = Resources.Load<CollisionLayerConfig>("Configs/CollisionLayer/CollisionLayerConfig");
+        }
+
+        private void LoadAbilities()
+        {
+            _abilityConfigs = Resources.LoadAll<AbilityConfig>("Configs/Abilities")
+                .ToDictionary(x => x.AbilityTypeId, x => x);
         }
     }
 }

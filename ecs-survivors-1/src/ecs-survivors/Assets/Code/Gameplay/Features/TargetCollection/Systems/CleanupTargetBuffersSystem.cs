@@ -8,8 +8,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
 
         public CleanupTargetBuffersSystem(GameContext game)
         {
-            _entities = game.GetGroup(GameMatcher.AllOf(GameMatcher.TargetsBuffer)
-                .NoneOf(GameMatcher.CollectingTargetsContinuously));
+            _entities = game.GetGroup(GameMatcher.AllOf(GameMatcher.TargetsBuffer));
         }
 
         public void Cleanup()

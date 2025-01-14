@@ -8,17 +8,17 @@
 //------------------------------------------------------------------------------
 public sealed partial class GameMatcher {
 
-    static Entitas.IMatcher<GameEntity> _matcherChaseTargetSet;
+    static Entitas.IMatcher<GameEntity> _matcherFollowingUp;
 
-    public static Entitas.IMatcher<GameEntity> ChaseTargetSet {
+    public static Entitas.IMatcher<GameEntity> FollowingUp {
         get {
-            if (_matcherChaseTargetSet == null) {
-                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.ChaseTargetSet);
+            if (_matcherFollowingUp == null) {
+                var matcher = (Entitas.Matcher<GameEntity>)Entitas.Matcher<GameEntity>.AllOf(GameComponentsLookup.FollowingUp);
                 matcher.componentNames = GameComponentsLookup.componentNames;
-                _matcherChaseTargetSet = matcher;
+                _matcherFollowingUp = matcher;
             }
 
-            return _matcherChaseTargetSet;
+            return _matcherFollowingUp;
         }
     }
 }
@@ -33,18 +33,18 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Chase.ChaseTargetSet chaseTargetSetComponent = new Code.Gameplay.Features.Chase.ChaseTargetSet();
+    static readonly Code.Gameplay.Features.Follow.FollowingUp followingUpComponent = new Code.Gameplay.Features.Follow.FollowingUp();
 
-    public bool isChaseTargetSet {
-        get { return HasComponent(GameComponentsLookup.ChaseTargetSet); }
+    public bool isFollowingUp {
+        get { return HasComponent(GameComponentsLookup.FollowingUp); }
         set {
-            if (value != isChaseTargetSet) {
-                var index = GameComponentsLookup.ChaseTargetSet;
+            if (value != isFollowingUp) {
+                var index = GameComponentsLookup.FollowingUp;
                 if (value) {
                     var componentPool = GetComponentPool(index);
                     var component = componentPool.Count > 0
                             ? componentPool.Pop()
-                            : chaseTargetSetComponent;
+                            : followingUpComponent;
 
                     AddComponent(index, component);
                 } else {

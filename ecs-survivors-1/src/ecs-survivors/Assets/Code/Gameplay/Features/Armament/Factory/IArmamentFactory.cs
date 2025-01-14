@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Code.Gameplay.Features.Armament
+namespace Code.Gameplay.Features.Armament.Factory
 {
     public interface IArmamentFactory
     {

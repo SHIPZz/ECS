@@ -24,7 +24,7 @@ namespace Code.Gameplay.Features.Movement.Systems
         {
             foreach (GameEntity mover in _entities)
             {
-                if(mover.Direction.sqrMagnitude <= 0.1f)
+                if(mover.Direction == Vector3.zero || mover.Direction.sqrMagnitude <= 0.01f)
                     continue;
                 
                 var angle = Mathf.Atan2(mover.Direction.y, mover.Direction.x) * Mathf.Rad2Deg;

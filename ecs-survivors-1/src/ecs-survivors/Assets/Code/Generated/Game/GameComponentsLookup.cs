@@ -38,44 +38,49 @@ public static class GameComponentsLookup {
     public const int RadialBoltArmament = 27;
     public const int ScatteringArmament = 28;
     public const int VegetableBoltArmament = 29;
-    public const int ChaseTargetId = 30;
-    public const int ChaseTargetSet = 31;
-    public const int Cooldown = 32;
-    public const int CooldownLeft = 33;
-    public const int CooldownUp = 34;
-    public const int Dead = 35;
-    public const int DeathAnimationDuration = 36;
-    public const int DeathProcessing = 37;
-    public const int Enemy = 38;
-    public const int EnemyAnimator = 39;
-    public const int EnemyTypeId = 40;
-    public const int SpawnTimer = 41;
-    public const int Hero = 42;
-    public const int HeroAnimator = 43;
-    public const int CurrentHp = 44;
-    public const int MaxHp = 45;
-    public const int Moving = 46;
-    public const int MovingAvailable = 47;
-    public const int RotateAlongDirection = 48;
-    public const int Speed = 49;
-    public const int TurnAlongDirection = 50;
-    public const int Scale = 51;
-    public const int Collected = 52;
-    public const int CollectingAvailable = 53;
-    public const int CollectingTargetsContinuously = 54;
-    public const int CollectTargetsInterval = 55;
-    public const int CollectTargetsLayerMask = 56;
-    public const int CollectTargetsTimer = 57;
-    public const int LastCollectedId = 58;
-    public const int OverflowProcessedTargetsBuffer = 59;
-    public const int ProcessedTargetsBuffer = 60;
-    public const int Radius = 61;
-    public const int ReadyToCollectTargets = 62;
-    public const int TargetsBuffer = 63;
-    public const int AxisInput = 64;
-    public const int Input = 65;
+    public const int Cooldown = 30;
+    public const int CooldownLeft = 31;
+    public const int CooldownUp = 32;
+    public const int Dead = 33;
+    public const int DeathAnimationDuration = 34;
+    public const int DeathProcessing = 35;
+    public const int Enemy = 36;
+    public const int EnemyAnimator = 37;
+    public const int EnemyTypeId = 38;
+    public const int SpawnTimer = 39;
+    public const int FollowDistanceLeft = 40;
+    public const int FollowingUp = 41;
+    public const int FollowMaxDistance = 42;
+    public const int FollowNewCloseTarget = 43;
+    public const int FollowTargetId = 44;
+    public const int LastFollowTargets = 45;
+    public const int Hero = 46;
+    public const int HeroAnimator = 47;
+    public const int Alive = 48;
+    public const int CurrentHp = 49;
+    public const int MaxHp = 50;
+    public const int Moving = 51;
+    public const int MovingAvailable = 52;
+    public const int RotateAlongDirection = 53;
+    public const int Speed = 54;
+    public const int TurnAlongDirection = 55;
+    public const int Scale = 56;
+    public const int Collected = 57;
+    public const int CollectingAvailable = 58;
+    public const int CollectingTargetsContinuously = 59;
+    public const int CollectTargetsInterval = 60;
+    public const int CollectTargetsLayerMask = 61;
+    public const int CollectTargetsTimer = 62;
+    public const int LastCollectedId = 63;
+    public const int OverflowProcessedTargetsBuffer = 64;
+    public const int ProcessedTargetsBuffer = 65;
+    public const int Radius = 66;
+    public const int ReadyToCollectTargets = 67;
+    public const int TargetsBuffer = 68;
+    public const int AxisInput = 69;
+    public const int Input = 70;
 
-    public const int TotalComponents = 66;
+    public const int TotalComponents = 71;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -108,8 +113,6 @@ public static class GameComponentsLookup {
         "RadialBoltArmament",
         "ScatteringArmament",
         "VegetableBoltArmament",
-        "ChaseTargetId",
-        "ChaseTargetSet",
         "Cooldown",
         "CooldownLeft",
         "CooldownUp",
@@ -120,8 +123,15 @@ public static class GameComponentsLookup {
         "EnemyAnimator",
         "EnemyTypeId",
         "SpawnTimer",
+        "FollowDistanceLeft",
+        "FollowingUp",
+        "FollowMaxDistance",
+        "FollowNewCloseTarget",
+        "FollowTargetId",
+        "LastFollowTargets",
         "Hero",
         "HeroAnimator",
+        "Alive",
         "CurrentHp",
         "MaxHp",
         "Moving",
@@ -177,8 +187,6 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Armament.RadialBoltArmament),
         typeof(Code.Gameplay.Features.Armament.ScatteringArmament),
         typeof(Code.Gameplay.Features.Armament.VegetableBoltArmament),
-        typeof(Code.Gameplay.Features.Chase.ChaseTargetId),
-        typeof(Code.Gameplay.Features.Chase.ChaseTargetSet),
         typeof(Code.Gameplay.Features.Cooldown.Cooldown),
         typeof(Code.Gameplay.Features.Cooldown.CooldownLeft),
         typeof(Code.Gameplay.Features.Cooldown.CooldownUp),
@@ -189,8 +197,15 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
         typeof(Code.Gameplay.Features.Enemies.SpawnTimer),
+        typeof(Code.Gameplay.Features.Follow.FollowDistanceLeft),
+        typeof(Code.Gameplay.Features.Follow.FollowingUp),
+        typeof(Code.Gameplay.Features.Follow.FollowMaxDistance),
+        typeof(Code.Gameplay.Features.Follow.FollowNewCloseTarget),
+        typeof(Code.Gameplay.Features.Follow.FollowTargetId),
+        typeof(Code.Gameplay.Features.Follow.LastFollowTargets),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
+        typeof(Code.Gameplay.Features.Lifetime.Alive),
         typeof(Code.Gameplay.Features.Lifetime.CurrentHp),
         typeof(Code.Gameplay.Features.Lifetime.MaxHp),
         typeof(Code.Gameplay.Features.Movement.Moving),

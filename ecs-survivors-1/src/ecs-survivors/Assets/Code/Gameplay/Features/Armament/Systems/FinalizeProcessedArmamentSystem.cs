@@ -12,6 +12,8 @@ namespace Code.Gameplay.Features.Armament.Systems
             _armaments = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Armament,
+                    GameMatcher.ProcessedTargetsBuffer,
+                    GameMatcher.TargetLimit,
                     GameMatcher.Processed
                 ));
         }

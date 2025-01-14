@@ -16,6 +16,7 @@ namespace Code.Gameplay.Features.TargetCollection
             Add(systems.Create<CastForTargetsWithLimitSystem>());
             
             Add(systems.Create<CleanupTargetBuffersSystem>());
+            Add(systems.Create<CleanupCollectedSystem>());
         }
     }
 }

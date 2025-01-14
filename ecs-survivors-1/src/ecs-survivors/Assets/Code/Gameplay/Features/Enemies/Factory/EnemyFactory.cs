@@ -38,7 +38,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddId(_identifierService.Next())
                     .AddWorldPosition(at)
                     .AddEnemyTypeId(enemyTypeId)
-                    .AddSpeed(3f)
+                    .AddSpeed(1.5f)
                     .AddDirection(Vector3.zero)
                     .AddDamage(10)
                     .AddCurrentHp(100)
@@ -50,6 +50,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddLayerMask(CollisionLayer.Hero.AsMask())
                     .With(x => x.isTurnAlongDirection = true)
                     .With(x => x.isEnemy = true)
+                    .With(x => x.isAlive = true)
                     .With(x => x.isMovingAvailable = true)
                 ;
         }

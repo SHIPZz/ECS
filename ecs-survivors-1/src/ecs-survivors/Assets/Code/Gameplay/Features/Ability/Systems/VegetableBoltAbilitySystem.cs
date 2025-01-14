@@ -3,6 +3,7 @@ using System.Linq;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Ability.Config;
 using Code.Gameplay.Features.Armament;
+using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.StaticData;
 using Entitas;

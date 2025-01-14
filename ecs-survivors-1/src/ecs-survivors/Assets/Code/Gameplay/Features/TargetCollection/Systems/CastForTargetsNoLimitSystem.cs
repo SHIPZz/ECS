@@ -48,9 +48,6 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
             
             foreach (GameEntity target in  targetInRadius)
             {
-                if(entity.TargetsBuffer.Contains(target.Id))
-                    continue;
-                
                 entity.TargetsBuffer.Add(target.Id);
             }
         }

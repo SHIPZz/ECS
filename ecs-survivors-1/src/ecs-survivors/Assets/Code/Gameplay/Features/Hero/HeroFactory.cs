@@ -36,6 +36,7 @@ namespace Code.Gameplay.Features.Hero
                     .AddRadius(0.5f)
                     .AddLayerMask(_staticDataService.CollisionLayerConfig.PlayerMask)
                     .With(entity => entity.isHero = true)
+                    .With(entity => entity.isAlive = true)
                     .With(entity => entity.isMovingAvailable = true)
                     .With(entity => entity.isTurnAlongDirection = true)
                 ;

@@ -6,6 +6,7 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Ability;
 using Code.Gameplay.Features.Ability.Factory;
 using Code.Gameplay.Features.Armament;
+using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Hero;

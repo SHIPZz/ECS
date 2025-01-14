@@ -20,6 +20,64 @@ namespace Code.Gameplay.Features.Armament.Factory
             _staticDataService = staticDataService;
         }
         
+        public GameEntity CreateVampirismBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Vampirism, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddScale(Vector3.one)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddSelfDestructTimer(projectileSetup.Lifetime)
+                    .AddFollowMaxDistance(0.1f)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
+                    .With(x => x.isVampirismArmament = true)
+                    .With(x => x.AddLastFollowTargets(new List<int>(32)),when: projectileSetup.Pierce > 1)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isFollowNewCloseTarget = true)
+                    .With(x => x.isRotateAlongDirection = true)
+                ;
+        }
+        
+        public GameEntity CreatePoisonBolt(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Poison, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddDamage(projectileSetup.Damage)
+                    .AddSpeed(projectileSetup.Speed)
+                    .AddScale(Vector3.one)
+                    .AddContactRadius(projectileSetup.ContactRadius)
+                    .AddRadius(projectileSetup.ContactRadius)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddWorldPosition(at)
+                    .AddTargetLimit(projectileSetup.Pierce)
+                    .AddSelfDestructTimer(projectileSetup.Lifetime)
+                    .AddFollowMaxDistance(0.1f)
+                    .AddPoisonDamage(projectileSetup.PoisonDamage)
+                    .AddProcessedTargetsBuffer(new List<int>(16))
+                    .AddPoisonTime(projectileSetup.PoisonDuration)
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), projectileSetup.CollectTargetInterval)
+                    .With(x => x.isPoisonArmament = true)
+                    .With(x => x.AddLastFollowTargets(new List<int>(32)),when: projectileSetup.Pierce > 1)
+                    .With(x => x.isArmament = true)
+                    .With(x => x.isFollowNewCloseTarget = true)
+                    .With(x => x.isRotateAlongDirection = true)
+                ;
+        }
+        
         public GameEntity CreateScatteringBolt(int level, Vector3 at)
         {
             AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Scattering, level);

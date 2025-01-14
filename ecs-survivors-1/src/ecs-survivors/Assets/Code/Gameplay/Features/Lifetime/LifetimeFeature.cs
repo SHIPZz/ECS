@@ -7,6 +7,8 @@ namespace Code.Gameplay.Features.Lifetime
         public LifetimeFeature(ISystemFactory systems)
         {
             Add(systems.Create<MarkIsAliveSystem>());
+            Add(systems.Create<RestoreHpSystem>());
+            Add(systems.Create<CleanUpHpRestoredSystem>());
         }
     }
     

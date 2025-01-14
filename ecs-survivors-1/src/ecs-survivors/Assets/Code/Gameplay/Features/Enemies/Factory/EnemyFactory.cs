@@ -40,7 +40,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddEnemyTypeId(enemyTypeId)
                     .AddSpeed(1.5f)
                     .AddDirection(Vector3.zero)
-                    .AddDamage(10)
+                    .AddDamage(0.5f)
                     .AddCurrentHp(100)
                     .AddMaxHp(100)
                     .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
@@ -51,6 +51,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .With(x => x.isTurnAlongDirection = true)
                     .With(x => x.isEnemy = true)
                     .With(x => x.isAlive = true)
+                    .With(x => x.AddVampireId(x.Id))
                     .With(x => x.isMovingAvailable = true)
                 ;
         }

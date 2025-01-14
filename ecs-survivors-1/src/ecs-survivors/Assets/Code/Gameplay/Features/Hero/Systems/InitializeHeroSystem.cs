@@ -26,7 +26,9 @@ namespace Code.Gameplay.Features.Hero.Systems
             // _abilityFactory.CreateAbility(AbilityTypeId.VegetableBolt, 1);
             // _abilityFactory.CreateRadialBoltAbility( 1);
             // _abilityFactory.CreateBounceBoltAbility(1);
-            _abilityFactory.CreateScatteringBoltAbility( 1);
+            // _abilityFactory.CreatePoisonBoltAbility(1);
+            // _abilityFactory.CreateScatteringBoltAbility( 1);
+            _abilityFactory.CreateVampirismBoltAbility(1);
         }
     }
 }

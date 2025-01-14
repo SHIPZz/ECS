@@ -9,6 +9,7 @@ using Code.Gameplay.Features.Armament;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Factory;
+using Code.Gameplay.Features.Enemies.Services;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.Movement;
@@ -63,6 +64,7 @@ namespace Code.Infrastructure.Installers
         {
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
+            Container.Bind<IGetClosestEnemyService>().To<GetClosestEnemyService>().AsTransient();
         }
 
         private void BindGameplayFactories()

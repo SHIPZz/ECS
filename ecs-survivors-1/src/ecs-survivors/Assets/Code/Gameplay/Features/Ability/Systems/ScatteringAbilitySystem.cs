@@ -2,8 +2,8 @@
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
+using Code.Gameplay.Features.Enemies.Services;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.Features.Ability.Systems
 {
@@ -14,14 +14,19 @@ namespace Code.Gameplay.Features.Ability.Systems
         private readonly IGroup<GameEntity> _heroes;
         private readonly IGroup<GameEntity> _enemies;
         private readonly List<GameEntity> _buffer = new(32);
+        private readonly IGroup<GameEntity> _targets;
+        private IGetClosestEnemyService _getClosestEnemyService;
 
-        public ScatteringAbilitySystem(GameContext game, IArmamentFactory armamentFactory)
+        public ScatteringAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEnemyService getClosestEnemyService)
         {
+            _getClosestEnemyService = getClosestEnemyService;
             _armamentFactory = armamentFactory;
             _heroes = game.GetGroup(GameMatcher.AllOf(GameMatcher.Hero, GameMatcher.WorldPosition));
 
             _enemies = game.GetGroup(GameMatcher.AllOf(GameMatcher.Enemy, GameMatcher.WorldPosition, GameMatcher.Alive));
             _abilities = game.GetGroup(GameMatcher.AllOf(GameMatcher.ScatteringAbility, GameMatcher.CooldownUp));
+
+            _targets = game.GetGroup(GameMatcher.AllOf(GameMatcher.WorldPosition, GameMatcher.Id));
         }
 
         public void Execute()
@@ -32,9 +37,9 @@ namespace Code.Gameplay.Features.Ability.Systems
                 if (_enemies.count <= 0)
                     continue;
 
-                GameEntity target = GetClosestTarget(hero);
+                GameEntity target = _getClosestEnemyService.GetClosestEnemy(hero, _enemies);
 
-                if(target == null)
+                if(!_targets.ContainsEntity(target))
                     continue;
 
                 _armamentFactory.CreateScatteringBolt(1, hero.WorldPosition)
@@ -45,25 +50,6 @@ namespace Code.Gameplay.Features.Ability.Systems
 
                 ability.PutOnCooldown();
             }
-        }
-
-        private GameEntity GetClosestTarget(GameEntity entity)
-        {
-            float maxDistance = float.MaxValue;
-            GameEntity closestEnemy = null;
-
-            foreach (GameEntity enemy in _enemies)
-            {
-                float distanceToTarget = Vector3.Distance(enemy.WorldPosition, entity.WorldPosition);
-
-                if (distanceToTarget <= maxDistance)
-                {
-                    maxDistance = distanceToTarget;
-                    closestEnemy = enemy;
-                }
-            }
-
-            return closestEnemy;
         }
     }
 }

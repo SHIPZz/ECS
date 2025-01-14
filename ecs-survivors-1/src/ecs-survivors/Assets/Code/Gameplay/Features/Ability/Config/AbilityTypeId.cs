@@ -7,5 +7,7 @@
         Radial = 2,
         Scattering = 3,
         Bounce = 4,
+        Poison = 5,
+        Vampirism = 6,
     }
 }

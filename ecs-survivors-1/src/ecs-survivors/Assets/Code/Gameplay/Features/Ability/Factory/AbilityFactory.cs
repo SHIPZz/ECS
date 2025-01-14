@@ -17,6 +17,32 @@ namespace Code.Gameplay.Features.Ability.Factory
             _identifierService = identifierService;
             _staticDataService = staticDataService;
         }
+
+        public GameEntity CreateVampirismBoltAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Vampirism, level);
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddCooldown(abilityLevel.Cooldown)
+                    .PutOnCooldown()
+                    .With(x => x.isVampirismAbility = true)
+                ;
+        }
+
+        public GameEntity CreatePoisonBoltAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Poison, level);
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddCooldown(abilityLevel.Cooldown)
+                    .PutOnCooldown()
+                    .With(x => x.isPoisonAbility = true)
+                ;
+        }
         
         public GameEntity CreateScatteringBoltAbility(int level)
         {

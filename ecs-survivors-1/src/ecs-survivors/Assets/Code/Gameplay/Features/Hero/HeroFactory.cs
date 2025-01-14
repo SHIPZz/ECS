@@ -28,7 +28,7 @@ namespace Code.Gameplay.Features.Hero
                     .AddDirection(Vector3.zero)
                     .AddSpeed(3f)
                     .AddDeathAnimationDuration(3f)
-                    .AddCurrentHp(1230232)
+                    .AddCurrentHp(10)
                     .AddViewPath("Gameplay/Hero/hero")
                     .SetupTargetCollectionComponents(_staticDataService.CollisionLayerConfig.PlayerMask)
                     .AddDamage(3)
@@ -38,6 +38,7 @@ namespace Code.Gameplay.Features.Hero
                     .With(entity => entity.isHero = true)
                     .With(entity => entity.isAlive = true)
                     .With(entity => entity.isMovingAvailable = true)
+                    .With(entity => entity.AddVampireId(entity.Id))
                     .With(entity => entity.isTurnAlongDirection = true)
                 ;
         }

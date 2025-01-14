@@ -19,5 +19,8 @@ namespace Code.Gameplay.Features.Ability.Config
         
         public float RadialRadius = 2f;
         public int RadialCount = 4;
+
+        public float PoisonDuration = 3f;
+        public float PoisonDamage = 5f;
     }
 }

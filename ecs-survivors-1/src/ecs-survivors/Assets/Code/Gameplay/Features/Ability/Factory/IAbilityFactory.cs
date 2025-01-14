@@ -6,5 +6,7 @@
         GameEntity CreateVegetableAbility(int level);
         GameEntity CreateBounceBoltAbility(int level);
         GameEntity CreateScatteringBoltAbility(int level);
+        GameEntity CreatePoisonBoltAbility(int level);
+        GameEntity CreateVampirismBoltAbility(int level);
     }
 }

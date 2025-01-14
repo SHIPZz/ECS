@@ -23,64 +23,78 @@ public static class GameComponentsLookup {
     public const int WorldPosition = 12;
     public const int AbilityTypeId = 13;
     public const int BouncingAbility = 14;
-    public const int RadialAbility = 15;
-    public const int RadialRadius = 16;
-    public const int ScatteringAbility = 17;
-    public const int ScatteringCount = 18;
-    public const int TargetLimit = 19;
-    public const int VegetableBoltAbility = 20;
-    public const int Armament = 21;
-    public const int BouncingArmament = 22;
-    public const int BouncingCount = 23;
-    public const int ContactRadius = 24;
-    public const int MaxBouncingCount = 25;
-    public const int Processed = 26;
-    public const int RadialBoltArmament = 27;
-    public const int ScatteringArmament = 28;
-    public const int VegetableBoltArmament = 29;
-    public const int Cooldown = 30;
-    public const int CooldownLeft = 31;
-    public const int CooldownUp = 32;
-    public const int Dead = 33;
-    public const int DeathAnimationDuration = 34;
-    public const int DeathProcessing = 35;
-    public const int Enemy = 36;
-    public const int EnemyAnimator = 37;
-    public const int EnemyTypeId = 38;
-    public const int SpawnTimer = 39;
-    public const int FollowDistanceLeft = 40;
-    public const int FollowingUp = 41;
-    public const int FollowMaxDistance = 42;
-    public const int FollowNewCloseTarget = 43;
-    public const int FollowTargetId = 44;
-    public const int LastFollowTargets = 45;
-    public const int Hero = 46;
-    public const int HeroAnimator = 47;
-    public const int Alive = 48;
-    public const int CurrentHp = 49;
-    public const int MaxHp = 50;
-    public const int Moving = 51;
-    public const int MovingAvailable = 52;
-    public const int RotateAlongDirection = 53;
-    public const int Speed = 54;
-    public const int TurnAlongDirection = 55;
-    public const int Scale = 56;
-    public const int Collected = 57;
-    public const int CollectingAvailable = 58;
-    public const int CollectingTargetsContinuously = 59;
-    public const int CollectTargetsInterval = 60;
-    public const int CollectTargetsLayerMask = 61;
-    public const int CollectTargetsTimer = 62;
-    public const int LastCollectedId = 63;
-    public const int OverflowProcessedTargetsBuffer = 64;
-    public const int ProcessedTargetsBuffer = 65;
-    public const int Radius = 66;
-    public const int ReadyToCollectTargets = 67;
-    public const int TargetsBuffer = 68;
-    public const int AxisInput = 69;
-    public const int Input = 70;
+    public const int PoisonAbility = 15;
+    public const int RadialAbility = 16;
+    public const int RadialRadius = 17;
+    public const int ScatteringAbility = 18;
+    public const int ScatteringCount = 19;
+    public const int TargetLimit = 20;
+    public const int VampirismAbility = 21;
+    public const int VegetableBoltAbility = 22;
+    public const int Armament = 23;
+    public const int ArmamentProducerId = 24;
+    public const int BouncingArmament = 25;
+    public const int BouncingCount = 26;
+    public const int ContactRadius = 27;
+    public const int MaxBouncingCount = 28;
+    public const int PoisonArmament = 29;
+    public const int PoisonDamage = 30;
+    public const int Poisoned = 31;
+    public const int PoisonTime = 32;
+    public const int PoisonTimeLeft = 33;
+    public const int PoisonTimeUp = 34;
+    public const int Processed = 35;
+    public const int RadialBoltArmament = 36;
+    public const int ScatteringArmament = 37;
+    public const int VampireId = 38;
+    public const int VampirismArmament = 39;
+    public const int VegetableBoltArmament = 40;
+    public const int Cooldown = 41;
+    public const int CooldownLeft = 42;
+    public const int CooldownUp = 43;
+    public const int Dead = 44;
+    public const int DeathAnimationDuration = 45;
+    public const int DeathProcessing = 46;
+    public const int Enemy = 47;
+    public const int EnemyAnimator = 48;
+    public const int EnemyTypeId = 49;
+    public const int NeedFindClosestEnemy = 50;
+    public const int SpawnTimer = 51;
+    public const int FollowDistanceLeft = 52;
+    public const int FollowingUp = 53;
+    public const int FollowMaxDistance = 54;
+    public const int FollowNewCloseTarget = 55;
+    public const int FollowTargetId = 56;
+    public const int LastFollowTargets = 57;
+    public const int Hero = 58;
+    public const int HeroAnimator = 59;
+    public const int Alive = 60;
+    public const int CurrentHp = 61;
+    public const int HpRestored = 62;
+    public const int MaxHp = 63;
+    public const int RestoreHp = 64;
+    public const int Moving = 65;
+    public const int MovingAvailable = 66;
+    public const int RotateAlongDirection = 67;
+    public const int Speed = 68;
+    public const int TurnAlongDirection = 69;
+    public const int Scale = 70;
+    public const int Collected = 71;
+    public const int CollectingAvailable = 72;
+    public const int CollectingTargetsContinuously = 73;
+    public const int CollectTargetsInterval = 74;
+    public const int CollectTargetsLayerMask = 75;
+    public const int CollectTargetsTimer = 76;
+    public const int LastCollectedId = 77;
+    public const int OverflowProcessedTargetsBuffer = 78;
+    public const int ProcessedTargetsBuffer = 79;
+    public const int Radius = 80;
+    public const int ReadyToCollectTargets = 81;
+    public const int TargetsBuffer = 82;
+    public const int AxisInput = 83;
+    public const int Input = 84;
 
-    public const int TotalComponents = 71;
+    public const int TotalComponents = 85;
 
     public static readonly string[] componentNames = {
         "Destructed",
@@ -98,20 +112,31 @@ public static class GameComponentsLookup {
         "WorldPosition",
         "AbilityTypeId",
         "BouncingAbility",
+        "PoisonAbility",
         "RadialAbility",
         "RadialRadius",
         "ScatteringAbility",
         "ScatteringCount",
         "TargetLimit",
+        "VampirismAbility",
         "VegetableBoltAbility",
         "Armament",
+        "ArmamentProducerId",
         "BouncingArmament",
         "BouncingCount",
         "ContactRadius",
         "MaxBouncingCount",
+        "PoisonArmament",
+        "PoisonDamage",
+        "Poisoned",
+        "PoisonTime",
+        "PoisonTimeLeft",
+        "PoisonTimeUp",
         "Processed",
         "RadialBoltArmament",
         "ScatteringArmament",
+        "VampireId",
+        "VampirismArmament",
         "VegetableBoltArmament",
         "Cooldown",
         "CooldownLeft",
@@ -122,6 +147,7 @@ public static class GameComponentsLookup {
         "Enemy",
         "EnemyAnimator",
         "EnemyTypeId",
+        "NeedFindClosestEnemy",
         "SpawnTimer",
         "FollowDistanceLeft",
         "FollowingUp",
@@ -133,7 +159,9 @@ public static class GameComponentsLookup {
         "HeroAnimator",
         "Alive",
         "CurrentHp",
+        "HpRestored",
         "MaxHp",
+        "RestoreHp",
         "Moving",
         "MovingAvailable",
         "RotateAlongDirection",
@@ -172,20 +200,31 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Common.WorldPosition),
         typeof(Code.Gameplay.Features.Ability.AbilityTypeIdComponent),
         typeof(Code.Gameplay.Features.Ability.BouncingAbility),
+        typeof(Code.Gameplay.Features.Ability.PoisonAbility),
         typeof(Code.Gameplay.Features.Ability.RadialAbility),
         typeof(Code.Gameplay.Features.Ability.RadialRadius),
         typeof(Code.Gameplay.Features.Ability.ScatteringAbility),
         typeof(Code.Gameplay.Features.Ability.ScatteringCount),
         typeof(Code.Gameplay.Features.Ability.TargetLimit),
+        typeof(Code.Gameplay.Features.Ability.VampirismAbility),
         typeof(Code.Gameplay.Features.Ability.VegetableBoltAbility),
         typeof(Code.Gameplay.Features.Armament.Armament),
+        typeof(Code.Gameplay.Features.Armament.ArmamentProducerId),
         typeof(Code.Gameplay.Features.Armament.BouncingArmament),
         typeof(Code.Gameplay.Features.Armament.BouncingCount),
         typeof(Code.Gameplay.Features.Armament.ContactRadius),
         typeof(Code.Gameplay.Features.Armament.MaxBouncingCount),
+        typeof(Code.Gameplay.Features.Armament.PoisonArmament),
+        typeof(Code.Gameplay.Features.Armament.PoisonDamage),
+        typeof(Code.Gameplay.Features.Armament.Poisoned),
+        typeof(Code.Gameplay.Features.Armament.PoisonTime),
+        typeof(Code.Gameplay.Features.Armament.PoisonTimeLeft),
+        typeof(Code.Gameplay.Features.Armament.PoisonTimeUp),
         typeof(Code.Gameplay.Features.Armament.Processed),
         typeof(Code.Gameplay.Features.Armament.RadialBoltArmament),
         typeof(Code.Gameplay.Features.Armament.ScatteringArmament),
+        typeof(Code.Gameplay.Features.Armament.VampireId),
+        typeof(Code.Gameplay.Features.Armament.VampirismArmament),
         typeof(Code.Gameplay.Features.Armament.VegetableBoltArmament),
         typeof(Code.Gameplay.Features.Cooldown.Cooldown),
         typeof(Code.Gameplay.Features.Cooldown.CooldownLeft),
@@ -196,6 +235,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Enemies.Enemy),
         typeof(Code.Gameplay.Features.Enemies.EnemyAnimatorComponent),
         typeof(Code.Gameplay.Features.Enemies.EnemyTypeIdComponent),
+        typeof(Code.Gameplay.Features.Enemies.NeedFindClosestEnemy),
         typeof(Code.Gameplay.Features.Enemies.SpawnTimer),
         typeof(Code.Gameplay.Features.Follow.FollowDistanceLeft),
         typeof(Code.Gameplay.Features.Follow.FollowingUp),
@@ -207,7 +247,9 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
         typeof(Code.Gameplay.Features.Lifetime.Alive),
         typeof(Code.Gameplay.Features.Lifetime.CurrentHp),
+        typeof(Code.Gameplay.Features.Lifetime.HpRestored),
         typeof(Code.Gameplay.Features.Lifetime.MaxHp),
+        typeof(Code.Gameplay.Features.Lifetime.RestoreHp),
         typeof(Code.Gameplay.Features.Movement.Moving),
         typeof(Code.Gameplay.Features.Movement.MovingAvailable),
         typeof(Code.Gameplay.Features.Movement.RotateAlongDirection),

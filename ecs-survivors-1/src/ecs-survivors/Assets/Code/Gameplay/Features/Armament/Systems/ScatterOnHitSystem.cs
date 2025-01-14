@@ -9,11 +9,13 @@ namespace Code.Gameplay.Features.Armament.Systems
 {
     public class ScatterOnHitSystem : IExecuteSystem
     {
-        private const float ScaleDecrease = 0.15f;
+        private const float ScaleDecrease = 0.25f;
+        
         private readonly IStaticDataService _staticDataService;
         private readonly IArmamentFactory _armamentFactory;
         private readonly GameContext _game;
         private readonly IGroup<GameEntity> _armaments;
+        private readonly IGroup<GameEntity> _targets;
 
         public ScatterOnHitSystem(
             IStaticDataService staticDataService,
@@ -28,6 +30,8 @@ namespace Code.Gameplay.Features.Armament.Systems
                     GameMatcher.LastCollectedId,
                     GameMatcher.Collected
                     ));
+
+            _targets = game.GetGroup(GameMatcher.AllOf(GameMatcher.WorldPosition, GameMatcher.Id));
             
             _armamentFactory = armamentFactory;
             _staticDataService = staticDataService;
@@ -43,14 +47,14 @@ namespace Code.Gameplay.Features.Armament.Systems
             {
                 GameEntity target = _game.GetEntityWithId(armament.LastCollectedId);
 
-                if (target == null)
+                if (!_targets.ContainsEntity(target))
                     continue;
 
                 var decreasedScale = new Vector3(armament.Scale.x - ScaleDecrease,
                     armament.Scale.y - ScaleDecrease,
                     armament.Scale.z - ScaleDecrease);
 
-                if (decreasedScale.x <= ScaleDecrease)
+                if (decreasedScale.x <= 0.1f)
                 {
                     armament.isProcessed = true;
                     continue;
@@ -65,7 +69,7 @@ namespace Code.Gameplay.Features.Armament.Systems
                         .ReplaceDirection(direction)
                         .With(x => x.isMoving = true)
                         .With(x => x.ReplaceScale(decreasedScale))
-                        .With(x => x.ProcessedTargetsBuffer.AddRange(armament.ProcessedTargetsBuffer))
+                        .With(x => x.ProcessedTargetsBuffer.Add(armament.LastCollectedId))
                         .With(x => x.isMovingAvailable = true)
                         .With(x => x.isOverflowProcessedTargetsBuffer = true)
                         ;

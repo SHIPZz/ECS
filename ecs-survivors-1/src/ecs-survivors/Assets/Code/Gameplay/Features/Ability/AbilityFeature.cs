@@ -12,6 +12,7 @@ namespace Code.Gameplay.Features.Ability
             Add(systems.Create<RadialBoltAbilitySystem>());
             Add(systems.Create<BouncingAbilitySystem>());
             Add(systems.Create<ScatteringAbilitySystem>());
+            Add(systems.Create<CreateStatusOnTargetsSystem>());
             Add(systems.Create<PoisonArmamentAbilitySystem>());
             Add(systems.Create<VampirismAbilitySystem>());
         }

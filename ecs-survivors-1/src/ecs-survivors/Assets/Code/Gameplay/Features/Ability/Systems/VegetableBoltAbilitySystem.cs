@@ -26,7 +26,7 @@ namespace Code.Gameplay.Features.Ability.Systems
 
             _heroes = game.GetGroup(GameMatcher.AllOf(GameMatcher.Hero, GameMatcher.WorldPosition));
 
-            _enemies = game.GetGroup(GameMatcher.AllOf(GameMatcher.Enemy, GameMatcher.WorldPosition));
+            _enemies = game.GetGroup(GameMatcher.AllOf(GameMatcher.Enemy, GameMatcher.WorldPosition, GameMatcher.Alive));
             
             _abilities = game.GetGroup(GameMatcher
                 .AllOf(GameMatcher.VegetableBoltAbility, GameMatcher.CooldownUp));
@@ -37,6 +37,9 @@ namespace Code.Gameplay.Features.Ability.Systems
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity ability in _abilities.GetEntities(_buffer))
             {
+                if(_enemies.count <= 0)
+                    continue;
+                
                 var target = _enemies.AsEnumerable().First();
                 
                 if(target == null || _enemies.count <= 0)
@@ -44,6 +47,8 @@ namespace Code.Gameplay.Features.Ability.Systems
                 
                 _armamentFactory.CreateVegetableBolt(1, hero.WorldPosition)
                     .With(x => x.ReplaceDirection((target.WorldPosition - hero.WorldPosition).normalized))
+                    .AddProducerId(hero.Id)
+                    .AddTargetId(target.Id)
                     .With(x => x.isMoving = true)
                     .With(x => x.isMovingAvailable = true)
                     ;

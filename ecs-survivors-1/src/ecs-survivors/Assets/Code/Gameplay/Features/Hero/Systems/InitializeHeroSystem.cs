@@ -1,5 +1,6 @@
 ﻿using Code.Common.Extensions;
 using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Ability.Config;
 using Code.Gameplay.Features.Ability.Factory;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Levels;
@@ -23,12 +24,14 @@ namespace Code.Gameplay.Features.Hero.Systems
         public void Initialize()
         {
             _heroFactory.CreateHero(_levelDataProvider.StartPoint);
-            // _abilityFactory.CreateAbility(AbilityTypeId.VegetableBolt, 1);
+            _abilityFactory.CreateAbility(AbilityTypeId.VegetableBolt, 1);
+            // _abilityFactory.CreateAbility(AbilityTypeId.SpeedUp, 1);
+            // _abilityFactory.CreateAbility(AbilityTypeId.IncreaseMaxHp, 1);
             // _abilityFactory.CreateRadialBoltAbility( 1);
             // _abilityFactory.CreateBounceBoltAbility(1);
             // _abilityFactory.CreatePoisonBoltAbility(1);
             // _abilityFactory.CreateScatteringBoltAbility( 1);
-            _abilityFactory.CreateVampirismBoltAbility(1);
+            // _abilityFactory.CreateVampirismBoltAbility(1);
         }
     }
 }

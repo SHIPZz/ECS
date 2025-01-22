@@ -164,16 +164,15 @@ namespace Code.Gameplay.Features.Armament.Factory
             AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.VegetableBolt, level);
             ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
 
-            LayerMask mask = _staticDataService.CollisionLayerConfig.PlayerProjectileMask;
-
             return CreateEntity
                     .Empty()
                     .AddId(_identifierService.Next())
-                    .AddDamage(projectileSetup.Damage)
                     .AddSpeed(projectileSetup.Speed)
                     .AddContactRadius(projectileSetup.ContactRadius)
                     .AddRadius(projectileSetup.ContactRadius)
                     .AddTargetLimit(projectileSetup.Pierce)
+                    .AddEffectSetups(abilityLevel.EffectSetups)
+                    .AddStatusSetups(abilityLevel.StatusSetups)
                     .AddSelfDestructTimer(projectileSetup.Lifetime)
                     .AddViewPrefab(abilityLevel.Prefab)
                     .AddWorldPosition(at)

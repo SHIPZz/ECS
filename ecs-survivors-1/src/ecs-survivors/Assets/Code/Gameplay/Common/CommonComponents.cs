@@ -8,6 +8,8 @@ namespace Code.Gameplay.Common
    [Game] public class WorldPosition : IComponent { public Vector3 Value; }
    
   [Game] public class Id : IComponent {[PrimaryEntityIndex]  public int Value; }
+  
+  [Game] public class EntityLink : IComponent {[EntityIndex]  public int Value; }
     
    [Game] public class Direction : IComponent { public Vector3 Value; }
  
@@ -18,4 +20,6 @@ namespace Code.Gameplay.Common
    [Game] public class Damage : IComponent { public float Value; }
     
    [Game] public class DamageTakenAnimatorComponent : IComponent { public IDamageTakenAnimator Value; }
+   
+   [Game] public class StatusVisualsComponent : IComponent { public IStatusVisuals Value; }
 }

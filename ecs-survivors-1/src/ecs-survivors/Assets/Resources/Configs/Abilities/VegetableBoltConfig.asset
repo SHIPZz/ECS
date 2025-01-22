@@ -14,12 +14,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AbilityTypeId: 1
   AbilityLevels:
-  - Cooldown: 1
+  - Cooldown: 3
     Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 50
+    StatusSetups:
+    - StatusTypeId: 2
+      Value: -3
+      Duration: 2
+      Period: 0
     ProjectileSetup:
-      Speed: 3
+      Speed: 6
       Pierce: 2
       ContactRadius: 0.3
       CollectTargetInterval: 0.2
       Lifetime: 5
       Damage: 100
+      BouncingCount: 1
+      ScatteringCount: 0
+      RadialRadius: 2
+      RadialCount: 4
+      PoisonDuration: 3
+      PoisonDamage: 5

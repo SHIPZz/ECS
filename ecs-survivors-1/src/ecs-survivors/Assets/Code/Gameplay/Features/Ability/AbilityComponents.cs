@@ -13,6 +13,10 @@ namespace Code.Gameplay.Features.Ability
     
     [Game] public class VegetableBoltAbility : IComponent {  }
     
+    [Game] public class SpeedUpAbility : IComponent {  }
+    
+    [Game] public class IncreaseMaxHpAbility : IComponent {  }
+    
     [Game] public class PoisonAbility : IComponent {  }
     
     [Game] public class ScatteringAbility : IComponent {  }

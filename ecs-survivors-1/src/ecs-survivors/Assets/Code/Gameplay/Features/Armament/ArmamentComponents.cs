@@ -1,4 +1,6 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Code.Gameplay.Features.Effects;
+using Entitas;
 
 namespace Code.Gameplay.Features.Armament
 {
@@ -25,6 +27,8 @@ namespace Code.Gameplay.Features.Armament
     [Game] public class PoisonTimeUp : IComponent {  }
     
     [Game] public class PoisonTimeLeft: IComponent { public float Value; }
+    
+    [Game] public class EffectSetups : IComponent { public List<EffectSetup> Value; }
     
     [Game] public class Poisoned: IComponent {  }
     

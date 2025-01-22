@@ -9,5 +9,6 @@
         Bounce = 4,
         Poison = 5,
         Vampirism = 6,
+        SpeedUp,
     }
 }

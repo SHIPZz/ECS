@@ -2,7 +2,7 @@
 {
     public interface IEntityViewFactory
     {
-        EntityBehaviour CreateViewForEntity(GameEntity entity);
+        EntityBehaviour CreateViewForEntityFromPath(GameEntity entity);
         EntityBehaviour CreateViewForEntityFromPrefab(GameEntity entity);
     }
 }

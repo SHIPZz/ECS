@@ -1,6 +1,8 @@
-﻿using Code.Gameplay.Features.Enemies.Systems;
+﻿using Code.Gameplay.Features.Ability.Systems;
+using Code.Gameplay.Features.Enemies.Systems;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Movement.Factory;
+using Code.Gameplay.Features.Statuses.Systems;
 
 namespace Code.Gameplay.Features.Enemies
 {
@@ -13,6 +15,7 @@ namespace Code.Gameplay.Features.Enemies
             Add(systems.Create<ChaseHeroSystem>());
             Add(systems.Create<StopEnemyMovementOnHeroDeathSystem>());
             Add(systems.Create<EnemyDeathSystem>());
+            Add(systems.Create<SpeedUpOnEnemyDeadAbilitySystem>());
             Add(systems.Create<FinishEnemyDeathProcessingSystem>());
         }
     }

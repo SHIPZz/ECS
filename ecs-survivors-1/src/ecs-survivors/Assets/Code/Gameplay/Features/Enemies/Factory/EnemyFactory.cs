@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
@@ -33,16 +36,25 @@ namespace Code.Gameplay.Features.Enemies.Factory
 
         private GameEntity CreateGoblin(EnemyTypeId enemyTypeId, Vector2 at)
         {
+            var baseStats = InitStats.EmptyStatDictionary()
+                .With( x=> x[Stats.Speed] = 1)
+                .With( x=> x[Stats.MaxHp] = 100)
+                .With( x=> x[Stats.Damage] = 5)
+                
+                ;
+            
             return CreateEntity
                     .Empty()
                     .AddId(_identifierService.Next())
                     .AddWorldPosition(at)
                     .AddEnemyTypeId(enemyTypeId)
-                    .AddSpeed(1.5f)
+                    .AddSpeed(baseStats[Stats.Speed])
                     .AddDirection(Vector3.zero)
-                    .AddDamage(0.5f)
-                    .AddCurrentHp(100)
-                    .AddMaxHp(100)
+                    .AddStatModifiers(InitStats.EmptyStatDictionary())
+                    .AddBaseStats(baseStats)
+                    .AddEffectSetups(new List<EffectSetup> {EffectSetup.Create(EffectTypeId.Damage,baseStats[Stats.Damage])})
+                    .AddCurrentHp(baseStats[Stats.MaxHp])
+                    .AddMaxHp(baseStats[Stats.MaxHp])
                     .AddViewPath("Gameplay/Enemies/Goblins/Torch/goblin_torch_blue")
                     .AddDeathAnimationDuration(3f)
                     .SetupTargetCollectionComponents(_staticDataService.CollisionLayerConfig.EnemyMask)

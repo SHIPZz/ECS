@@ -25,11 +25,21 @@ namespace Code.Gameplay.Features.Ability.Systems
             _staticDataService = staticDataService;
             _armamentFactory = armamentFactory;
 
-            _heroes = game.GetGroup(GameMatcher.AllOf(GameMatcher.Hero, GameMatcher.WorldPosition));
+            _heroes = game.GetGroup(GameMatcher
+                .AllOf(
+                    GameMatcher.Hero,
+                    GameMatcher.WorldPosition));
 
-            _enemies = game.GetGroup(GameMatcher.AllOf(GameMatcher.Enemy, GameMatcher.WorldPosition, GameMatcher.Alive));
+            _enemies = game.GetGroup(GameMatcher
+                .AllOf(
+                GameMatcher.Enemy, 
+                GameMatcher.WorldPosition, 
+                GameMatcher.Alive));
             
-            _abilities = game.GetGroup(GameMatcher.AllOf(GameMatcher.MagnificentBoltAbility, GameMatcher.CooldownUp));
+            _abilities = game.GetGroup(GameMatcher
+                .AllOf(
+                GameMatcher.MagnificentBoltAbility,
+                GameMatcher.CooldownUp));
         }
 
         public void Execute()

@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Features.Ability.AbilityTypeIdComponent abilityTypeId { get { return (Code.Gameplay.Features.Ability.AbilityTypeIdComponent)GetComponent(GameComponentsLookup.AbilityTypeId); } }
-    public Code.Gameplay.Features.Ability.AbilityTypeId AbilityTypeId { get { return abilityTypeId.Value; } }
+    public Code.Gameplay.Features.Ability.Config.AbilityTypeId AbilityTypeId { get { return abilityTypeId.Value; } }
     public bool hasAbilityTypeId { get { return HasComponent(GameComponentsLookup.AbilityTypeId); } }
 
-    public GameEntity AddAbilityTypeId(Code.Gameplay.Features.Ability.AbilityTypeId newValue) {
+    public GameEntity AddAbilityTypeId(Code.Gameplay.Features.Ability.Config.AbilityTypeId newValue) {
         var index = GameComponentsLookup.AbilityTypeId;
         var component = (Code.Gameplay.Features.Ability.AbilityTypeIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.AbilityTypeIdComponent));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceAbilityTypeId(Code.Gameplay.Features.Ability.AbilityTypeId newValue) {
+    public GameEntity ReplaceAbilityTypeId(Code.Gameplay.Features.Ability.Config.AbilityTypeId newValue) {
         var index = GameComponentsLookup.AbilityTypeId;
         var component = (Code.Gameplay.Features.Ability.AbilityTypeIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.AbilityTypeIdComponent));
         component.Value = newValue;

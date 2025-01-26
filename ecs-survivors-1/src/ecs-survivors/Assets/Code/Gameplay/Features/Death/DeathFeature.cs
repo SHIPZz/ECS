@@ -1,4 +1,6 @@
-﻿using Code.Gameplay.Features.Movement;
+﻿using Code.Gameplay.Features.Death.Systems;
+using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
 
 namespace Code.Gameplay.Features.Death
 {
@@ -7,6 +9,7 @@ namespace Code.Gameplay.Features.Death
         public DeathFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<MarkDeadSystem>());
+            Add(systemFactory.Create<UnapplyStatusesOfDeadTargetSystem>());
         }
     }
 }

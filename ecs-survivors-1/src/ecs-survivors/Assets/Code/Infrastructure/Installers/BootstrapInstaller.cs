@@ -1,13 +1,25 @@
+using Code.Common.EntityIndicies;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Ability;
+using Code.Gameplay.Features.Ability.Factory;
 using Code.Gameplay.Features.Armament;
+using Code.Gameplay.Features.Armament.Factory;
+using Code.Gameplay.Features.Effects.Factory;
+using Code.Gameplay.Features.Enchants.UIFactories;
 using Code.Gameplay.Features.Enemies;
+using Code.Gameplay.Features.Enemies.Factory;
+using Code.Gameplay.Features.Enemies.Services;
 using Code.Gameplay.Features.Hero;
+using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.Loot.Factory;
 using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
+using Code.Gameplay.Features.Statuses;
+using Code.Gameplay.Features.Statuses.Applier;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
@@ -15,6 +27,7 @@ using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
 using Code.Infrastructure.View.Factory;
+using Entitas;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -32,6 +45,25 @@ namespace Code.Infrastructure.Installers
             BindGameplayServices();
             BindCameraProvider();
             BindGameplayFactories();
+            BindUiFactories();
+            BindEffectFactory();
+            BindEntityIndices();
+        }
+
+        private void BindUiFactories()
+        {
+            Container.BindInterfacesAndSelfTo<EnchantUIFactory>().AsSingle();
+        }
+
+        private void BindEntityIndices()
+        {
+            Container.BindInterfacesAndSelfTo<GameEntityIndices>().AsSingle();
+        }
+
+        private void BindEffectFactory()
+        {
+            Container.Bind<IEffectFactory>().To<EffectFactory>().AsSingle();
+            Container.Bind<IStatusFactory>().To<StatusFactory>().AsSingle();
         }
 
         private void BindSystemFactory()
@@ -44,6 +76,8 @@ namespace Code.Infrastructure.Installers
             Container.Bind<Contexts>().FromInstance(Contexts.sharedInstance).AsSingle();
 
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
+            
+            Container.Bind<IContext<GameEntity>>().FromInstance(Contexts.sharedInstance.game).AsSingle();
         }
 
         private void BindCameraProvider()
@@ -54,7 +88,10 @@ namespace Code.Infrastructure.Installers
         private void BindGameplayServices()
         {
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
+            Container.Bind<IGetClosestEntityService>().To<GetClosestEntityService>().AsTransient();
+            Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
         }
 
         private void BindGameplayFactories()

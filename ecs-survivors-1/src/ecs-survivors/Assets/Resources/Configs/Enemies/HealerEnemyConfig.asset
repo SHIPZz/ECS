@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807b9536a7f64ee3864eea231d6ee804, type: 3}
+  m_Name: HealerEnemyConfig
+  m_EditorClassIdentifier: 
+  EnemyTypeId: 2
+  EffectSetups: []
+  StatusSetups: []
+  AuraSetups:
+  - AuraTypeId: 2
+    Radius: 4
+    Interval: 0
+    Cooldown: 2
+    Lifetime: 3
+    EffectSetups:
+    - EffectTypeId: 2
+      Value: 15.5
+    StatusSetups: []
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    Prefab: {fileID: 6042359728159757058, guid: c4c8cf39ebe3672468c50bd2fedcd936, type: 3}
+  CollisionLayer: 6
+  Radius: 0.3
+  ViewPrefab: {fileID: 6909503884090576820, guid: 4934e6e67cddfb842b1b3650aacc71ae, type: 3}

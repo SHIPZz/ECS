@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
@@ -21,20 +23,33 @@ namespace Code.Gameplay.Features.Hero
 
         public GameEntity CreateHero(Vector3 at)
         {
+            var baseStats = InitStats.EmptyStatDictionary()
+                    .With( x=> x[Stats.Speed] = 6)
+                    .With( x=> x[Stats.Scale] = 1)
+                    .With( x=> x[Stats.Hp] = 100)
+                    .With( x=> x[Stats.MaxHp] = 100)
+                
+                ;
+            
             return CreateEntity.Empty()
                     .AddId(_identifierService.Next())
                     .AddWorldPosition(at)
                     .AddDirection(Vector3.zero)
-                    .AddSpeed(3f)
                     .AddDeathAnimationDuration(3f)
-                    .AddCurrentHp(1230232)
+                    .AddStatModifiers(InitStats.EmptyStatDictionary())
+                    .AddBaseStats(baseStats)
                     .AddViewPath("Gameplay/Hero/hero")
                     .SetupTargetCollectionComponents(_staticDataService.CollisionLayerConfig.PlayerMask)
-                    .AddDamage(3)
-                    .AddMaxHp(100)
+                    .AddSpeed(baseStats[Stats.Speed])
+                    .AddCurrentHp(baseStats[Stats.Hp])
+                    .AddMaxHp(baseStats[Stats.MaxHp])
+                    .AddExperience(0)
+                    .AddPickupRadius(1f)
                     .AddRadius(0.5f)
+                    .AddScale(Vector3.one * baseStats[Stats.Scale])
                     .AddLayerMask(_staticDataService.CollisionLayerConfig.PlayerMask)
                     .With(entity => entity.isHero = true)
+                    .With(entity => entity.isAlive = true)
                     .With(entity => entity.isMovingAvailable = true)
                     .With(entity => entity.isTurnAlongDirection = true)
                 ;

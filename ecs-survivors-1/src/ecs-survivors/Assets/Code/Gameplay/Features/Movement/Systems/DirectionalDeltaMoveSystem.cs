@@ -1,27 +1,30 @@
 using Code.Gameplay.Common.Time;
 using Entitas;
 
-public class DirectionalDeltaMoveSystem : IExecuteSystem
+namespace Code.Gameplay.Features.Movement.Systems
 {
-    private readonly IGroup<GameEntity> _entities;
-    private readonly ITimeService _timeService;
-
-    public DirectionalDeltaMoveSystem(GameContext game, ITimeService timeService)
+    public class DirectionalDeltaMoveSystem : IExecuteSystem
     {
-        _timeService = timeService;
-        _entities = game.GetGroup(GameMatcher
-            .AllOf(GameMatcher.WorldPosition,
-                GameMatcher.Direction,
-                GameMatcher.Speed,
-                GameMatcher.MovingAvailable
-            ));
-    }
+        private readonly IGroup<GameEntity> _entities;
+        private readonly ITimeService _timeService;
 
-    public void Execute()
-    {
-        foreach (GameEntity entity in _entities)
+        public DirectionalDeltaMoveSystem(GameContext game, ITimeService timeService)
         {
-            entity.ReplaceWorldPosition(entity.WorldPosition + entity.Direction * entity.Speed * _timeService.DeltaTime);
+            _timeService = timeService;
+            _entities = game.GetGroup(GameMatcher
+                .AllOf(GameMatcher.WorldPosition,
+                    GameMatcher.Direction,
+                    GameMatcher.Speed,
+                    GameMatcher.MovingAvailable
+                ));
+        }
+
+        public void Execute()
+        {
+            foreach (GameEntity entity in _entities)
+            {
+                entity.ReplaceWorldPosition(entity.WorldPosition + entity.Direction * entity.Speed * _timeService.DeltaTime);
+            }
         }
     }
 }

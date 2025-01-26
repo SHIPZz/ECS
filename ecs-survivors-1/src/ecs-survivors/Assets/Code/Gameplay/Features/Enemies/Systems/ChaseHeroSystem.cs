@@ -12,7 +12,10 @@ namespace Code.Gameplay.Features.Enemies.Systems
             _heroes = game.GetGroup(GameMatcher.Hero);
 
             _enemies = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Enemy, GameMatcher.WorldPosition));
+                .AllOf(
+                    GameMatcher.Enemy, 
+                    GameMatcher.ChaseHero, 
+                    GameMatcher.WorldPosition));
         }
 
         public void Execute()

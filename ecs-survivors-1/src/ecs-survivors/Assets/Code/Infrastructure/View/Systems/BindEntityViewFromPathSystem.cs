@@ -22,7 +22,7 @@ namespace Code.Infrastructure.View.Systems
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                _entityViewFactory.CreateViewForEntity(entity);
+                _entityViewFactory.CreateViewForEntityFromPath(entity);
             }
         }
     }

@@ -16,7 +16,7 @@ namespace Code.Infrastructure.View.Factory
             _assetProvider = assetProvider;
         }
         
-        public EntityBehaviour CreateViewForEntity(GameEntity entity)
+        public EntityBehaviour CreateViewForEntityFromPath(GameEntity entity)
         {
             var prefab = _assetProvider.LoadAsset<EntityBehaviour>(entity.ViewPath);
 

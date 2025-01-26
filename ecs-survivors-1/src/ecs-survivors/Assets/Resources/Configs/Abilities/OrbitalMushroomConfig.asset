@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a703d749157a4695baee46cac12f76fd, type: 3}
+  m_Name: OrbitalMushroomConfig
+  m_EditorClassIdentifier: 
+  AbilityTypeId: 9
+  AbilityLevels:
+  - Cooldown: 5
+    Prefab: {fileID: 4349110862679315362, guid: 9bff1e506a553504ca4bad5da6731f71, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 5
+    StatusSetups: []
+    ProjectileSetup:
+      Mask:
+        serializedVersion: 2
+        m_Bits: 0
+      Speed: 2
+      Pierce: 0
+      ContactRadius: 0.1
+      CollectTargetInterval: 0
+      Lifetime: 3
+      Damage: 0
+      AdditionalProjectileCount: 0
+      AdditionalProjectileHitCount: 0
+      BouncingCount: 0
+      ScatteringCount: 0
+      RadialRadius: 0
+      RadialCount: 0
+      PoisonDuration: 0
+      PoisonDamage: 0
+      ProjectileCount: 3
+      OrbitRadius: 1
+    AuraSetup:
+      AuraTypeId: 0
+      Radius: 1
+      Interval: 1
+      Cooldown: 2
+      Lifetime: 2
+      EffectSetups: []
+      StatusSetups: []
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      Prefab: {fileID: 0}

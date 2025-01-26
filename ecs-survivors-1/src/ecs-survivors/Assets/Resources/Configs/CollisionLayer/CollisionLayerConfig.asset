@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMask:
     serializedVersion: 2
-    m_Bits: 897
+    m_Bits: 7041
   EnemyMask:
     serializedVersion: 2
     m_Bits: 64
   PlayerProjectileMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128

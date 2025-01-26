@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.Movement.Factory;
 using Code.Infrastructure.View.Systems;
 
 namespace Code.Infrastructure.View

@@ -12,6 +12,8 @@ namespace Code.Common
 
     [Game] public class Destructed : IComponent { }
     
+    [Game] public class Active : IComponent { }
+    
     [Game] public class LayerMaskComponent : IComponent { public int Value; }
     
     [Game] public class SelfDestructTimer : IComponent { public float Value; }

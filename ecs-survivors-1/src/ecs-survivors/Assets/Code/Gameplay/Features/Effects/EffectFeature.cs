@@ -10,6 +10,8 @@ namespace Code.Gameplay.Features.Effects
             Add(systems.Create<RemoveDamageEffectOnInvurnableTarget>());
             Add(systems.Create<RemoveEffectsWithoutTargetsSystem>());
             
+            Add(systems.Create<ProcessHealEffectSystem>());
+            Add(systems.Create<ProcessVampirismOnDamageEffectSystem>());
             Add(systems.Create<ProcessDamageEffectSystem>());
             Add(systems.Create<CleanupProcessedEffectsSystem>());
         }

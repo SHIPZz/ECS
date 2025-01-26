@@ -2,6 +2,7 @@
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Effects.Factory;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Statuses.Systems
 {
@@ -37,6 +38,8 @@ namespace Code.Gameplay.Features.Statuses.Systems
                 else
                 {
                     status.ReplaceTimeSinceLastTick(status.Period);
+
+                    Debug.Log($"damage");
                     
                     _effectFactory.CreateEffect(EffectSetup.Create(EffectTypeId.Damage, status.EffectValue),
                         status.TargetId, status.ProducerId);

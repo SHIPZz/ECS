@@ -1,10 +1,12 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Ability.Config
 {
     [Serializable]
     public class ProjectileSetup
     {
+        public LayerMask Mask;
         public float Speed;
         public int Pierce = 1;
         
@@ -13,6 +15,9 @@ namespace Code.Gameplay.Features.Ability.Config
         
         public float Lifetime = 5f;
         public float Damage = 1;
+
+        public int AdditionalProjectileCount;
+        public int AdditionalProjectileHitCount;
         
         public int BouncingCount = 1;
         public int ScatteringCount;
@@ -22,5 +27,9 @@ namespace Code.Gameplay.Features.Ability.Config
 
         public float PoisonDuration = 3f;
         public float PoisonDamage = 5f;
+
+        public float ProjectileCount = 1;
+        
+        public float OrbitRadius = 1f;
     }
 }

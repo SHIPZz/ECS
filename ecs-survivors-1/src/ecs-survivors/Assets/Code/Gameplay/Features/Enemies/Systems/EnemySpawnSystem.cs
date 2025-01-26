@@ -17,6 +17,7 @@ namespace Code.Gameplay.Features.Enemies.Systems
         private readonly IGroup<GameEntity> _heroes;
         private readonly IEnemyFactory _enemyFactory;
         private readonly ICameraProvider _cameraProvider;
+        private int _spawnToggle;
 
         public EnemySpawnSystem(GameContext game, ITimeService timeService, IEnemyFactory enemyFactory, ICameraProvider cameraProvider)
         {
@@ -40,7 +41,11 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 if (timer.SpawnTimer <= 0)
                 {
                     timer.ReplaceSpawnTimer(1f);
-                    _enemyFactory.CreateEnemy(EnemyTypeId.Goblin, RandomSpawnPosition(hero.WorldPosition));
+
+                    _enemyFactory.CreateEnemy(EnemyTypeId.Goblin,
+                        RandomSpawnPosition(hero.WorldPosition));
+
+                    _spawnToggle++; 
                 }
             }
         }

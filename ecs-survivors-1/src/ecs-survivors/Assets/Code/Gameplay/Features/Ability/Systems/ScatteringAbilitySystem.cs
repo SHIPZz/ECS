@@ -15,11 +15,11 @@ namespace Code.Gameplay.Features.Ability.Systems
         private readonly IGroup<GameEntity> _enemies;
         private readonly List<GameEntity> _buffer = new(32);
         private readonly IGroup<GameEntity> _targets;
-        private IGetClosestEnemyService _getClosestEnemyService;
+        private IGetClosestEntityService _getClosestEntityService;
 
-        public ScatteringAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEnemyService getClosestEnemyService)
+        public ScatteringAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEntityService getClosestEntityService)
         {
-            _getClosestEnemyService = getClosestEnemyService;
+            _getClosestEntityService = getClosestEntityService;
             _armamentFactory = armamentFactory;
             _heroes = game.GetGroup(GameMatcher.AllOf(GameMatcher.Hero, GameMatcher.WorldPosition));
 
@@ -37,7 +37,7 @@ namespace Code.Gameplay.Features.Ability.Systems
                 if (_enemies.count <= 0)
                     continue;
 
-                GameEntity target = _getClosestEnemyService.GetClosestEnemy(hero, _enemies);
+                GameEntity target = _getClosestEntityService.GetClosestEntity(hero, _enemies);
 
                 if(!_targets.ContainsEntity(target))
                     continue;

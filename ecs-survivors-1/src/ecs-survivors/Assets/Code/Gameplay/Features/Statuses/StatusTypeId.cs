@@ -9,5 +9,11 @@
         MaxHpIncrease = 4,
         Scale,
         Invulnerable,
+        PoisonEnchant,
+        ExplosiveEnchant,
+        Hex,
+        ChangeSkin,
+        Vampirism
+        
     }
 }

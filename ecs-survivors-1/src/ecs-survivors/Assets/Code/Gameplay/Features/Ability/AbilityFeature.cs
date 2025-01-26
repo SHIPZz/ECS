@@ -9,12 +9,13 @@ namespace Code.Gameplay.Features.Ability
         public AbilityFeature(ISystemFactory systems)
         {
             Add(systems.Create<VegetableBoltAbilitySystem>());
+            Add(systems.Create<MagnificentBoltAbilitySystem>());
             Add(systems.Create<RadialBoltAbilitySystem>());
             Add(systems.Create<BouncingAbilitySystem>());
             Add(systems.Create<ScatteringAbilitySystem>());
+            Add(systems.Create<GarlicAuraAbilitySystem>());
+            Add(systems.Create<OrbitalMushroomAbilitySystem>());
             Add(systems.Create<CreateStatusOnTargetsSystem>());
-            Add(systems.Create<PoisonArmamentAbilitySystem>());
-            Add(systems.Create<VampirismAbilitySystem>());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Code.Gameplay.Features.Armament.Systems;
-using Code.Gameplay.Features.Armament.Systems.Poison;
 using Code.Gameplay.Features.Movement.Factory;
+using Code.Gameplay.Features.Skin;
 
 namespace Code.Gameplay.Features.Armament
 {
@@ -8,15 +8,12 @@ namespace Code.Gameplay.Features.Armament
     {
         public ArmamentFeature(ISystemFactory systems)
         {
-            Add(systems.Create<UpdateBouncingArmamentCountOnFollowingUpSystem>());
+            Add(systems.Create<SetTargetSkinSetupOnArmamentHitSystem>());
             Add(systems.Create<MarkArmamentProcessedOnTargetLimitReachedSystem>());
+            Add(systems.Create<ProcessMagnificentBoltOnHitSystem>());
             Add(systems.Create<ScatterOnHitSystem>());
-            Add(systems.Create<CalculatePoisonLeftTimeSystem>());
-            Add(systems.Create<PutPoisonOnTargetOnHitSystem>());
-            Add(systems.Create<ApplyPoisoningUntilPoisonTimeUp>());
-            Add(systems.Create<VampirismOnHitSystem>());
+            Add(systems.Create<FollowProducerSystem>());
             Add(systems.Create<FinalizeProcessedArmamentSystem>());
-            Add(systems.Create<CleanTargetPoisonedOnPoisonTimeUp>());
         }
     }
 }

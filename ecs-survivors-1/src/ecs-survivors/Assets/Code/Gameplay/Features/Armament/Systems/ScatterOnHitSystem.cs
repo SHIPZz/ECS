@@ -28,7 +28,7 @@ namespace Code.Gameplay.Features.Armament.Systems
                     GameMatcher.ScatteringArmament,
                     GameMatcher.Scale,
                     GameMatcher.LastCollectedId,
-                    GameMatcher.Collected
+                    GameMatcher.Reached
                     ));
 
             _targets = game.GetGroup(GameMatcher.AllOf(GameMatcher.WorldPosition, GameMatcher.Id));

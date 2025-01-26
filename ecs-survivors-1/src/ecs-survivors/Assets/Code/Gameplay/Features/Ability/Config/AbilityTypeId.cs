@@ -9,6 +9,9 @@
         Bounce = 4,
         Poison = 5,
         Vampirism = 6,
-        SpeedUp,
+        Magnificent = 7,
+        SpeedUp = 8,
+        OrbitalMushroom = 9,
+        GarlicAura = 10,
     }
 }

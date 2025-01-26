@@ -13,9 +13,13 @@ namespace Code.Gameplay.Features.Enemies
             Add(systems.Create<InitializeTimerSpawnSystem>());
             Add(systems.Create<EnemySpawnSystem>());
             Add(systems.Create<ChaseHeroSystem>());
+            Add(systems.Create<EnemyHealerSystem>());
+            Add(systems.Create<EnemySpeedUpSystem>());
+            Add(systems.Create<ChaseEnemySystem>());
             Add(systems.Create<StopEnemyMovementOnHeroDeathSystem>());
             Add(systems.Create<EnemyDeathSystem>());
             Add(systems.Create<SpeedUpOnEnemyDeadAbilitySystem>());
+            Add(systems.Create<EnemyDropLootSystem>());
             Add(systems.Create<FinishEnemyDeathProcessingSystem>());
         }
     }

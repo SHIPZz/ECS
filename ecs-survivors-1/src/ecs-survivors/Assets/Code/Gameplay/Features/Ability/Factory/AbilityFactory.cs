@@ -48,10 +48,61 @@ namespace Code.Gameplay.Features.Ability.Factory
                     CreateSpeedUpAbility(level);
                     break;
                 
+                case AbilityTypeId.OrbitalMushroom:
+                    CreateOrbitingMushroomAbility(1);
+                    break;
+                
+                case AbilityTypeId.GarlicAura:
+                    CreateGarlicAuraAbility(1);
+                    break;
+                
+                case AbilityTypeId.Magnificent:
+                    CreateMagnificentBolt(1);
+                    break;
+
+                
                 default:
                     throw new ArgumentOutOfRangeException(nameof(abilityTypeId), abilityTypeId, "there is no ability");
             }
         }
+        
+        public GameEntity CreateMagnificentBolt(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Magnificent, level);
+            
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddCooldown(abilityLevel.Cooldown)
+                    .PutOnCooldown()
+                    .AddAbilityTypeId(AbilityTypeId.Magnificent)
+                    .With(x => x.isMagnificentBoltAbility = true)
+                ;
+        }
+        
+        public GameEntity CreateGarlicAuraAbility(int level)
+        {
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddAbilityTypeId(AbilityTypeId.GarlicAura)
+                    .With(x => x.isGarlicAuraAbility = true)
+                ;
+        }
+        
+        public GameEntity CreateOrbitingMushroomAbility(int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.OrbitalMushroom, level);
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddCooldown(abilityLevel.Cooldown)
+                    .PutOnCooldown()
+                    .With(x => x.isOrbitingMushroomAbility = true)
+                ;
+        }
+
 
         public GameEntity CreateVampirismBoltAbility(int level)
         {

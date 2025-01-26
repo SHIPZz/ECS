@@ -17,13 +17,17 @@ namespace Code.Gameplay.Features.TargetCollection
     
     [Game] public class CollectingAvailable : IComponent {  }
     
-    [Game] public class Collected : IComponent {  }
+    [Game] public class Reached : IComponent {  }
+    
+    [Game] public class Ignored : IComponent {  }
     
     [Game] public class OverflowProcessedTargetsBuffer : IComponent {  }
     
     [Game] public class CollectTargetsLayerMask : IComponent { public int Value; }
     
     [Game] public class LastCollectedId : IComponent { public int Value; }
+    
+    [Game] public class IgnoreBuffer : IComponent { public List<int> Value; }
     
     [Game] public class CollectingTargetsContinuously : IComponent {  }
 }

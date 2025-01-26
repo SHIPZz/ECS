@@ -1,6 +1,7 @@
 ﻿using System;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.Enchants;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
 
@@ -19,8 +20,6 @@ namespace Code.Gameplay.Features.Statuses
         {
             GameEntity status = null;
 
-            Debug.Log($"{statusSetup.StatusTypeId}");
-            
             switch (statusSetup.StatusTypeId)
             {
                 case StatusTypeId.None:
@@ -50,6 +49,22 @@ namespace Code.Gameplay.Features.Statuses
                     status = CreateInvulnerableStatus(statusSetup, targetId, producerId, statusSetup.Value);
                     break;
                 
+                case StatusTypeId.PoisonEnchant:
+                    status = CreatePoisonEnchantStatus(statusSetup, targetId, producerId, statusSetup.Value);
+                    break;
+                
+                case StatusTypeId.ExplosiveEnchant:
+                    status = CreateExplosiveEnchantStatus(statusSetup, targetId, producerId, statusSetup.Value);
+                    break;
+                
+                case StatusTypeId.Hex:
+                    status = CreateHexEnchantStatus(statusSetup, targetId, producerId, statusSetup.Value);
+                    break;
+                
+                case StatusTypeId.Vampirism:
+                    status = CreateVampirismStatus(statusSetup, targetId, producerId, statusSetup.Value);
+                    break;
+                
                 default:
                     throw new ArgumentException("no status");
             }
@@ -60,6 +75,62 @@ namespace Code.Gameplay.Features.Statuses
                     .With(x => x.AddPeriod(statusSetup.Period), when: statusSetup.Period > 0)
                     .With(x => x.AddTimeSinceLastTick(0), when: statusSetup.Period > 0)
                 ;
+        }
+        
+        private GameEntity CreateVampirismStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
+        {
+            return CreateEntity
+                .Empty()
+                .AddId(_identifierService.Next())
+                .AddTargetId(targetId)
+                .AddEffectValue(value)
+                .AddStatusTypeId(statusSetup.StatusTypeId)
+                .AddProducerId(producerId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isVampirism = true);
+        }
+
+        
+        private GameEntity CreateHexEnchantStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
+        {
+            return CreateEntity
+                .Empty()
+                .AddId(_identifierService.Next())
+                .AddTargetId(targetId)
+                .AddEffectValue(value)
+                .AddEnchantTypeId(EnchantTypeId.Hex)
+                .AddStatusTypeId(statusSetup.StatusTypeId)
+                .AddProducerId(producerId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isHexEnchant = true);
+        }
+        
+        private GameEntity CreateExplosiveEnchantStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
+        {
+            return CreateEntity
+                .Empty()
+                .AddId(_identifierService.Next())
+                .AddTargetId(targetId)
+                .AddEffectValue(value)
+                .AddEnchantTypeId(EnchantTypeId.ExplosiveEnchant)
+                .AddStatusTypeId(statusSetup.StatusTypeId)
+                .AddProducerId(producerId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isExplosiveEnchant = true);
+        }
+        
+        private GameEntity CreatePoisonEnchantStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
+        {
+            return CreateEntity
+                .Empty()
+                .AddId(_identifierService.Next())
+                .AddEffectValue(value)
+                .AddEnchantTypeId(EnchantTypeId.PoisonArmaments)
+                .AddStatusTypeId(statusSetup.StatusTypeId)
+                .AddTargetId(targetId)
+                .AddProducerId(producerId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isPoisonEnchant = true);
         }
         
         private GameEntity CreateInvulnerableStatus(StatusSetup statusSetup, int targetId, int producerId, float value)

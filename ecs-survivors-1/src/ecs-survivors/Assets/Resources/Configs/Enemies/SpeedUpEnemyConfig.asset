@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807b9536a7f64ee3864eea231d6ee804, type: 3}
+  m_Name: SpeedUpEnemyConfig
+  m_EditorClassIdentifier: 
+  EnemyTypeId: 3
+  EffectSetups: []
+  StatusSetups: []
+  AuraSetups:
+  - AuraTypeId: 1
+    Radius: 4
+    Interval: 0
+    Cooldown: 2
+    EffectSetups: []
+    StatusSetups:
+    - StatusTypeId: 3
+      Value: 2
+      Duration: 0.3
+      Period: 0
+      TargetSkinSetup:
+        TargetSkin: {fileID: 0}
+        AnimatorController: {fileID: 0}
+      Stackable: 0
+    LayerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    Prefab: {fileID: 6042359728159757058, guid: c4c8cf39ebe3672468c50bd2fedcd936, type: 3}
+  CollisionLayer: 6
+  Radius: 0.3
+  ViewPrefab: {fileID: 6909503884090576820, guid: 82bb61f1445200846a0a9b674ce7ecd7, type: 3}

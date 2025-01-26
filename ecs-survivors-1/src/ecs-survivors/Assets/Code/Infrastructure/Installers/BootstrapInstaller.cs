@@ -9,11 +9,13 @@ using Code.Gameplay.Features.Ability.Factory;
 using Code.Gameplay.Features.Armament;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Effects.Factory;
+using Code.Gameplay.Features.Enchants.UIFactories;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Enemies.Services;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.Loot.Factory;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Movement.Factory;
 using Code.Gameplay.Features.Statuses;
@@ -43,8 +45,14 @@ namespace Code.Infrastructure.Installers
             BindGameplayServices();
             BindCameraProvider();
             BindGameplayFactories();
+            BindUiFactories();
             BindEffectFactory();
             BindEntityIndices();
+        }
+
+        private void BindUiFactories()
+        {
+            Container.BindInterfacesAndSelfTo<EnchantUIFactory>().AsSingle();
         }
 
         private void BindEntityIndices()
@@ -80,8 +88,9 @@ namespace Code.Infrastructure.Installers
         private void BindGameplayServices()
         {
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
-            Container.Bind<IGetClosestEnemyService>().To<GetClosestEnemyService>().AsTransient();
+            Container.Bind<IGetClosestEntityService>().To<GetClosestEntityService>().AsTransient();
             Container.Bind<IStatusApplier>().To<StatusApplier>().AsSingle();
         }
 

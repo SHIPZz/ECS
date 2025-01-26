@@ -10,7 +10,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
         private readonly IGroup<GameEntity> _entities;
         private readonly IPhysicsService _physicsService;
         private readonly List<GameEntity> _buffer = new List<GameEntity>(128);
-        private  GameEntity[] _targetCastBuffer = new GameEntity[128];
+        private GameEntity[] _targetCastBuffer = new GameEntity[128];
 
         public CastForTargetsWithLimitSystem(GameContext game, IPhysicsService physicsService)
         {
@@ -39,7 +39,6 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     {
                         entity.TargetsBuffer.Add(targetId);
                         entity.ProcessedTargetsBuffer.Add(targetId);
-                        entity.isCollected = true;
                         entity.ReplaceLastCollectedId(targetId);
                     }
                 }
@@ -51,12 +50,13 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
 
         private bool AlreadyProcessed(GameEntity entity, int targetId)
         {
-            return entity.ProcessedTargetsBuffer.Contains(targetId);
+            return entity.ProcessedTargetsBuffer.Contains(targetId) || (entity.hasIgnoreBuffer && entity.IgnoreBuffer.Contains(targetId));
         }
 
         private int TargetCountInRadius(GameEntity entity)
         {
-            return _physicsService.CircleCastNonAlloc(entity.WorldPosition, entity.Radius, entity.CollectTargetsLayerMask,_targetCastBuffer);
+            return _physicsService.CircleCastNonAlloc(entity.WorldPosition, entity.Radius,
+                entity.CollectTargetsLayerMask, _targetCastBuffer);
         }
 
         public void TearDown()

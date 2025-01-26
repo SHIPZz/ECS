@@ -43,13 +43,14 @@ namespace Code.Gameplay.Features.Hero
                     .AddSpeed(baseStats[Stats.Speed])
                     .AddCurrentHp(baseStats[Stats.Hp])
                     .AddMaxHp(baseStats[Stats.MaxHp])
+                    .AddExperience(0)
+                    .AddPickupRadius(1f)
                     .AddRadius(0.5f)
                     .AddScale(Vector3.one * baseStats[Stats.Scale])
                     .AddLayerMask(_staticDataService.CollisionLayerConfig.PlayerMask)
                     .With(entity => entity.isHero = true)
                     .With(entity => entity.isAlive = true)
                     .With(entity => entity.isMovingAvailable = true)
-                    .With(entity => entity.AddVampireId(entity.Id))
                     .With(entity => entity.isTurnAlongDirection = true)
                 ;
         }

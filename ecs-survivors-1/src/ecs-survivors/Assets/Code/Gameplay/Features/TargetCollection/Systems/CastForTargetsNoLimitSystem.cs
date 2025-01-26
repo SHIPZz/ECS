@@ -32,7 +32,6 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
 
                 if (entity.TargetsBuffer.Count > 0)
                 {
-                    entity.isCollected = true;
                     entity.ReplaceLastCollectedId(entity.TargetsBuffer[^1]);
                 }
 
@@ -40,14 +39,18 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     entity.isReadyToCollectTargets = false;
             }
         }
-        
+
 
         private void FillTargetsBufferByTargetsInRadius(GameEntity entity)
         {
-            IEnumerable<GameEntity> targetInRadius = _physicsService.CircleCast(entity.WorldPosition, entity.Radius, entity.CollectTargetsLayerMask);
-            
-            foreach (GameEntity target in  targetInRadius)
+            IEnumerable<GameEntity> targetInRadius =
+                _physicsService.CircleCast(entity.WorldPosition, entity.Radius, entity.CollectTargetsLayerMask);
+
+            foreach (GameEntity target in targetInRadius)
             {
+                if (entity.hasIgnoreBuffer && entity.IgnoreBuffer.Contains(target.Id))
+                    continue;
+
                 entity.TargetsBuffer.Add(target.Id);
             }
         }

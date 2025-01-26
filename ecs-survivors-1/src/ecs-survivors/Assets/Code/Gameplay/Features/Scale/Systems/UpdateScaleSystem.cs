@@ -10,7 +10,7 @@ namespace Code.Gameplay.Features.Scale.Systems
         {
             _entities = game.GetGroup(GameMatcher
                 .AllOf(
-                    GameMatcher.Transform,
+                    GameMatcher.ScaleTransform,
                     GameMatcher.Scale
                     ));
         }
@@ -19,7 +19,7 @@ namespace Code.Gameplay.Features.Scale.Systems
         {
             foreach (GameEntity entity in _entities)
             {
-                entity.Transform.localScale = entity.Scale;
+                entity.ScaleTransform.localScale = entity.Scale;
             }
         }
     }

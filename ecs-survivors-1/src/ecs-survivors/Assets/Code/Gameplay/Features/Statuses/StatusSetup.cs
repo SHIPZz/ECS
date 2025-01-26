@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Statuses
 {
@@ -9,5 +10,14 @@ namespace Code.Gameplay.Features.Statuses
         public float Value;
         public float Duration;
         public float Period;
+        public ReplaceSkinSetup TargetSkinSetup;
+        public bool Stackable;
+    }
+
+    [Serializable]
+    public class ReplaceSkinSetup
+    {
+        public Sprite TargetSkin;
+        public RuntimeAnimatorController AnimatorController;
     }
 }

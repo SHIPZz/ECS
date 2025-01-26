@@ -10,6 +10,7 @@ namespace Code.Gameplay.Features.Follow
             Add(systems.Create<FollowTargetSystem>());
             Add(systems.Create<UpdateLastFollowTargetsSystem>());
             Add(systems.Create<MarkFollowingUpSystem>());
+            Add(systems.Create<MarkFollowingUpWithoutMaxDistanceSystem>());
             Add(systems.Create<SetNewFollowTargetOnFollowingUpSystem>());
         }
     }

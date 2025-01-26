@@ -16,11 +16,11 @@ namespace Code.Gameplay.Features.Ability.Systems
         private readonly IGroup<GameEntity> _heroes;
         private readonly List<GameEntity> _buffer = new(128);
         private readonly IGroup<GameEntity> _enemies;
-        private readonly IGetClosestEnemyService _getClosestEnemyService;
+        private readonly IGetClosestEntityService _getClosestEntityService;
 
-        public BouncingAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEnemyService getClosestEnemyService)
+        public BouncingAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEntityService getClosestEntityService)
         {
-            _getClosestEnemyService = getClosestEnemyService;
+            _getClosestEntityService = getClosestEntityService;
             _armamentFactory = armamentFactory;
             _enemies = game.GetGroup(GameMatcher
                 .AllOf(
@@ -43,7 +43,7 @@ namespace Code.Gameplay.Features.Ability.Systems
             foreach (GameEntity hero in _heroes)
             foreach (GameEntity ability in _abilities.GetEntities(_buffer))
             {
-                GameEntity target =_getClosestEnemyService.GetClosestEnemy(hero, _enemies);
+                GameEntity target =_getClosestEntityService.GetClosestEntity(hero, _enemies);
 
                 _armamentFactory.CreateBouncingBolt(1, hero.WorldPosition)
                     .With(x => x.AddFollowTargetId(target.Id))

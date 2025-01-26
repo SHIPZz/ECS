@@ -9,15 +9,20 @@ using Code.Gameplay.Features.Death;
 using Code.Gameplay.Features.EffectApplication;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Effects.Systems;
+using Code.Gameplay.Features.Enchants;
+using Code.Gameplay.Features.Enchants.Systems;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Follow;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.Hero.Systems;
 using Code.Gameplay.Features.Lifetime;
+using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Movement;
 using Code.Gameplay.Features.Movement.Factory;
+using Code.Gameplay.Features.Pull;
 using Code.Gameplay.Features.Scale;
+using Code.Gameplay.Features.Skin;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.Statuses.Systems.StatusVisuals;
 using Code.Gameplay.Features.TargetCollection;
@@ -26,7 +31,8 @@ using Code.Infrastructure.View;
 
 namespace Code.Gameplay.Features
 {
-    public sealed class BattleFeature : Feature
+    public sealed class 
+        BattleFeature : Feature
     {
         public BattleFeature(ISystemFactory systems)
         {
@@ -39,17 +45,24 @@ namespace Code.Gameplay.Features
             Add(systems.Create<CameraFeature>());
             Add(systems.Create<EnemyFeature>());
             
+            Add(systems.Create<LootingFeature>());
+            
             Add(systems.Create<CooldownFeature>());
-            Add(systems.Create<AbilityFeature>());
+            Add(systems.Create<EnchantFeature>());
+            
             
             Add(systems.Create<CollectTargetsFeature>());
-            Add(systems.Create<EffectApplicationFeature>());
-            Add(systems.Create<EffectFeature>());
-            Add(systems.Create<ArmamentFeature>());
+            Add(systems.Create<PullFeature>());
+            Add(systems.Create<AbilityFeature>());
+            
             Add(systems.Create<StatusFeature>());
+            Add(systems.Create<EffectApplicationFeature>());
             Add(systems.Create<StatusVisualsFeature>());
+            Add(systems.Create<ArmamentFeature>());
+            Add(systems.Create<EffectFeature>());
             Add(systems.Create<StatsFeature>());
             Add(systems.Create<FollowTargetFeature>());
+            Add(systems.Create<SkinFeature>());
             
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());

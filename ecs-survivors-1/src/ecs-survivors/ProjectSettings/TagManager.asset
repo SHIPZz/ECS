@@ -16,8 +16,8 @@ TagManager:
   - EnemyCollider
   - Collectable
   - Clicker
-  - 
-  - 
+  - EnemyHealer
+  - EnemyBuffer
   - 
   - 
   - 

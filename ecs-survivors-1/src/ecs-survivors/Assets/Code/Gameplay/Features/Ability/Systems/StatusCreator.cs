@@ -28,18 +28,18 @@ namespace Code.Gameplay.Features.Ability.Systems
 
         private void Start()
         {
-            CreateEntity.Empty()
-                .AddLayerMask(LayerMask)
-                .AddWorldPosition(transform.position)
-                .AddRadius(Radius)
-                .AddStatusSetups(StatusSetups)
-                .AddId(_identifierService.Next())
-                .With(x => x.isStatusCreator = true)
-                .With(x => x.isReadyToCollectTargets = true)
-                .SetupTargetCollectionComponents(LayerMask)
-                .With(x => x.AddCooldown(Cooldown))
-                .PutOnCooldown()
-                ;
+            // CreateEntity.Empty()
+            //     .AddLayerMask(LayerMask)
+            //     .AddWorldPosition(transform.position)
+            //     .AddRadius(Radius)
+            //     .AddStatusSetups(StatusSetups)
+            //     .AddId(_identifierService.Next())
+            //     .With(x => x.isStatusCreator = true)
+            //     .With(x => x.isReadyToCollectTargets = true)
+            //     .SetupTargetCollectionComponents(LayerMask)
+            //     .With(x => x.AddCooldown(Cooldown))
+            //     .PutOnCooldown()
+            //     ;
         }
     }
 }

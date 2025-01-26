@@ -25,11 +25,12 @@ namespace Code.Gameplay.Features.Ability.Config
         public float RadialRadius = 2f;
         public int RadialCount = 4;
 
-        public float PoisonDuration = 3f;
-        public float PoisonDamage = 5f;
-
         public float ProjectileCount = 1;
         
         public float OrbitRadius = 1f;
+        
+        public int MinCountToPullTargets = 1;
+        public int MaxCountToPullTargets = 3;
+        public bool DestructOnMaxPullTargetReached = true;
     }
 }

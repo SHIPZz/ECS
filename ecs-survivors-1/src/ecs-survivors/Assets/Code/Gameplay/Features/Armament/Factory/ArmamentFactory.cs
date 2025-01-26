@@ -193,6 +193,7 @@ namespace Code.Gameplay.Features.Armament.Factory
                     .AddParentAbility(AbilityTypeId.Magnificent)
                     .With(x => x.isVegetableBoltArmament = true)
                     .With(x => x.isPullingArmament = true)
+                    .With(x => x.isPullingDetector = true)
                     .With(x => x.AddIgnoreBuffer(new List<int>(32)))
                     .With(x => x.isRotateAlongDirection = true)
                 ;

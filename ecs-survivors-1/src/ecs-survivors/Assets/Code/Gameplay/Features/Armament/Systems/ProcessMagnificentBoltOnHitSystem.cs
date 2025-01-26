@@ -63,6 +63,7 @@ namespace Code.Gameplay.Features.Armament.Systems
 
                     _armamentFactory.CreatePullBolt(1, armament.WorldPosition)
                         .With(x => x.AddFollowTargetId(closestEnemy.Id))
+                        .AddPullAnchorTargetId(armament.LastCollectedId)
                         .With(x => x.isMoving = true)
                         .With(x => x.IgnoreBuffer.Add(armament.LastCollectedId))
                         .With(x => x.isMovingAvailable = true)

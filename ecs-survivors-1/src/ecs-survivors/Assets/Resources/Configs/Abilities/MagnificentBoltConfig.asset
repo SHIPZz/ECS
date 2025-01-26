@@ -34,10 +34,11 @@ MonoBehaviour:
       ScatteringCount: 0
       RadialRadius: 0
       RadialCount: 0
-      PoisonDuration: 0
-      PoisonDamage: 0
       ProjectileCount: 0
       OrbitRadius: 0
+      MinCountToPullTargets: 3
+      MaxCountToPullTargets: 3
+      DestructOnMaxPullTargetReached: 1
     AuraSetup:
       AuraTypeId: 0
       Radius: 1

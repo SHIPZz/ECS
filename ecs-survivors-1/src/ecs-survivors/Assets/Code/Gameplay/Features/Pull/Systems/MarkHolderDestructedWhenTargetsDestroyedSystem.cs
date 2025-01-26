@@ -15,6 +15,7 @@ namespace Code.Gameplay.Features.Pull.Systems
                 .AllOf(
                     GameMatcher.PullTargetList,
                     GameMatcher.MaxPullTargetHold,
+                    GameMatcher.DestructOnMaxPullTargetReached,
                     GameMatcher.PullTargetHolder
                 ));
         }

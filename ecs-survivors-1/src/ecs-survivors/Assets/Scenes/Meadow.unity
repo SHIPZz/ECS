@@ -46005,40 +46005,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1619025464}
   - component: {fileID: 1619025463}
-  - component: {fileID: 1619025462}
+  - component: {fileID: 1619025465}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1619025462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619025461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97dba14965184af49c5572cdb9724722, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Cooldown: 10
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  Radius: 1
-  StatusSetups:
-  - StatusTypeId: 11
-    Value: 0
-    Duration: 10
-    Period: 0
-    TargetSkinSetup:
-      TargetSkin: {fileID: 0}
-      AnimatorController: {fileID: 0}
-    Stackable: 0
+  m_IsActive: 1
 --- !u!212 &1619025463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46100,12 +46074,31 @@ Transform:
   m_GameObject: {fileID: 1619025461}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.03, y: 1.56, z: 0}
+  m_LocalPosition: {x: -3.94, y: 5.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1619025465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619025461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxPullTargets: 5
+  MinPullTargets: 1
+  Layer: 7
+  PullInRadius: 10
+  _createTime: 0
+  LootTypeId: 0
+  _lastTime: 0
 --- !u!4 &1632601165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8305601375823714350, guid: 87c34b8ef28b26c46adaa760fed03aca, type: 3}
@@ -46160,7 +46153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2021503339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46222,7 +46215,7 @@ Transform:
   m_GameObject: {fileID: 2021503338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.92, y: -1.9791665, z: 0}
+  m_LocalPosition: {x: 12.59, y: 8.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46235,33 +46228,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021503338}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97dba14965184af49c5572cdb9724722, type: 3}
+  m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 10
-  LayerMask:
-    serializedVersion: 2
-    m_Bits: 64
-  Radius: 1
-  StatusSetups:
-  - StatusTypeId: 4
-    Value: 50
-    Duration: 5
-    Period: 0
-    TargetSkinSetup:
-      TargetSkin: {fileID: 0}
-      AnimatorController: {fileID: 0}
-    Stackable: 0
-  - StatusTypeId: 5
-    Value: 1
-    Duration: 3
-    Period: 0
-    TargetSkinSetup:
-      TargetSkin: {fileID: 0}
-      AnimatorController: {fileID: 0}
-    Stackable: 0
+  MaxPullTargets: 5
+  MinPullTargets: 1
+  Layer: 9
+  PullInRadius: 15
+  _createTime: 3
+  LootTypeId: 1
+  _lastTime: 0
 --- !u!1 &2034133083
 GameObject:
   m_ObjectHideFlags: 0

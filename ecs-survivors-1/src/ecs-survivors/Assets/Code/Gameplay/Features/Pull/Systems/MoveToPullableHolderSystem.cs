@@ -11,7 +11,9 @@ namespace Code.Gameplay.Features.Pull.Systems
         public MoveToPullableHolderSystem(GameContext game)
         {
             _game = game;
-            _pullableHolders = game.GetGroup(GameMatcher.PullTargetList);
+            _pullableHolders = game.GetGroup(GameMatcher.AllOf(
+                GameMatcher.PullTargetList,
+                GameMatcher.MinCountToPullTargets));
         }
 
         public void Execute()
@@ -22,18 +24,23 @@ namespace Code.Gameplay.Features.Pull.Systems
             foreach (GameEntity pullTargetsHolder in _pullableHolders)
             foreach (int targetId in pullTargetsHolder.PullTargetList)
             {
-                if (pullTargetsHolder.PullTargetList.Count < pullTargetsHolder.MaxPullTargetHold) 
+                if (pullTargetsHolder.PullTargetList.Count < pullTargetsHolder.MinCountToPullTargets)
                     continue;
-                
+
                 GameEntity target = _game.GetEntityWithId(targetId);
 
                 if (target == null || target.isPulling)
                     continue;
 
+                if (pullTargetsHolder.Id != target.PullProducerId)
+                    continue;
+
                 target.isPulling = true;
 
                 target.AddFollowTargetId(pullTargetsHolder.Id);
-                target.BaseStats[Stats.Speed] = 20;
+                
+                if (target.hasBaseStats)
+                    target.BaseStats[Stats.Speed] = 20; //todo refactor
             }
         }
     }

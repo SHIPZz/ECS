@@ -25,16 +25,16 @@ namespace Code.Gameplay.Features.Loot.Systems
         {
             foreach (GameEntity entity in _looters)
             {
-                for (int i = 0; i < LootInRadius(entity); i++)
-                {
-                    if (_hitBuffer[i].isPullable)
-                    {
-                        _hitBuffer[i].isPullable = false;
-                        _hitBuffer[i].isPulling = true;
-                    }
-                }
-
-                ClearBuffer();
+                // for (int i = 0; i < LootInRadius(entity); i++)
+                // {
+                //     if (_hitBuffer[i].isPullable)
+                //     {
+                //         _hitBuffer[i].isPullable = false;
+                //         _hitBuffer[i].isPulling = true;
+                //     }
+                // }
+                //
+                // ClearBuffer();
             }
         }
 

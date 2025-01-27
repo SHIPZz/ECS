@@ -22,8 +22,8 @@ namespace Code.Gameplay.Features.Pull.Systems
 
         public void Execute()
         {
-            foreach (GameEntity entity in _pullingDetectors)
-            foreach (int targetId in entity.TargetsBuffer)
+            foreach (GameEntity pullingDetector in _pullingDetectors)
+            foreach (int targetId in pullingDetector.TargetsBuffer)
             {
                 GameEntity target = _game.GetEntityWithId(targetId);
 
@@ -31,7 +31,7 @@ namespace Code.Gameplay.Features.Pull.Systems
                     continue;
 
                 target.isPullable = true;
-                target.ReplacePullProducerId(entity.PullAnchorTargetId);
+                target.ReplacePullProducerId(pullingDetector.PullAnchorTargetId);
             }
         }
     }

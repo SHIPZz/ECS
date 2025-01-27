@@ -1,4 +1,4 @@
-﻿using Code.Gameplay.Features.CharacterStats;
+﻿using Code.Gameplay.Features.Statuses.Applier;
 using Entitas;
 
 namespace Code.Gameplay.Features.Pull.Systems
@@ -7,13 +7,17 @@ namespace Code.Gameplay.Features.Pull.Systems
     {
         private readonly IGroup<GameEntity> _pullableHolders;
         private readonly GameContext _game;
+        private IStatusApplier _statusApplier;
 
-        public MoveToPullableHolderSystem(GameContext game)
+        public MoveToPullableHolderSystem(GameContext game, IStatusApplier statusApplier)
         {
+            _statusApplier = statusApplier;
             _game = game;
             _pullableHolders = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.PullTargetList,
-                GameMatcher.MinCountToPullTargets));
+                GameMatcher.PullTargetHolder,
+                GameMatcher.MinCountToPullTargets
+                ));
         }
 
         public void Execute()
@@ -36,11 +40,10 @@ namespace Code.Gameplay.Features.Pull.Systems
                     continue;
 
                 target.isPulling = true;
+                target.isMoving = true;
+                target.isMovingAvailable = true;
 
                 target.AddFollowTargetId(pullTargetsHolder.Id);
-                
-                if (target.hasBaseStats)
-                    target.BaseStats[Stats.Speed] = 20; //todo refactor
             }
         }
     }

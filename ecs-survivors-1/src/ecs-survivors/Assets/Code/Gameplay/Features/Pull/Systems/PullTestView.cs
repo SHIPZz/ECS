@@ -4,6 +4,7 @@ using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Factory;
+using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.TargetCollection;
 using Code.Infrastructure.Identifiers;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Code.Gameplay.Features.Pull.Systems
         public int MinPullTargets = 1;
         public CollisionLayer Layer;
         public float PullInRadius = 3f;
+        public List<StatusSetup> StatusSetups;
         private IIdentifierService _identifierService;
 
         [SerializeField] private float _createTime;
@@ -42,6 +44,8 @@ namespace Code.Gameplay.Features.Pull.Systems
                 .AddTargetsBuffer(new List<int>(32))
                 .AddPullTargetLayerMask(Layer.AsMask())
                 .AddPullInRadius(PullInRadius)
+                .AddStatusSetups(new List<StatusSetup>())
+                .With(x => x.AddStatusSetups(StatusSetups))
                 .AddWorldPosition(transform.position)
                 .With(x => x.AddPullTargetList(new List<int>(32)))
                 .With(x => x.isPullingDetector = true)

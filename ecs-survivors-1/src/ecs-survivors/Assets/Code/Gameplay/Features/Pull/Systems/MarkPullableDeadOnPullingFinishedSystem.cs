@@ -2,26 +2,28 @@
 
 namespace Code.Gameplay.Features.Pull.Systems
 {
-    public class MarkPullableDestructedOnPullingFinishedSystem : IExecuteSystem
+    public class MarkPullableDeadOnPullingFinishedSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
         private GameContext _game;
 
-        public MarkPullableDestructedOnPullingFinishedSystem(GameContext game)
+        public MarkPullableDeadOnPullingFinishedSystem(GameContext game)
         {
             _entities = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Pullable,
                     GameMatcher.FollowingUp,
+                    GameMatcher.CurrentHp,
+                    GameMatcher.Alive,
                     GameMatcher.Pulling
-                    ).NoneOf(GameMatcher.CurrentHp));
+                ));
         }
 
         public void Execute()
         {
             foreach (GameEntity entity in _entities)
             {
-                entity.isDestructed = true;
+                entity.ReplaceCurrentHp(0);
             }
         }
     }

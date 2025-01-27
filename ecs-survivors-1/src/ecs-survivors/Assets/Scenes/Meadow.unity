@@ -46012,7 +46012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1619025463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46096,8 +46096,17 @@ MonoBehaviour:
   MinPullTargets: 1
   Layer: 7
   PullInRadius: 10
+  StatusSetups:
+  - StatusTypeId: 3
+    Value: 25
+    Duration: 25
+    Period: 0
+    TargetSkinSetup:
+      TargetSkin: {fileID: 0}
+      AnimatorController: {fileID: 0}
+    Stackable: 0
   _createTime: 0
-  LootTypeId: 0
+  LootTypeId: 3
   _lastTime: 0
 --- !u!4 &1632601165 stripped
 Transform:
@@ -46153,7 +46162,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2021503339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46237,6 +46246,15 @@ MonoBehaviour:
   MinPullTargets: 1
   Layer: 9
   PullInRadius: 15
+  StatusSetups:
+  - StatusTypeId: 3
+    Value: 25
+    Duration: 25
+    Period: 0
+    TargetSkinSetup:
+      TargetSkin: {fileID: 0}
+      AnimatorController: {fileID: 0}
+    Stackable: 0
   _createTime: 3
   LootTypeId: 1
   _lastTime: 0

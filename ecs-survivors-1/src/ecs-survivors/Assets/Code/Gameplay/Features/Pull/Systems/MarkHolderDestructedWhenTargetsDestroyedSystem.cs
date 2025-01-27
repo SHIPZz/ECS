@@ -39,7 +39,10 @@ namespace Code.Gameplay.Features.Pull.Systems
                             allDestroyed = pullable.isDestructed;
                     }
 
-                    holder.isDestructed = allDestroyed;
+                    if (holder.hasCurrentHp)
+                        holder.ReplaceCurrentHp(0);
+                    else
+                        holder.isDestructed = allDestroyed;
                 }
             }
         }

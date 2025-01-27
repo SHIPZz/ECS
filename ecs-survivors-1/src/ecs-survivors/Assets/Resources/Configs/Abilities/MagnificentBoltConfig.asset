@@ -19,6 +19,15 @@ MonoBehaviour:
     EffectSetups: []
     StatusSetups: []
     ProjectileSetup:
+      StatusesContainer:
+      - StatusTypeId: 3
+        Value: 20
+        Duration: 100
+        Period: 0
+        TargetSkinSetup:
+          TargetSkin: {fileID: 0}
+          AnimatorController: {fileID: 0}
+        Stackable: 0
       Mask:
         serializedVersion: 2
         m_Bits: 128

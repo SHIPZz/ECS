@@ -131,52 +131,53 @@ public static class GameComponentsLookup {
     public const int PullingDetector = 120;
     public const int PullInRadius = 121;
     public const int PullTargetHolder = 122;
-    public const int PullTargetLayerMask = 123;
-    public const int PullTargetList = 124;
-    public const int Scale = 125;
-    public const int ScaleTransform = 126;
-    public const int NewSkinAnimator = 127;
-    public const int SkinChanged = 128;
-    public const int TargetSprite = 129;
-    public const int Affected = 130;
-    public const int Applied = 131;
-    public const int ApplierStatusLink = 132;
-    public const int CurrentHpStatus = 133;
-    public const int Duration = 134;
-    public const int Freeze = 135;
-    public const int Invulnerable = 136;
-    public const int InvulnerableStatus = 137;
-    public const int MaxHpIncrease = 138;
-    public const int Period = 139;
-    public const int Poison = 140;
-    public const int ScaleIncrease = 141;
-    public const int SpeedUp = 142;
-    public const int Status = 143;
-    public const int StatusCreator = 144;
-    public const int StatusSetups = 145;
-    public const int StatusTypeId = 146;
-    public const int TimeLeft = 147;
-    public const int TimeSinceLastTick = 148;
-    public const int Unapplied = 149;
-    public const int Vampirism = 150;
-    public const int CollectingAvailable = 151;
-    public const int CollectingTargetsContinuously = 152;
-    public const int CollectTargetsInterval = 153;
-    public const int CollectTargetsLayerMask = 154;
-    public const int CollectTargetsTimer = 155;
-    public const int IgnoreBuffer = 156;
-    public const int Ignored = 157;
-    public const int LastCollectedId = 158;
-    public const int OverflowProcessedTargetsBuffer = 159;
-    public const int ProcessedTargetsBuffer = 160;
-    public const int Radius = 161;
-    public const int Reached = 162;
-    public const int ReadyToCollectTargets = 163;
-    public const int TargetsBuffer = 164;
-    public const int AxisInput = 165;
-    public const int Input = 166;
+    public const int PullTargetHolderStatuses = 123;
+    public const int PullTargetLayerMask = 124;
+    public const int PullTargetList = 125;
+    public const int Scale = 126;
+    public const int ScaleTransform = 127;
+    public const int NewSkinAnimator = 128;
+    public const int SkinChanged = 129;
+    public const int TargetSprite = 130;
+    public const int Affected = 131;
+    public const int Applied = 132;
+    public const int ApplierStatusLink = 133;
+    public const int CurrentHpStatus = 134;
+    public const int Duration = 135;
+    public const int Freeze = 136;
+    public const int Invulnerable = 137;
+    public const int InvulnerableStatus = 138;
+    public const int MaxHpIncrease = 139;
+    public const int Period = 140;
+    public const int Poison = 141;
+    public const int ScaleIncrease = 142;
+    public const int SpeedUp = 143;
+    public const int Status = 144;
+    public const int StatusCreator = 145;
+    public const int StatusSetups = 146;
+    public const int StatusTypeId = 147;
+    public const int TimeLeft = 148;
+    public const int TimeSinceLastTick = 149;
+    public const int Unapplied = 150;
+    public const int Vampirism = 151;
+    public const int CollectingAvailable = 152;
+    public const int CollectingTargetsContinuously = 153;
+    public const int CollectTargetsInterval = 154;
+    public const int CollectTargetsLayerMask = 155;
+    public const int CollectTargetsTimer = 156;
+    public const int IgnoreBuffer = 157;
+    public const int Ignored = 158;
+    public const int LastCollectedId = 159;
+    public const int OverflowProcessedTargetsBuffer = 160;
+    public const int ProcessedTargetsBuffer = 161;
+    public const int Radius = 162;
+    public const int Reached = 163;
+    public const int ReadyToCollectTargets = 164;
+    public const int TargetsBuffer = 165;
+    public const int AxisInput = 166;
+    public const int Input = 167;
 
-    public const int TotalComponents = 167;
+    public const int TotalComponents = 168;
 
     public static readonly string[] componentNames = {
         "Active",
@@ -302,6 +303,7 @@ public static class GameComponentsLookup {
         "PullingDetector",
         "PullInRadius",
         "PullTargetHolder",
+        "PullTargetHolderStatuses",
         "PullTargetLayerMask",
         "PullTargetList",
         "Scale",
@@ -472,6 +474,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Pull.PullingDetector),
         typeof(Code.Gameplay.Features.Pull.PullInRadius),
         typeof(Code.Gameplay.Features.Pull.PullTargetHolder),
+        typeof(Code.Gameplay.Features.Pull.PullTargetHolderStatuses),
         typeof(Code.Gameplay.Features.Pull.PullTargetLayerMask),
         typeof(Code.Gameplay.Features.Pull.PullTargetList),
         typeof(Code.Gameplay.Features.Scale.Scale),

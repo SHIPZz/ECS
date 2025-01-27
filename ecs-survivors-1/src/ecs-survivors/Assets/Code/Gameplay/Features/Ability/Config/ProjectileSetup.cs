@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Code.Gameplay.Features.Statuses;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Ability.Config
@@ -6,6 +8,8 @@ namespace Code.Gameplay.Features.Ability.Config
     [Serializable]
     public class ProjectileSetup
     {
+        public List<StatusSetup> StatusesContainer;
+
         public LayerMask Mask;
         public float Speed;
         public int Pierce = 1;

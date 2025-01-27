@@ -2,6 +2,7 @@
 using Code.Common.Entity;
 using Code.Common.Extensions;
 using Code.Gameplay.Features.CharacterStats;
+using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.TargetCollection;
@@ -47,6 +48,7 @@ namespace Code.Gameplay.Features.Hero
                     .AddExperience(0)
                     .AddPickupRadius(1f)
                     .AddRadius(0.5f)
+                    .PutOnCooldown(0.15f)
                     .AddMinCountToPullTargets(1)
                     .AddPullTargetList(new List<int>(32))
                     .AddPullTargetHolderStatuses(new List<StatusSetup>(32))
@@ -57,6 +59,7 @@ namespace Code.Gameplay.Features.Hero
                     .With(entity => entity.isHero = true)
                     .With(entity => entity.PullTargetHolderStatuses.Add(StatusSetup.Create(StatusTypeId.SpeedUp,100f,2)))
                     .With(entity => entity.isAlive = true)
+                    .With(entity => entity.isPullTargetConsistently = true)
                     .With(entity => entity.isMovingAvailable = true)
                     .With(entity => entity.isPullingDetector = true)
                     .With(entity => entity.isPullTargetHolder = true)

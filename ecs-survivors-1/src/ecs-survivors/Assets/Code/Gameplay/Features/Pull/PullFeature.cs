@@ -17,6 +17,7 @@ namespace Code.Gameplay.Features.Pull
             Add(systems.Create<AddPullableToPullableHolderWithNoLimitSystem>());
             
             Add(systems.Create<MoveToPullableHolderSystem>());   
+            Add(systems.Create<SequentialMoveToPullableHolderSystem>());   
             Add(systems.Create<ApplySpeedUpStatusOnPullingSystem>());   
             
             Add(systems.Create<MarkPullableDeadOnPullingFinishedSystem>());   

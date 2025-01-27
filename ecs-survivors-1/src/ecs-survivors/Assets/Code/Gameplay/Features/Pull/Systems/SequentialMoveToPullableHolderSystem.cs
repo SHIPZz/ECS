@@ -1,20 +1,25 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Code.Gameplay.Features.Cooldown;
+using Entitas;
 
 namespace Code.Gameplay.Features.Pull.Systems
 {
-    public class MoveToPullableHolderSystem : IExecuteSystem
+    public class SequentialMoveToPullableHolderSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _pullableHolders;
         private readonly GameContext _game;
+        private readonly List<GameEntity> _buffer = new(32);
 
-        public MoveToPullableHolderSystem(GameContext game)
+        public SequentialMoveToPullableHolderSystem(GameContext game)
         {
             _game = game;
             _pullableHolders = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.PullTargetList,
                 GameMatcher.PullTargetHolder,
+                GameMatcher.CooldownUp,
+                GameMatcher.PullTargetConsistently,
                 GameMatcher.MinCountToPullTargets
-                ).NoneOf(GameMatcher.PullTargetConsistently));
+            ));
         }
 
         public void Execute()
@@ -22,7 +27,7 @@ namespace Code.Gameplay.Features.Pull.Systems
             if (_pullableHolders.count <= 0)
                 return;
 
-            foreach (GameEntity pullTargetsHolder in _pullableHolders)
+            foreach (GameEntity pullTargetsHolder in _pullableHolders.GetEntities(_buffer))
             foreach (int targetId in pullTargetsHolder.PullTargetList)
             {
                 if (pullTargetsHolder.PullTargetList.Count < pullTargetsHolder.MinCountToPullTargets)
@@ -36,9 +41,12 @@ namespace Code.Gameplay.Features.Pull.Systems
                 SetUpPulling(target);
 
                 target.AddFollowTargetId(pullTargetsHolder.Id);
+                pullTargetsHolder.PutOnCooldown();
+                
+                break;
             }
         }
-        
+
         private static bool SetUpPullingAvailable(GameEntity target, GameEntity pullTargetsHolder)
         {
             if (target == null || target.isPulling)

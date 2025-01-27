@@ -9,6 +9,8 @@ namespace Code.Gameplay.Features.Pull
     [Game] public class PullTargetHolderStatuses : IComponent { public List<StatusSetup> Value; }
     
     [Game] public class PullTargetHolder : IComponent {  }
+    
+    [Game] public class PullTargetConsistently : IComponent {  }
 
     [Game] public class PullingDetector : IComponent {  }
     

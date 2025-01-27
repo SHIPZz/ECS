@@ -22,6 +22,9 @@ namespace Code.Gameplay.Features.Follow.Systems
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
                 entity.isFollowingUp = entity.FollowDistanceLeft <= MinDistance;
+
+                if (entity.isFollowingUp)
+                    entity.RemoveFollowDistanceLeft();
             }
         }
     }

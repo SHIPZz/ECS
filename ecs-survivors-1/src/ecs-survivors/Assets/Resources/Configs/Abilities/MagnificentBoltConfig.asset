@@ -16,7 +16,9 @@ MonoBehaviour:
   AbilityLevels:
   - Cooldown: 1
     Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
-    EffectSetups: []
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 35
     StatusSetups: []
     ProjectileSetup:
       StatusesContainer:

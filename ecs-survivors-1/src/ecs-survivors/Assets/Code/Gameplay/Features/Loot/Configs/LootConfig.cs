@@ -15,5 +15,6 @@ namespace Code.Gameplay.Features.Loot.Configs
 
         public List<EffectSetup> EffectSetups;
         public List<StatusSetup> StatusSetups;
+        public float AnimationDuration = 1f;
     }
 }

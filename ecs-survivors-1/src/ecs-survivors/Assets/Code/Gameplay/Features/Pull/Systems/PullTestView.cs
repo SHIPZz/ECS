@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
@@ -15,6 +16,8 @@ namespace Code.Gameplay.Features.Pull.Systems
 {
     public class PullTestView : MonoBehaviour
     {
+        public AnimationCurve AnimationCurve;
+        
         public int MaxPullTargets = 5;
         public int MinPullTargets = 1;
         public CollisionLayer Layer;
@@ -28,6 +31,8 @@ namespace Code.Gameplay.Features.Pull.Systems
 
         [SerializeField] private float _lastTime;
         private ILootFactory _lootFactory;
+        public float ScaleFactor = 1.5f;
+       [SerializeField] private float _animationDuration  = 1f;
 
         [Inject]
         private void Construct(IIdentifierService identifierService, ILootFactory lootFactory)
@@ -38,30 +43,45 @@ namespace Code.Gameplay.Features.Pull.Systems
 
         private void Awake()
         {
-            CreateEntity.Empty()
-                .AddId(_identifierService.Next())
-                .AddMinCountToPullTargets(MinPullTargets)
-                .AddTargetsBuffer(new List<int>(32))
-                .AddPullTargetLayerMask(Layer.AsMask())
-                .AddPullInRadius(PullInRadius)
-                .AddStatusSetups(new List<StatusSetup>())
-                .With(x => x.AddStatusSetups(StatusSetups))
-                .AddWorldPosition(transform.position)
-                .With(x => x.AddPullTargetList(new List<int>(32)))
-                .With(x => x.isPullingDetector = true)
-                .With(x => x.isPullTargetHolder = true)
-                ;
+            // CreateEntity.Empty()
+            //     .AddId(_identifierService.Next())
+            //     .AddMinCountToPullTargets(MinPullTargets)
+            //     .AddTargetsBuffer(new List<int>(32))
+            //     .AddPullTargetLayerMask(Layer.AsMask())
+            //     .AddPullInRadius(PullInRadius)
+            //     .AddStatusSetups(new List<StatusSetup>())
+            //     .With(x => x.AddStatusSetups(StatusSetups))
+            //     .AddWorldPosition(transform.position)
+            //     .With(x => x.AddPullTargetList(new List<int>(32)))
+            //     .With(x => x.isPullingDetector = true)
+            //     .With(x => x.isPullTargetHolder = true)
+            //     ;
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
-            Vector2 randomOffset = Random.insideUnitCircle * 15f;
-            Vector3 spawnPosition = new Vector3(
-                transform.position.x + randomOffset.x,
-                transform.position.y,
-                transform.position.z + randomOffset.y
-            );
-            _lootFactory.CreateLootItem(LootTypeId, spawnPosition);
+            yield return new WaitForSeconds(2f); 
+
+            float elapsedTime = 0f;
+
+            Vector3 startPosition = transform.position;
+
+            while (elapsedTime < _animationDuration) 
+            {
+                elapsedTime += Time.deltaTime;
+
+                float normalizedTime = (elapsedTime % _animationDuration) / _animationDuration;
+
+                float yOffset = AnimationCurve.Evaluate(normalizedTime) * ScaleFactor;
+
+                transform.position = new Vector3(
+                    startPosition.x,
+                    startPosition.y + yOffset, 
+                    startPosition.z
+                );
+
+                yield return null;
+            }
         }
 
         private void Update()

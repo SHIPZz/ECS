@@ -9,6 +9,7 @@ namespace Code.Gameplay.Features.Movement
         {
             Add(systems.Create<DisableMovingAvailableOnDeadSystem>());
             Add(systems.Create<DirectionalDeltaMoveSystem>());
+            Add(systems.Create<MoveYBySinCurveSystem>());
             Add(systems.Create<OrbitalDeltaMoveSystem>());
             Add(systems.Create<OrbitCenterFollowTargetSystem>());
             Add(systems.Create<UpdateTransformPositionSystem>());

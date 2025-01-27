@@ -37,10 +37,14 @@ namespace Code.Gameplay.Features.Loot.Factory
                 .AddStatModifiers(InitStats.EmptyStatDictionary())
                 .AddLootTypeId(lootTypeId)
                 .AddViewPrefab(lootConfig.ViewPrefab)
+                .AddAnimationDuration(lootConfig.AnimationDuration)
+                .AddElapsedTime(0f)
+                .With(x => x.AddStartHeight(x.WorldPosition.y))
                 .With(x => x.AddExperience(lootConfig.Experience), when: lootConfig.Experience > 0)
                 .With(x => x.AddEffectSetups(lootConfig.EffectSetups), when: !lootConfig.EffectSetups.IsNullOrEmpty())
                 .With(x => x.AddStatusSetups(lootConfig.StatusSetups), when: !lootConfig.StatusSetups.IsNullOrEmpty())
                 .With(x => x.isPullable = true)
+                .With(x => x.isUpdateHeightBySinCurve = true)
                 
                 ;
         }

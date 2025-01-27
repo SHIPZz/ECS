@@ -5,6 +5,18 @@ namespace Code.Gameplay.Features.Movement
 {
     [Game] public class Speed : IComponent { public float Value; }
     
+    [Game] public class AnimationDuration : IComponent { public float Value; }
+    
+    [Game] public class ElapsedTime : IComponent { public float Value; }
+    
+    [Game] public class AnimationCurveComponent : IComponent { public AnimationCurve Value; }
+    
+    [Game] public class UpdateHeightBySinCurve : IComponent {  }
+    
+    [Game] public class HeightUpdated : IComponent {  }
+    
+    [Game] public class StartHeight : IComponent { public float Value; }
+
     [Game] public class Moving : IComponent {  }
 
     [Game] public class MovingAvailable : IComponent {  }

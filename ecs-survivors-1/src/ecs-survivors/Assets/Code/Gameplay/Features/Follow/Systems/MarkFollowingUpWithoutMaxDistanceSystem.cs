@@ -24,7 +24,10 @@ namespace Code.Gameplay.Features.Follow.Systems
                 entity.isFollowingUp = entity.FollowDistanceLeft <= MinDistance;
 
                 if (entity.isFollowingUp)
+                {
                     entity.RemoveFollowDistanceLeft();
+                    entity.isMoving = false;
+                }
             }
         }
     }

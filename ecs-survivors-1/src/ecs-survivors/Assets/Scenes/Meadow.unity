@@ -46092,6 +46092,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MaxPullTargets: 5
   MinPullTargets: 1
   Layer: 7
@@ -46108,6 +46114,8 @@ MonoBehaviour:
   _createTime: 0
   LootTypeId: 3
   _lastTime: 0
+  ScaleFactor: 1.5
+  _animationDuration: 1
 --- !u!4 &1632601165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8305601375823714350, guid: 87c34b8ef28b26c46adaa760fed03aca, type: 3}
@@ -46162,7 +46170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &2021503339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46242,6 +46250,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MaxPullTargets: 5
   MinPullTargets: 1
   Layer: 9
@@ -46258,6 +46290,8 @@ MonoBehaviour:
   _createTime: 3
   LootTypeId: 1
   _lastTime: 0
+  ScaleFactor: 5
+  _animationDuration: 1
 --- !u!1 &2034133083
 GameObject:
   m_ObjectHideFlags: 0

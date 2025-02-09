@@ -2,11 +2,11 @@ using Code.Common.EntityIndicies;
 using Code.Gameplay.Cameras.Provider;
 using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
+using Code.Gameplay.Common.Position;
 using Code.Gameplay.Common.Random;
 using Code.Gameplay.Common.Time;
-using Code.Gameplay.Features.Ability;
-using Code.Gameplay.Features.Ability.Factory;
-using Code.Gameplay.Features.Armament;
+using Code.Gameplay.Features.Abilities.Factory;
+using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Effects.Factory;
 using Code.Gameplay.Features.Enchants.UIFactories;
@@ -15,18 +15,26 @@ using Code.Gameplay.Features.Enemies.Factory;
 using Code.Gameplay.Features.Enemies.Services;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.LevelUp.Services;
 using Code.Gameplay.Features.Loot.Factory;
-using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.Features.Statuses.Applier;
 using Code.Gameplay.Input.Service;
 using Code.Gameplay.Levels;
 using Code.Gameplay.StaticData;
+using Code.Gameplay.Windows;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Identifiers;
 using Code.Infrastructure.Loading;
+using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
+using Code.Meta.Factory;
+using Code.Meta.Features.Simulation.Roll;
+using Code.Meta.SaveLoad;
+using Code.Progress.Provider;
+using Code.States.Factory;
+using Code.States.GameStates;
+using Code.States.StateMachine;
 using Entitas;
 using Zenject;
 
@@ -34,6 +42,9 @@ namespace Code.Infrastructure.Installers
 {
     public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
     {
+        public EnemySpawnConfig EnemySpawnConfig;
+        public RollConfig RollConfig;
+        
         public override void InstallBindings()
         {
             BindInputService();
@@ -48,11 +59,43 @@ namespace Code.Infrastructure.Installers
             BindUiFactories();
             BindEffectFactory();
             BindEntityIndices();
+            BindUIServices();
+            BindGameStates();
+            BindMetaServices();
+
+            Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
+            
+            Container.BindInstance(EnemySpawnConfig);
+            Container.BindInstance(RollConfig);
+        }
+
+        private void BindMetaServices()
+        {
+            Container.Bind<IMetaFactory>().To<MetaFactory>().AsSingle();
+        }
+
+        private void BindUIServices()
+        {
+            Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
+        }
+        
+        private void BindGameStates()
+        {
+            Container.BindInterfacesAndSelfTo<BootstrapState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadProgressState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ActualizeProgressState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingHomeScreenState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HomeScreenState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
         }
 
         private void BindUiFactories()
         {
+            Container.BindInterfacesAndSelfTo<WindowFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnchantUIFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AbilityUIFactory>().AsSingle();
         }
 
         private void BindEntityIndices()
@@ -77,6 +120,9 @@ namespace Code.Infrastructure.Installers
 
             Container.Bind<GameContext>().FromInstance(Contexts.sharedInstance.game).AsSingle();
             
+            Container.Bind<InputContext>().FromInstance(Contexts.sharedInstance.input).AsSingle();
+            Container.Bind<MetaContext>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
+            
             Container.Bind<IContext<GameEntity>>().FromInstance(Contexts.sharedInstance.game).AsSingle();
         }
 
@@ -88,6 +134,8 @@ namespace Code.Infrastructure.Installers
         private void BindGameplayServices()
         {
             Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
+            Container.Bind<IAbilityUpgradeService>().To<AbilityUpgradeService>().AsSingle();
+            Container.Bind<ILevelUpService>().To<LevelUpService>().AsSingle();
             Container.Bind<ILootFactory>().To<LootFactory>().AsSingle();
             Container.Bind<ILevelDataProvider>().To<LevelDataProvider>().AsSingle();
             Container.Bind<IGetClosestEntityService>().To<GetClosestEntityService>().AsTransient();
@@ -105,8 +153,11 @@ namespace Code.Infrastructure.Installers
 
         private void BindInfrastructureServices()
         {
-            Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
+            Container.Bind<ISaveLoadService>().To<SaveLoadService>().AsSingle();
+            Container.Bind<IStateFactory>().To<StateFactory>().AsSingle();
+            Container.Bind<IProgressProvider>().To<ProgressProvider>().AsSingle();
             Container.Bind<IIdentifierService>().To<IdentifierService>().AsSingle();
+            Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
         }
 
         private void BindAssetManagementServices()
@@ -116,6 +167,7 @@ namespace Code.Infrastructure.Installers
 
         private void BindCommonServices()
         {
+            Container.Bind<IGetRandomPositionService>().To<GetRandomPositionService>().AsSingle();
             Container.Bind<IRandomService>().To<UnityRandomService>().AsSingle();
             Container.Bind<ICollisionRegistry>().To<CollisionRegistry>().AsSingle();
             Container.Bind<IPhysicsService>().To<PhysicsService>().AsSingle();
@@ -130,8 +182,7 @@ namespace Code.Infrastructure.Installers
 
         public void Initialize()
         {
-            Container.Resolve<IStaticDataService>().LoadAll();
-            Container.Resolve<ISceneLoader>().LoadScene(Scenes.Meadow);
+            Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
         }
     }
 }

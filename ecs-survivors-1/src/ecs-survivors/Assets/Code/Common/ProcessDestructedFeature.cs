@@ -1,18 +1,18 @@
 ﻿using Code.Common.Systems.Destruct;
-using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Common
 {
     public sealed class ProcessDestructedFeature : Feature
     {
-        public ProcessDestructedFeature(ISystemFactory systems)
+        public ProcessDestructedFeature(ISystemFactory system)
         {
-            Add(systems.Create<SelfDestructTimerSystem>());
+            Add(system.Create<SelfDestructTimerSystem>());
             
-            Add(systems.Create<CleanupGameDestructedViewSystem>());
+            Add(system.Create<CleanupGameDestructedViewSystem>());
+            Add(system.Create<CleanupMetaDestructedSystem>());
             
-            Add(systems.Create<CleanupGameDestructedSystem>());
+            Add(system.Create<CleanupGameDestructedSystem>());
         }
     }
 }

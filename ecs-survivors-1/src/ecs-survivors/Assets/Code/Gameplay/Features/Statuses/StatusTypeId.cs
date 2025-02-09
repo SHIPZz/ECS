@@ -13,7 +13,8 @@
         ExplosiveEnchant,
         Hex,
         ChangeSkin,
-        Vampirism
+        Vampirism,
+        PeriodicDamage
         
     }
 }

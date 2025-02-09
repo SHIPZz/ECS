@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Code.Gameplay.Features.Ability.Config;
+using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.StaticData;

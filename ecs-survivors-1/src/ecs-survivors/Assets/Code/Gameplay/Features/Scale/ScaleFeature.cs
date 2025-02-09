@@ -1,14 +1,13 @@
-﻿using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
-using Code.Gameplay.Features.Scale.Systems;
+﻿using Code.Gameplay.Features.Scale.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Scale
 {
     public sealed class ScaleFeature : Feature
     {
-        public ScaleFeature(ISystemFactory systems)
+        public ScaleFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<UpdateScaleSystem>());
+            Add(systemses.Create<UpdateScaleSystem>());
         }
     }
 }

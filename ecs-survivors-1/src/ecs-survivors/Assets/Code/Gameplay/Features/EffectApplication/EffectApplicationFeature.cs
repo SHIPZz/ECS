@@ -1,14 +1,13 @@
 ﻿using Code.Gameplay.Features.EffectApplication.Systems;
-using Code.Gameplay.Features.Effects.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.EffectApplication
 {
     public sealed class EffectApplicationFeature : Feature
     {
-        public EffectApplicationFeature(ISystemFactory systems)
+        public EffectApplicationFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<ApplyEffectsOnTargetsSystem>());
+            Add(systemses.Create<ApplyEffectsOnTargetsSystem>());
         }
     }
 }

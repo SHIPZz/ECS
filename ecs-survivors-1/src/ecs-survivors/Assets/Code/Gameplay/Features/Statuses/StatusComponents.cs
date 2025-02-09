@@ -14,6 +14,8 @@ namespace Code.Gameplay.Features.Statuses
 
     [Game] public class SpeedUp : IComponent { }
     
+    [Game] public class PeriodicDamageStatus : IComponent { }
+    
     [Game] public class Invulnerable : IComponent { }
     
     [Game] public class InvulnerableStatus : IComponent { }

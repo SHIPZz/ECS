@@ -15,6 +15,7 @@ namespace Code.Gameplay.Features.Movement.Systems
                 .AllOf(
                     GameMatcher.WorldPosition,
                     GameMatcher.AnimationDuration,
+                    GameMatcher.AnimationCurve,
                     GameMatcher.ElapsedTime,
                     GameMatcher.StartHeight,
                     GameMatcher.Moving,
@@ -38,8 +39,8 @@ namespace Code.Gameplay.Features.Movement.Systems
                     continue;
                 }
                 
-                var normalizedTime = (elapsedTime % animationDuration) / animationDuration;
-                var yOffset = Mathf.Sin(normalizedTime * Mathf.PI) * 2f; 
+                float normalizedTime = (elapsedTime % animationDuration) / animationDuration;
+                float yOffset = entity.AnimationCurve.Evaluate(normalizedTime); 
                 
                 entity.ReplaceWorldPosition(new Vector3(
                     position.x,

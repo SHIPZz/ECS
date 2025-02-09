@@ -62,3 +62,5 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 0
       Prefab: {fileID: 0}
+    Icon: {fileID: 21300000, guid: e42d4921f3ad07542bf67e911bb9bb07, type: 3}
+    Description: MagnificentBolt

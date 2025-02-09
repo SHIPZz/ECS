@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.IncreaseMaxHpAbility increaseMaxHpAbilityComponent = new Code.Gameplay.Features.Ability.IncreaseMaxHpAbility();
+    static readonly Code.Gameplay.Features.Abilities.IncreaseMaxHpAbility increaseMaxHpAbilityComponent = new Code.Gameplay.Features.Abilities.IncreaseMaxHpAbility();
 
     public bool isIncreaseMaxHpAbility {
         get { return HasComponent(GameComponentsLookup.IncreaseMaxHpAbility); }

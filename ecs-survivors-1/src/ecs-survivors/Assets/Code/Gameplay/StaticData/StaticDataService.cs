@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Configs;
-using Code.Gameplay.Features.Ability;
-using Code.Gameplay.Features.Ability.Config;
+using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Enemies;
+using Code.Gameplay.Features.LevelUp;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
+using Code.Gameplay.Windows;
+using Code.Gameplay.Windows.Configs;
+using Code.Meta.Features.AfkGain.Conigs;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -17,7 +21,12 @@ namespace Code.Gameplay.StaticData
         private Dictionary<EnchantTypeId, EnchantConfig> _enchantConfigs;
         private Dictionary<EnemyTypeId, EnemyConfig> _enemies;
         private Dictionary<LootTypeId, LootConfig> _lootById;
+        private Dictionary<WindowId, GameObject> _windowPrefabsById;
+        private LevelUpConfig _levelUpConfig;
+        private AfkGainConfig _afkGainConfig;
         
+        public AfkGainConfig AfkGainConfig => _afkGainConfig;
+
         public CollisionLayerConfig CollisionLayerConfig { get; private set; }
 
         public void LoadAll()
@@ -28,12 +37,29 @@ namespace Code.Gameplay.StaticData
             LoadEnchants();
             LoadEnemies();
             LoadLoot();
+            LoadWindows();
+            LoadLevelUpRules();
+            LoadAfkGain();
         }
+
+        private void LoadAfkGain()
+        {
+            _afkGainConfig = Resources.Load<AfkGainConfig>("Configs/AfkGainConfig");
+        }
+
+        public GameObject GetWindowPrefab(WindowId id) =>
+            _windowPrefabsById.TryGetValue(id, out GameObject prefab)
+                ? prefab
+                : throw new Exception($"Prefab config for window {id} was not found");
 
         public AbilityConfig GetAbilityConfig(AbilityTypeId abilityTypeId) => _abilityConfigs[abilityTypeId];
 
+        public int MaxLevel() => _levelUpConfig.MaxLevel;
+
+        public float ExperienceForLevel(int level) => _levelUpConfig.ExperienceForLevel[level];
+
         public EnemyConfig GetEnemyConfig(EnemyTypeId enemyTypeId) => _enemies[enemyTypeId];
-        
+
         public LootConfig GetLootConfig(LootTypeId lootTypeId) => _lootById[lootTypeId];
 
         public AbilityLevel GetAbilityLevel(AbilityTypeId abilityTypeId, int level)
@@ -41,8 +67,13 @@ namespace Code.Gameplay.StaticData
             AbilityConfig abilityConfig = _abilityConfigs[abilityTypeId];
 
             List<AbilityLevel> abilityLevels = abilityConfig.AbilityLevels;
-            
-            return abilityLevels.Count > level ? abilityLevels[^1] : abilityLevels[level - 1];
+
+            Debug.Log($"{abilityTypeId} - {level}");
+
+            if (level > abilityLevels.Count)
+                return abilityLevels[^1];
+
+            return level - 1 < 0 ? abilityLevels[level] : abilityLevels[level - 1];
         }
 
         public EnchantConfig GetEnchantConfig(EnchantTypeId enchantType)
@@ -59,6 +90,14 @@ namespace Code.Gameplay.StaticData
         {
             _abilityConfigs = Resources.LoadAll<AbilityConfig>("Configs/Abilities")
                 .ToDictionary(x => x.AbilityTypeId, x => x);
+        }
+
+        private void LoadWindows()
+        {
+            _windowPrefabsById = Resources
+                .Load<WindowsConfig>("Configs/Windows/WindowConfig")
+                .WindowConfigs
+                .ToDictionary(x => x.Id, x => x.Prefab);
         }
 
         private void LoadLoot()
@@ -78,6 +117,11 @@ namespace Code.Gameplay.StaticData
         {
             _enchantConfigs = Resources.LoadAll<EnchantConfig>("Configs/Enchants")
                 .ToDictionary(x => x.EnchantTypeId, x => x);
+        }
+
+        private void LoadLevelUpRules()
+        {
+            _levelUpConfig = Resources.Load<LevelUpConfig>("Configs/LevelUp/LevelUpConfig");
         }
     }
 }

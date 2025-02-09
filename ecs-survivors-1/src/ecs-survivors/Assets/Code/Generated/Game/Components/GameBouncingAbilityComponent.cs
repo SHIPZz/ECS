@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.BouncingAbility bouncingAbilityComponent = new Code.Gameplay.Features.Ability.BouncingAbility();
+    static readonly Code.Gameplay.Features.Abilities.BouncingAbility bouncingAbilityComponent = new Code.Gameplay.Features.Abilities.BouncingAbility();
 
     public bool isBouncingAbility {
         get { return HasComponent(GameComponentsLookup.BouncingAbility); }

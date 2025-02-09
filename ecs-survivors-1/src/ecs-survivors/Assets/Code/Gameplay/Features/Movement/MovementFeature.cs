@@ -1,20 +1,23 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
-using Code.Gameplay.Features.Movement.Systems;
+﻿using Code.Gameplay.Features.Movement.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Movement
 {
     public sealed class MovementFeature : Feature
     {
-        public MovementFeature(ISystemFactory systems)
+        public MovementFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<DisableMovingAvailableOnDeadSystem>());
-            Add(systems.Create<DirectionalDeltaMoveSystem>());
-            Add(systems.Create<MoveYBySinCurveSystem>());
-            Add(systems.Create<OrbitalDeltaMoveSystem>());
-            Add(systems.Create<OrbitCenterFollowTargetSystem>());
-            Add(systems.Create<UpdateTransformPositionSystem>());
-            Add(systems.Create<TurnAlongDirectionSystem>());
-            Add(systems.Create<RotateAlongDirectionSystem>());
+            Add(systemses.Create<DisableMovingAvailableOnDeadSystem>());
+            Add(systemses.Create<DirectionalDeltaMoveSystem>());
+            Add(systemses.Create<MoveYBySinCurveSystem>());
+            Add(systemses.Create<StopMovementOnEndPointReachedSystem>());
+            Add(systemses.Create<MarkCollectingAvailableOnEndPointReachedSystem>());
+            Add(systemses.Create<CreateAbilityOnEndPointReachedSystem>());
+            Add(systemses.Create<OrbitalDeltaMoveSystem>());
+            Add(systemses.Create<OrbitCenterFollowTargetSystem>());
+            Add(systemses.Create<UpdateTransformPositionSystem>());
+            Add(systemses.Create<TurnAlongDirectionSystem>());
+            Add(systemses.Create<RotateAlongDirectionSystem>());
         }
     }
 }

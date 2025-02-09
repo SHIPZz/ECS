@@ -33,21 +33,21 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Ability.ParentAbility parentAbility { get { return (Code.Gameplay.Features.Ability.ParentAbility)GetComponent(GameComponentsLookup.ParentAbility); } }
-    public Code.Gameplay.Features.Ability.Config.AbilityTypeId ParentAbility { get { return parentAbility.Value; } }
+    public Code.Gameplay.Features.Abilities.ParentAbility parentAbility { get { return (Code.Gameplay.Features.Abilities.ParentAbility)GetComponent(GameComponentsLookup.ParentAbility); } }
+    public Code.Gameplay.Features.Abilities.Config.AbilityTypeId ParentAbility { get { return parentAbility.Value; } }
     public bool hasParentAbility { get { return HasComponent(GameComponentsLookup.ParentAbility); } }
 
-    public GameEntity AddParentAbility(Code.Gameplay.Features.Ability.Config.AbilityTypeId newValue) {
+    public GameEntity AddParentAbility(Code.Gameplay.Features.Abilities.Config.AbilityTypeId newValue) {
         var index = GameComponentsLookup.ParentAbility;
-        var component = (Code.Gameplay.Features.Ability.ParentAbility)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.ParentAbility));
+        var component = (Code.Gameplay.Features.Abilities.ParentAbility)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.ParentAbility));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
     }
 
-    public GameEntity ReplaceParentAbility(Code.Gameplay.Features.Ability.Config.AbilityTypeId newValue) {
+    public GameEntity ReplaceParentAbility(Code.Gameplay.Features.Abilities.Config.AbilityTypeId newValue) {
         var index = GameComponentsLookup.ParentAbility;
-        var component = (Code.Gameplay.Features.Ability.ParentAbility)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.ParentAbility));
+        var component = (Code.Gameplay.Features.Abilities.ParentAbility)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.ParentAbility));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

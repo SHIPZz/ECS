@@ -1,6 +1,5 @@
 ﻿using Code.Gameplay.Features.Death.Systems;
-using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Death
 {

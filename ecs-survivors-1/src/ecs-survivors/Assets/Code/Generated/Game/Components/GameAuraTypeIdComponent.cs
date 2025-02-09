@@ -34,10 +34,10 @@ public sealed partial class GameMatcher {
 public partial class GameEntity {
 
     public Code.Gameplay.Features.Armament.AuraTypeIdComponent auraTypeId { get { return (Code.Gameplay.Features.Armament.AuraTypeIdComponent)GetComponent(GameComponentsLookup.AuraTypeId); } }
-    public Code.Gameplay.Features.Ability.Config.AuraTypeId AuraTypeId { get { return auraTypeId.Value; } }
+    public Code.Gameplay.Features.Abilities.Config.AuraTypeId AuraTypeId { get { return auraTypeId.Value; } }
     public bool hasAuraTypeId { get { return HasComponent(GameComponentsLookup.AuraTypeId); } }
 
-    public GameEntity AddAuraTypeId(Code.Gameplay.Features.Ability.Config.AuraTypeId newValue) {
+    public GameEntity AddAuraTypeId(Code.Gameplay.Features.Abilities.Config.AuraTypeId newValue) {
         var index = GameComponentsLookup.AuraTypeId;
         var component = (Code.Gameplay.Features.Armament.AuraTypeIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Armament.AuraTypeIdComponent));
         component.Value = newValue;
@@ -45,7 +45,7 @@ public partial class GameEntity {
         return this;
     }
 
-    public GameEntity ReplaceAuraTypeId(Code.Gameplay.Features.Ability.Config.AuraTypeId newValue) {
+    public GameEntity ReplaceAuraTypeId(Code.Gameplay.Features.Abilities.Config.AuraTypeId newValue) {
         var index = GameComponentsLookup.AuraTypeId;
         var component = (Code.Gameplay.Features.Armament.AuraTypeIdComponent)CreateComponent(index, typeof(Code.Gameplay.Features.Armament.AuraTypeIdComponent));
         component.Value = newValue;

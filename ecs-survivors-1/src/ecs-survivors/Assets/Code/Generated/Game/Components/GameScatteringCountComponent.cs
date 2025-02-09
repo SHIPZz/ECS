@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Ability.ScatteringCount scatteringCount { get { return (Code.Gameplay.Features.Ability.ScatteringCount)GetComponent(GameComponentsLookup.ScatteringCount); } }
+    public Code.Gameplay.Features.Abilities.ScatteringCount scatteringCount { get { return (Code.Gameplay.Features.Abilities.ScatteringCount)GetComponent(GameComponentsLookup.ScatteringCount); } }
     public int ScatteringCount { get { return scatteringCount.Value; } }
     public bool hasScatteringCount { get { return HasComponent(GameComponentsLookup.ScatteringCount); } }
 
     public GameEntity AddScatteringCount(int newValue) {
         var index = GameComponentsLookup.ScatteringCount;
-        var component = (Code.Gameplay.Features.Ability.ScatteringCount)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.ScatteringCount));
+        var component = (Code.Gameplay.Features.Abilities.ScatteringCount)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.ScatteringCount));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceScatteringCount(int newValue) {
         var index = GameComponentsLookup.ScatteringCount;
-        var component = (Code.Gameplay.Features.Ability.ScatteringCount)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.ScatteringCount));
+        var component = (Code.Gameplay.Features.Abilities.ScatteringCount)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.ScatteringCount));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

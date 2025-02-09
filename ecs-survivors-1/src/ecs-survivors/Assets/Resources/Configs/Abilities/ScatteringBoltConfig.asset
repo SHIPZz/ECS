@@ -16,14 +16,43 @@ MonoBehaviour:
   AbilityLevels:
   - Cooldown: 1
     Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 5
+    StatusSetups: []
     ProjectileSetup:
+      StatusesContainer: []
+      Mask:
+        serializedVersion: 2
+        m_Bits: 0
       Speed: 6
       Pierce: 1
       ContactRadius: 0.3
       CollectTargetInterval: 0.2
       Lifetime: 3
       Damage: 15
+      AdditionalProjectileCount: 0
+      AdditionalProjectileHitCount: 0
       BouncingCount: 2
-      ScatteringCount: 6
+      ScatteringCount: 4
       RadialRadius: 2
       RadialCount: 4
+      ProjectileCount: 1
+      OrbitRadius: 1
+      MinCountToPullTargets: 1
+      MaxCountToPullTargets: 3
+      DestructOnMaxPullTargetReached: 1
+    AuraSetup:
+      AuraTypeId: 0
+      Radius: 1
+      Interval: 1
+      Cooldown: 2
+      Lifetime: 2
+      EffectSetups: []
+      StatusSetups: []
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      Prefab: {fileID: 0}
+    Icon: {fileID: 21300000, guid: e42d4921f3ad07542bf67e911bb9bb07, type: 3}
+    Description: Scattering bolt

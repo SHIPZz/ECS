@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.SpeedUpAbility speedUpAbilityComponent = new Code.Gameplay.Features.Ability.SpeedUpAbility();
+    static readonly Code.Gameplay.Features.Abilities.SpeedUpAbility speedUpAbilityComponent = new Code.Gameplay.Features.Abilities.SpeedUpAbility();
 
     public bool isSpeedUpAbility {
         get { return HasComponent(GameComponentsLookup.SpeedUpAbility); }

@@ -23,6 +23,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     GameMatcher.TargetLimit,
                     GameMatcher.ProcessedTargetsBuffer,
                     GameMatcher.Radius,
+                    GameMatcher.CollectingAvailable,
                     GameMatcher.CollectTargetsLayerMask
                 ));
         }

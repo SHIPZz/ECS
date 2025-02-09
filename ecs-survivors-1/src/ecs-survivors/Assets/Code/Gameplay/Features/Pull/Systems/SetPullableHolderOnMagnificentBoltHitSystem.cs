@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Extensions;
-using Code.Gameplay.Features.Ability.Config;
+using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.StaticData;

@@ -6,19 +6,19 @@ namespace Code.Gameplay.Input.Systems
 {
     public class EmitInputSystem : IExecuteSystem
     {
-        private readonly IGroup<GameEntity> _entities;
+        private readonly IGroup<InputEntity> _entities;
         private readonly IInputService _inputService;
 
-        public EmitInputSystem(GameContext game, IInputService inputService)
+        public EmitInputSystem(InputContext input, IInputService inputService)
         {
             _inputService = inputService;
-            _entities = game.GetGroup(GameMatcher
-                .AllOf(GameMatcher.Input));
+            _entities = input.GetGroup(InputMatcher
+                .AllOf(InputMatcher.Input));
         }
 
         public void Execute()
         {
-            foreach (GameEntity entity in _entities)
+            foreach (InputEntity entity in _entities)
             {
                 if (_inputService.HasAxisInput())
                     entity.ReplaceAxisInput(new Vector3(_inputService.GetHorizontalAxis(), _inputService.GetVerticalAxis(), 0));

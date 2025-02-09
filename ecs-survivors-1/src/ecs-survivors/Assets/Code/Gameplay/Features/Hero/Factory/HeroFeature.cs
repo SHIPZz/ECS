@@ -1,18 +1,18 @@
 ﻿using Code.Gameplay.Features.Hero.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Hero.Factory
 {
     public sealed class HeroFeature : Feature
     {
-        public HeroFeature(ISystemFactory systems)
+        public HeroFeature(ISystemFactory system)
         {
-            Add(systems.Create<InitializeHeroSystem>());
-            Add(systems.Create<StopCollectTargetsOnHeroDeadSystem>());
-            Add(systems.Create<SetHeroDirectionByInputSystem>());
-            Add(systems.Create<AnimateHeroOnMovementSystem>());
-            Add(systems.Create<HeroDeathSystem>());
-            Add(systems.Create<FinishHeroDeathProcessingSystem>());
+            Add(system.Create<InitializeHeroSystem>());
+            Add(system.Create<StopCollectTargetsOnHeroDeadSystem>());
+            Add(system.Create<SetHeroDirectionByInputSystem>());
+            Add(system.Create<AnimateHeroOnMovementSystem>());
+            Add(system.Create<HeroDeathSystem>());
+            Add(system.Create<FinishHeroDeathProcessingSystem>());
         }
     }
 }

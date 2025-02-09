@@ -20,6 +20,7 @@ namespace Code.Gameplay.Features.TargetCollection.Systems
                     GameMatcher.ReadyToCollectTargets,
                     GameMatcher.WorldPosition,
                     GameMatcher.Radius,
+                    GameMatcher.CollectingAvailable,
                     GameMatcher.CollectTargetsLayerMask
                 ).NoneOf(GameMatcher.TargetLimit));
         }

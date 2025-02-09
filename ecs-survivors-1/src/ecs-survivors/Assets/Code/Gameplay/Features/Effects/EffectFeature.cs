@@ -1,19 +1,19 @@
 ﻿using Code.Gameplay.Features.Effects.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Effects
 {
     public sealed class EffectFeature : Feature
     {
-        public EffectFeature(ISystemFactory systems)
+        public EffectFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<RemoveDamageEffectOnInvurnableTarget>());
-            Add(systems.Create<RemoveEffectsWithoutTargetsSystem>());
+            Add(systemses.Create<RemoveDamageEffectOnInvurnableTarget>());
+            Add(systemses.Create<RemoveEffectsWithoutTargetsSystem>());
             
-            Add(systems.Create<ProcessHealEffectSystem>());
-            Add(systems.Create<ProcessVampirismOnDamageEffectSystem>());
-            Add(systems.Create<ProcessDamageEffectSystem>());
-            Add(systems.Create<CleanupProcessedEffectsSystem>());
+            Add(systemses.Create<ProcessHealEffectSystem>());
+            Add(systemses.Create<ProcessVampirismOnDamageEffectSystem>());
+            Add(systemses.Create<ProcessDamageEffectSystem>());
+            Add(systemses.Create<CleanupProcessedEffectsSystem>());
         }
     }
 }

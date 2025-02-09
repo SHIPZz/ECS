@@ -1,19 +1,19 @@
 ﻿using Code.Gameplay.Features.Armament.Systems;
-using Code.Gameplay.Features.Movement.Factory;
 using Code.Gameplay.Features.Skin;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Armament
 {
     public sealed class ArmamentFeature : Feature
     {
-        public ArmamentFeature(ISystemFactory systems)
+        public ArmamentFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<SetTargetSkinSetupOnArmamentHitSystem>());
-            Add(systems.Create<MarkArmamentProcessedOnTargetLimitReachedSystem>());
-            Add(systems.Create<ProcessMagnificentBoltOnHitSystem>());
-            Add(systems.Create<ScatterOnHitSystem>());
-            Add(systems.Create<FollowProducerSystem>());
-            Add(systems.Create<FinalizeProcessedArmamentSystem>());
+            Add(systemses.Create<SetTargetSkinSetupOnArmamentHitSystem>());
+            Add(systemses.Create<MarkArmamentProcessedOnTargetLimitReachedSystem>());
+            Add(systemses.Create<ProcessMagnificentBoltOnHitSystem>());
+            Add(systemses.Create<ScatterOnHitSystem>());
+            Add(systemses.Create<FollowProducerSystem>());
+            Add(systemses.Create<FinalizeProcessedArmamentSystem>());
         }
     }
 }

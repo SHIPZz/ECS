@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.RadialAbility radialAbilityComponent = new Code.Gameplay.Features.Ability.RadialAbility();
+    static readonly Code.Gameplay.Features.Abilities.RadialAbility radialAbilityComponent = new Code.Gameplay.Features.Abilities.RadialAbility();
 
     public bool isRadialAbility {
         get { return HasComponent(GameComponentsLookup.RadialAbility); }

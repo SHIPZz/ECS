@@ -38,6 +38,7 @@ namespace Code.Gameplay.Features.Loot.Factory
                 .AddLootTypeId(lootTypeId)
                 .AddViewPrefab(lootConfig.ViewPrefab)
                 .AddAnimationDuration(lootConfig.AnimationDuration)
+                .AddAnimationCurve(lootConfig.AnimationCurve)
                 .AddElapsedTime(0f)
                 .With(x => x.AddStartHeight(x.WorldPosition.y))
                 .With(x => x.AddExperience(lootConfig.Experience), when: lootConfig.Experience > 0)

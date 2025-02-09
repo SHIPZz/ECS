@@ -21,6 +21,7 @@ MonoBehaviour:
       Value: 5
     StatusSetups: []
     ProjectileSetup:
+      StatusesContainer: []
       Mask:
         serializedVersion: 2
         m_Bits: 0
@@ -36,10 +37,11 @@ MonoBehaviour:
       ScatteringCount: 0
       RadialRadius: 0
       RadialCount: 0
-      PoisonDuration: 0
-      PoisonDamage: 0
       ProjectileCount: 3
       OrbitRadius: 1
+      MinCountToPullTargets: 1
+      MaxCountToPullTargets: 3
+      DestructOnMaxPullTargetReached: 1
     AuraSetup:
       AuraTypeId: 0
       Radius: 1
@@ -52,3 +54,5 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 0
       Prefab: {fileID: 0}
+    Icon: {fileID: 21300000, guid: e42d4921f3ad07542bf67e911bb9bb07, type: 3}
+    Description: Orbital mushroom

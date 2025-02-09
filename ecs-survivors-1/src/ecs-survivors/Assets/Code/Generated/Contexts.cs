@@ -22,11 +22,15 @@ public partial class Contexts : Entitas.IContexts {
     static Contexts _sharedInstance;
 
     public GameContext game { get; set; }
+    public InputContext input { get; set; }
+    public MetaContext meta { get; set; }
 
-    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game }; } }
+    public Entitas.IContext[] allContexts { get { return new Entitas.IContext [] { game, input, meta }; } }
 
     public Contexts() {
         game = new GameContext();
+        input = new InputContext();
+        meta = new MetaContext();
 
         var postConstructors = System.Linq.Enumerable.Where(
             GetType().GetMethods(),
@@ -78,10 +82,10 @@ public partial class Contexts {
             game.GetGroup(GameMatcher.Id),
             (e, c) => ((Code.Gameplay.Common.Id)c).Value));
 
-        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, Code.Gameplay.Features.Ability.Config.AbilityTypeId>(
+        game.AddEntityIndex(new Entitas.EntityIndex<GameEntity, Code.Gameplay.Features.Abilities.Config.AbilityTypeId>(
             ParentAbility,
             game.GetGroup(GameMatcher.ParentAbility),
-            (e, c) => ((Code.Gameplay.Features.Ability.ParentAbility)c).Value));
+            (e, c) => ((Code.Gameplay.Features.Abilities.ParentAbility)c).Value));
     }
 }
 
@@ -99,8 +103,8 @@ public static class ContextsExtensions {
         return ((Entitas.PrimaryEntityIndex<GameEntity, int>)context.GetEntityIndex(Contexts.Id)).GetEntity(Value);
     }
 
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithParentAbility(this GameContext context, Code.Gameplay.Features.Ability.Config.AbilityTypeId Value) {
-        return ((Entitas.EntityIndex<GameEntity, Code.Gameplay.Features.Ability.Config.AbilityTypeId>)context.GetEntityIndex(Contexts.ParentAbility)).GetEntities(Value);
+    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithParentAbility(this GameContext context, Code.Gameplay.Features.Abilities.Config.AbilityTypeId Value) {
+        return ((Entitas.EntityIndex<GameEntity, Code.Gameplay.Features.Abilities.Config.AbilityTypeId>)context.GetEntityIndex(Contexts.ParentAbility)).GetEntities(Value);
     }
 }
 //------------------------------------------------------------------------------
@@ -119,6 +123,8 @@ public partial class Contexts {
     public void InitializeContextObservers() {
         try {
             CreateContextObserver(game);
+            CreateContextObserver(input);
+            CreateContextObserver(meta);
         } catch(System.Exception e) {
             UnityEngine.Debug.LogError(e);
         }

@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.OrbitingMushroomAbility orbitingMushroomAbilityComponent = new Code.Gameplay.Features.Ability.OrbitingMushroomAbility();
+    static readonly Code.Gameplay.Features.Abilities.OrbitingMushroomAbility orbitingMushroomAbilityComponent = new Code.Gameplay.Features.Abilities.OrbitingMushroomAbility();
 
     public bool isOrbitingMushroomAbility {
         get { return HasComponent(GameComponentsLookup.OrbitingMushroomAbility); }

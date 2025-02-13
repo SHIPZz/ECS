@@ -31,6 +31,7 @@ using Code.Infrastructure.View.Factory;
 using Code.Meta.Factory;
 using Code.Meta.Features.Simulation.Roll;
 using Code.Meta.SaveLoad;
+using Code.Meta.UI.GoldHolders.Behaviours;
 using Code.Progress.Provider;
 using Code.States.Factory;
 using Code.States.GameStates;
@@ -76,7 +77,8 @@ namespace Code.Infrastructure.Installers
 
         private void BindUIServices()
         {
-            Container.BindInterfacesAndSelfTo<WindowService>().AsSingle();
+            Container.Bind<IWindowService>().To<WindowService>().AsSingle();
+            Container.Bind<IStorageUIService>().To<StorageUIService>().AsSingle();
         }
         
         private void BindGameStates()
@@ -95,6 +97,7 @@ namespace Code.Infrastructure.Installers
         {
             Container.BindInterfacesAndSelfTo<WindowFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnchantUIFactory>().AsSingle();
+            Container.Bind<IShopUIFactory>().To<ShopUIFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityUIFactory>().AsSingle();
         }
 

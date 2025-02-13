@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 
 namespace Code.Gameplay.Windows

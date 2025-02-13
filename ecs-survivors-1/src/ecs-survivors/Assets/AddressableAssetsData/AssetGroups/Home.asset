@@ -1,0 +1,135 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Home
+  m_EditorClassIdentifier: 
+  m_GroupName: Home
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 87cc0027f368a6044abc6c90b6690411
+  m_SerializeEntries:
+  - m_GUID: fb5a57dbbf3ab7a47819f28f4b437ae8
+    m_Address: HomeScreen
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2940eb79939e8a64c8756955432c5189
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/Trees/Tree_Raw.aseprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac2eea478f703db4b9ada92bc82dab69
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/Trees/Tree.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 473c1f71ee3769741809de8cc94cdec9
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/01.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c9ac06703d332644aef320b03faaf93
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/02.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bde25b8f33f62a449b2849a1118eba5
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/03.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72c1e27edf6103044b32c0d9c5aae168
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/04.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 740fd1080d753da4d9908b2d92c59943
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/05.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a149223fb6962e4b85e3d78616ad91e
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/06.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 637ab6f03e1324d40a9d5decdd0b599d
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/07.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d81633d9d35eca34ca0e7aaa18e67803
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/08.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f45bcedee5bae714e9101977c704ada4
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/09.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e42d4921f3ad07542bf67e911bb9bb07
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/10.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d8b649f3d123f94eb9581a200042a8a
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/11.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dae505012cf24dc49bda2b358f9907d6
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/12.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e116edef2e46c804093646ea04f2ff63
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/13.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 99c75ae8d833ac844b7fb8eb2ffa97b0
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/14.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a30a139e539a30147a03152eda012d2a
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/15.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f4b80a328781864baa098b7209ccccc
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/16.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f313a24416cf0ad41a41116139925b7a
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/17.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2483c3044b335834faea6ea6518e5826
+    m_Address: Assets/ResourcesStatic/Environment/Meadow/Deco/18.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3d0df09f5bf47f4cb896a62c59aa473
+    m_Address: Assets/ResourcesStatic/Environment/Meadow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: c19499d7af45ca54d8f0b3f14650ae27, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3099b0766ee0fc24683d02e38607bbf6, type: 2}
+    - {fileID: 11400000, guid: 5d98b4ede7f41f34494b11de7b5e987e, type: 2}

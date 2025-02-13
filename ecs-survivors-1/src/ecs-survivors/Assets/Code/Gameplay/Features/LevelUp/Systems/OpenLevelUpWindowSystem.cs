@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Gameplay.Windows;
 using Entitas;
+using Resources.Gameplay.Windows;
 
 namespace Code.Gameplay.Features.LevelUp.Systems
 {

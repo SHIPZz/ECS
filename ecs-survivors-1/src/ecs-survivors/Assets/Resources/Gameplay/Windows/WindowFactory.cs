@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.StaticData;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 using Zenject;
 

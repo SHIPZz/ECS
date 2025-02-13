@@ -4,6 +4,7 @@ using Code.Gameplay.Features.Abilities.Services;
 using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.StaticData;
 using Code.Gameplay.Windows;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 using Zenject;
 

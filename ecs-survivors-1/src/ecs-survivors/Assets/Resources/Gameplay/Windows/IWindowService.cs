@@ -1,4 +1,6 @@
-﻿namespace Code.Gameplay.Windows
+﻿using Resources.Gameplay.Windows;
+
+namespace Code.Gameplay.Windows
 {
   public interface IWindowService
   {

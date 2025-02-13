@@ -8,9 +8,10 @@ using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.LevelUp;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
-using Code.Gameplay.Windows;
 using Code.Gameplay.Windows.Configs;
 using Code.Meta.Features.AfkGain.Conigs;
+using Code.Meta.UI.Shop.Items;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -24,7 +25,8 @@ namespace Code.Gameplay.StaticData
         private Dictionary<WindowId, GameObject> _windowPrefabsById;
         private LevelUpConfig _levelUpConfig;
         private AfkGainConfig _afkGainConfig;
-        
+        private List<ShopItemConfig> _shopItemConfigs;
+
         public AfkGainConfig AfkGainConfig => _afkGainConfig;
 
         public CollisionLayerConfig CollisionLayerConfig { get; private set; }
@@ -40,11 +42,23 @@ namespace Code.Gameplay.StaticData
             LoadWindows();
             LoadLevelUpRules();
             LoadAfkGain();
+            LoadShopItems();
         }
 
         private void LoadAfkGain()
         {
-            _afkGainConfig = Resources.Load<AfkGainConfig>("Configs/AfkGainConfig");
+            _afkGainConfig = UnityEngine.Resources.Load<AfkGainConfig>("Configs/AfkGainConfig");
+        }
+
+        public void LoadShopItems()
+        {
+           _shopItemConfigs = UnityEngine.Resources.LoadAll<ShopItemConfig>("Configs/Shopitems")
+                .ToList();
+        }
+
+        public ShopItemConfig GetShopItemConfig(ShopItemId shopItemId)
+        {
+            return _shopItemConfigs.FirstOrDefault(x => x.ShopItemId == shopItemId);
         }
 
         public GameObject GetWindowPrefab(WindowId id) =>
@@ -83,18 +97,18 @@ namespace Code.Gameplay.StaticData
 
         private void LoadCollisionLayerConfig()
         {
-            CollisionLayerConfig = Resources.Load<CollisionLayerConfig>("Configs/CollisionLayer/CollisionLayerConfig");
+            CollisionLayerConfig = UnityEngine.Resources.Load<CollisionLayerConfig>("Configs/CollisionLayer/CollisionLayerConfig");
         }
 
         private void LoadAbilities()
         {
-            _abilityConfigs = Resources.LoadAll<AbilityConfig>("Configs/Abilities")
+            _abilityConfigs = UnityEngine.Resources.LoadAll<AbilityConfig>("Configs/Abilities")
                 .ToDictionary(x => x.AbilityTypeId, x => x);
         }
 
         private void LoadWindows()
         {
-            _windowPrefabsById = Resources
+            _windowPrefabsById = UnityEngine.Resources
                 .Load<WindowsConfig>("Configs/Windows/WindowConfig")
                 .WindowConfigs
                 .ToDictionary(x => x.Id, x => x.Prefab);
@@ -102,26 +116,26 @@ namespace Code.Gameplay.StaticData
 
         private void LoadLoot()
         {
-            _lootById = Resources
+            _lootById = UnityEngine.Resources
                 .LoadAll<LootConfig>("Configs/Loot")
                 .ToDictionary(x => x.Id, x => x);
         }
 
         private void LoadEnemies()
         {
-            _enemies = Resources.LoadAll<EnemyConfig>("Configs/Enemies")
+            _enemies = UnityEngine.Resources.LoadAll<EnemyConfig>("Configs/Enemies")
                 .ToDictionary(x => x.EnemyTypeId, x => x);
         }
 
         private void LoadEnchants()
         {
-            _enchantConfigs = Resources.LoadAll<EnchantConfig>("Configs/Enchants")
+            _enchantConfigs = UnityEngine.Resources.LoadAll<EnchantConfig>("Configs/Enchants")
                 .ToDictionary(x => x.EnchantTypeId, x => x);
         }
 
         private void LoadLevelUpRules()
         {
-            _levelUpConfig = Resources.Load<LevelUpConfig>("Configs/LevelUp/LevelUpConfig");
+            _levelUpConfig = UnityEngine.Resources.Load<LevelUpConfig>("Configs/LevelUp/LevelUpConfig");
         }
     }
 }

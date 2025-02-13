@@ -6,6 +6,8 @@ using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.Windows;
 using Code.Meta.Features.AfkGain.Conigs;
+using Code.Meta.UI.Shop.Items;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 
 namespace Code.Gameplay.StaticData
@@ -23,5 +25,6 @@ namespace Code.Gameplay.StaticData
     GameObject GetWindowPrefab(WindowId id);
     int MaxLevel();
     float ExperienceForLevel(int level);
+    ShopItemConfig GetShopItemConfig(ShopItemId shopItemId);
   }
 }

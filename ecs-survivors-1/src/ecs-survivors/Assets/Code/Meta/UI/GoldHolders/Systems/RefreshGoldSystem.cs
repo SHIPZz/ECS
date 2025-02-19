@@ -1,6 +1,7 @@
-﻿using Entitas;
+﻿using Code.Meta.UI.GoldHolders.Service;
+using Entitas;
 
-namespace Code.Meta.UI.GoldHolders.Behaviours
+namespace Code.Meta.UI.GoldHolders.Systems
 {
     public class RefreshGoldSystem : IExecuteSystem
     {

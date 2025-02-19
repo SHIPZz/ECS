@@ -1,4 +1,6 @@
-﻿using Code.Common.Configs;
+﻿using System.Collections;
+using System.Collections.Generic;
+using Code.Common.Configs;
 using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Enemies;
@@ -26,5 +28,6 @@ namespace Code.Gameplay.StaticData
     int MaxLevel();
     float ExperienceForLevel(int level);
     ShopItemConfig GetShopItemConfig(ShopItemId shopItemId);
+    List<ShopItemConfig> GetShopItemConfigs();
   }
 }

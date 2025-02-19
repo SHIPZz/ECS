@@ -1,7 +1,10 @@
 ﻿using Code.Meta.UI.Shop.Items;
 using UnityEngine;
 
-public interface IShopUIFactory
+namespace Code.Meta.UI.Shop
 {
-    ShopItem CreateShopItem(ShopItemConfig config, Transform at);
+    public interface IShopUIFactory
+    {
+        ShopItem CreateShopItem(ShopItemConfig config, Transform at);
+    }
 }

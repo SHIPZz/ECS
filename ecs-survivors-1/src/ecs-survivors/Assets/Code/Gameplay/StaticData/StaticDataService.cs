@@ -52,13 +52,18 @@ namespace Code.Gameplay.StaticData
 
         public void LoadShopItems()
         {
-           _shopItemConfigs = UnityEngine.Resources.LoadAll<ShopItemConfig>("Configs/Shopitems")
+           _shopItemConfigs = UnityEngine.Resources.LoadAll<ShopItemConfig>("Configs/ShopItems")
                 .ToList();
         }
 
         public ShopItemConfig GetShopItemConfig(ShopItemId shopItemId)
         {
             return _shopItemConfigs.FirstOrDefault(x => x.ShopItemId == shopItemId);
+        }
+        
+        public List<ShopItemConfig> GetShopItemConfigs()
+        {
+            return _shopItemConfigs.ToList();
         }
 
         public GameObject GetWindowPrefab(WindowId id) =>

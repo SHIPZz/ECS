@@ -1,5 +1,6 @@
 using Code.Infrastructure.Systems;
 using Code.Meta.UI;
+using Code.Meta.UI.Shop;
 using Code.States.StateInfrastructure;
 
 namespace Code.States.GameStates
@@ -7,11 +8,14 @@ namespace Code.States.GameStates
     public class HomeScreenState : IState, IUpdateable
     {
         private readonly ISystemFactory _systemFactory;
-        private HomeScreenFeature _homeScreenFeature;
         private readonly GameContext _game;
+        private readonly IShopUIService _shopUIService;
+        
+        private HomeScreenFeature _homeScreenFeature;
 
-        public HomeScreenState(ISystemFactory systemFactory, GameContext game)
+        public HomeScreenState(ISystemFactory systemFactory, GameContext game, IShopUIService shopUIService)
         {
+            _shopUIService = shopUIService;
             _game = game;
             _systemFactory = systemFactory;
         }
@@ -38,8 +42,8 @@ namespace Code.States.GameStates
             _homeScreenFeature.Cleanup();
             _homeScreenFeature.TearDown();
             _homeScreenFeature = null;
+            _shopUIService.Cleanup();
         }
-
 
         private void DestructEntities()
         {

@@ -14,10 +14,5 @@ namespace Code.Meta.UI.Shop.Items
 
     public float Duration;
     public float Boost;
-
-    private void Awake()
-    {
-      
-    }
   }
 }

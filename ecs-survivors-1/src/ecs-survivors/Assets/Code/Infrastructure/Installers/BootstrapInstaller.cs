@@ -29,9 +29,13 @@ using Code.Infrastructure.Loading;
 using Code.Infrastructure.Systems;
 using Code.Infrastructure.View.Factory;
 using Code.Meta.Factory;
+using Code.Meta.Features.Achievements.Services;
 using Code.Meta.Features.Simulation.Roll;
 using Code.Meta.SaveLoad;
 using Code.Meta.UI.GoldHolders.Behaviours;
+using Code.Meta.UI.GoldHolders.Service;
+using Code.Meta.UI.Shop;
+using Code.Meta.UI.Shop.Factory;
 using Code.Progress.Provider;
 using Code.States.Factory;
 using Code.States.GameStates;
@@ -45,6 +49,7 @@ namespace Code.Infrastructure.Installers
     {
         public EnemySpawnConfig EnemySpawnConfig;
         public RollConfig RollConfig;
+        public AchievementsConfig AchievementsConfig;
         
         public override void InstallBindings()
         {
@@ -67,18 +72,21 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<GameStateMachine>().AsSingle();
             
             Container.BindInstance(EnemySpawnConfig);
+            Container.BindInstance(AchievementsConfig);
             Container.BindInstance(RollConfig);
         }
 
         private void BindMetaServices()
         {
             Container.Bind<IMetaFactory>().To<MetaFactory>().AsSingle();
+            Container.Bind<IAchievementService>().To<AchievementService>().AsSingle();
         }
 
         private void BindUIServices()
         {
             Container.Bind<IWindowService>().To<WindowService>().AsSingle();
             Container.Bind<IStorageUIService>().To<StorageUIService>().AsSingle();
+            Container.Bind<IShopUIService>().To<ShopUIService>().AsSingle();
         }
         
         private void BindGameStates()
@@ -98,6 +106,7 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<WindowFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<EnchantUIFactory>().AsSingle();
             Container.Bind<IShopUIFactory>().To<ShopUIFactory>().AsSingle();
+            Container.Bind<IShopItemFactory>().To<ShopItemFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<AbilityUIFactory>().AsSingle();
         }
 
@@ -127,6 +136,7 @@ namespace Code.Infrastructure.Installers
             Container.Bind<MetaContext>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
             
             Container.Bind<IContext<GameEntity>>().FromInstance(Contexts.sharedInstance.game).AsSingle();
+            Container.Bind<IContext<MetaEntity>>().FromInstance(Contexts.sharedInstance.meta).AsSingle();
         }
 
         private void BindCameraProvider()

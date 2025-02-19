@@ -1,4 +1,5 @@
-﻿using Resources.Gameplay.Windows;
+﻿using System;
+using Resources.Gameplay.Windows;
 using UnityEngine;
 
 namespace Code.Gameplay.Windows
@@ -16,16 +17,14 @@ namespace Code.Gameplay.Windows
             SubscribeUpdates();
         }
 
-        private void OnDestroy() =>
-            Cleanup();
-
+        private void OnDestroy() => Cleanup();
 
         protected virtual void OnAwake() { }
 
         protected virtual void Initialize() { }
 
         protected virtual void SubscribeUpdates() { }
-
+        
         protected virtual void UnsubscribeUpdates() { }
 
         protected virtual void Cleanup() =>

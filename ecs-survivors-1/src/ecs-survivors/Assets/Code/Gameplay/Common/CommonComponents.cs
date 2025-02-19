@@ -1,4 +1,5 @@
 ﻿using Code.Gameplay.Common.Visuals;
+using Code.Progress;
 using Entitas;
 using Entitas.CodeGeneration.Attributes;
 using UnityEngine;
@@ -7,7 +8,7 @@ namespace Code.Gameplay.Common
 {
    [Game] public class WorldPosition : IComponent { public Vector3 Value; }
    
-  [Game] public class Id : IComponent {[PrimaryEntityIndex]  public int Value; }
+  [Game, Meta] public class Id : ISavedComponent {[PrimaryEntityIndex]  public int Value; }
   
   [Game] public class EntityLink : IComponent {[EntityIndex]  public int Value; }
     

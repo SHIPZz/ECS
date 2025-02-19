@@ -47,10 +47,6 @@ namespace Code.States.GameStates
 
         private void ActualizeProgress(ProgressData data)
         {
-            CreateMetaEntity.Empty()
-                .AddGoldGainBoost(1)
-                .AddDuration((float)TimeSpan.FromDays(1).TotalSeconds);
-            
             _actualizationFeature.Initialize();
             _actualizationFeature.DeactivateReactiveSystems();
 

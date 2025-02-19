@@ -7,7 +7,7 @@ namespace Code.Meta.Features.Simulation
     
     [Meta] public class GoldGainBoost : ISavedComponent { public float Value; }
     
-    [Meta] public class Duration : IComponent { public float Value; }
+    [Meta] public class Duration : ISavedComponent { public float Value; }
     
     [Meta] public class AppearChance : IComponent { public float Value; }
     

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Code.Common.Entity;
+﻿using Code.Common.Entity;
 using Code.Common.Extensions;
-using Code.Gameplay.Features.Abilities.Config;
 using Code.Infrastructure.Identifiers;
 using Code.Meta.Features.Achievements.Services;
 using Code.Meta.SaveLoad;
@@ -15,9 +11,9 @@ namespace Code.Meta.Features.Achievements.Systems
     {
         private readonly IAchievementService _achievementService;
         private readonly IIdentifierService _identifierService;
-        private ISaveLoadService _saveLoadService;
+        private readonly ISaveLoadService _saveLoadService;
 
-        public InitializeAchievementsSystem(IAchievementService achievementService, 
+        public InitializeAchievementsSystem(IAchievementService achievementService,
             IIdentifierService identifierService,
             ISaveLoadService saveLoadService)
         {
@@ -30,30 +26,34 @@ namespace Code.Meta.Features.Achievements.Systems
         {
             _achievementService.InitializeAchievements();
 
-            if(_saveLoadService.HasSavedProgress)
+            if (_saveLoadService.HasSavedProgress)
                 return;
+
+            //todo refactor:
 
             CreateEntity
                 .Empty()
                 .AddEnemyDeadCount(99);
-            
+
             InitGoldCollectAchievement();
             InitKillEnemyAchievement();
         }
 
         private void InitGoldCollectAchievement()
         {
-            AchievementProgress achievementProgress = _achievementService.GetAchievementProgress(AchievementTypeId.Gold);
-            
+            AchievementProgress achievementProgress =
+                _achievementService.GetAchievementProgress(AchievementTypeId.Gold);
+
             CreateAchievementEntity(achievementProgress)
                 .With(x => x.isGoldCollectAchievement = true)
                 ;
         }
-        
+
         private void InitKillEnemyAchievement()
         {
-            AchievementProgress achievementProgress = _achievementService.GetAchievementProgress(AchievementTypeId.KillEnemy);
-            
+            AchievementProgress achievementProgress =
+                _achievementService.GetAchievementProgress(AchievementTypeId.KillEnemy);
+
             CreateAchievementEntity(achievementProgress)
                 .With(x => x.isKillEnemyAchievement = true)
                 ;
@@ -63,7 +63,7 @@ namespace Code.Meta.Features.Achievements.Systems
         {
             return CreateMetaEntity.Empty()
                 .AddId(_identifierService.Next())
-                .AddAchievementTypeId(achievementProgress.Config.Id)
+                .AddAchievementTypeId(achievementProgress.Id)
                 .AddCurrentAmount(achievementProgress.CurrentValue)
                 .AddTargetAmount(achievementProgress.TargetAmount);
         }

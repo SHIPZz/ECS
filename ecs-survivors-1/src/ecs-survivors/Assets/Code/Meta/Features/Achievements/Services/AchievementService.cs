@@ -28,7 +28,7 @@ namespace Code.Meta.Features.Achievements.Services
 
                 foreach (AchievementConfig config in group.Configs)
                 {
-                    progressList.Add(new AchievementProgress(config));
+                    progressList.Add(new AchievementProgress(config, group.Id));
                 }
 
                 _achievementProgress[group.Id] = progressList;
@@ -80,6 +80,13 @@ namespace Code.Meta.Features.Achievements.Services
             return GetAchievementProgress(id).TargetAmount;
         }
 
+        public bool HasNext(AchievementTypeId id)
+        {
+            AchievementProgress achievementProgress = GetAchievementProgress(id);
+
+            return achievementProgress != null;
+        }
+
         public List<AchievementProgress> GetAchievementsProgress(AchievementTypeId id)
         {
             if (_achievementProgress.TryGetValue(id, out var progressList))
@@ -88,13 +95,6 @@ namespace Code.Meta.Features.Achievements.Services
             }
 
             throw new ArgumentException($"Achievement type {id} not found.");
-        }
-
-        public bool HasNext(AchievementTypeId id)
-        {
-            AchievementProgress achievementProgress = GetAchievementProgress(id);
-
-            return achievementProgress != null;
         }
 
         private void MarkCompleted(AchievementTypeId id, AchievementProgress progress)

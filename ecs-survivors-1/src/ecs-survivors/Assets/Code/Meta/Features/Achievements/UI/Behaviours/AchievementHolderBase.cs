@@ -40,11 +40,16 @@ namespace Code.Meta.Features.Achievements.UI.Behaviours
 
         private void SetNextAchievementOnCompleted(AchievementTypeId id, AchievementConfig config)
         {
-            if (id == Id && _achievementService.HasNext(Id)) 
+            if (Id != id)
+                return;
+
+            if (_achievementService.HasNext(Id))
+            {
                 UpdateValue(id, 0);
-            
-            if(id == Id && !_achievementService.HasNext(Id))
-                gameObject.SetActive(false);
+                return;
+            }
+
+            gameObject.SetActive(false);
         }
 
         protected virtual void ShowValue(AchievementTypeId achievementTypeId, float currentValue)

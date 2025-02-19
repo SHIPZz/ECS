@@ -7,19 +7,6 @@ using UnityEngine;
 public class AchievementsConfig : ScriptableObject
 {
     public List<AchievementGroup> AchievementConfigs;
-    
-    public List<AchievementConfig> GetConfigsByType(AchievementTypeId type)
-    {
-        foreach (var group in AchievementConfigs)
-        {
-            if (group.Id == type)
-            {
-                return group.Configs;
-            }
-        }
-        
-        return null; 
-    }
 }
 
 [Serializable]

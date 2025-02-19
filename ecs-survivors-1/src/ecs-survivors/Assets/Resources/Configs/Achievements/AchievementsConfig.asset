@@ -20,3 +20,4 @@ MonoBehaviour:
   - Id: 2
     Configs:
     - {fileID: 11400000, guid: a5c508add59cde74b84096f33bf5b9ae, type: 2}
+    - {fileID: 11400000, guid: 83c94cf6436cf5140839da9f43482d9c, type: 2}

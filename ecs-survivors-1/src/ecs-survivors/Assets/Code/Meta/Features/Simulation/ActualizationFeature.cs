@@ -1,5 +1,6 @@
 ﻿using Code.Common;
 using Code.Infrastructure.Systems;
+using Code.Meta.Features.Achievements;
 
 namespace Code.Meta.Features.Simulation
 {
@@ -8,6 +9,7 @@ namespace Code.Meta.Features.Simulation
         public ActualizationFeature(ISystemFactory systems)
         {
             Add(systems.Create<SimulationFeature>());
+            Add(systems.Create<AchievementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
         }
     }

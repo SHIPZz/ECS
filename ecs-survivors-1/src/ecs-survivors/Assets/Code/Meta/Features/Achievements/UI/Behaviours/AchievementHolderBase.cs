@@ -5,8 +5,9 @@ using Zenject;
 
 namespace Code.Meta.Features.Achievements.UI.Behaviours
 {
-    public class GoldAchievementHolder : MonoBehaviour
+    public class AchievementHolderBase : MonoBehaviour
     {
+        public AchievementTypeId Id;
         public TextMeshProUGUI Amount;
 
         private IAchievementService _achievementService;
@@ -19,30 +20,36 @@ namespace Code.Meta.Features.Achievements.UI.Behaviours
 
         private void Start()
         {
-            _achievementService.OnAchievementChanged += UpdateGold;
+            _achievementService.OnAchievementChanged += UpdateValue;
             _achievementService.OnAchievementCompleted += SetNextAchievementOnCompleted;
         }
 
         private void OnDestroy()
         {
-            _achievementService.OnAchievementChanged -= UpdateGold;
+            _achievementService.OnAchievementChanged -= UpdateValue;
             _achievementService.OnAchievementCompleted -= SetNextAchievementOnCompleted;
         }
 
-        private void UpdateGold(AchievementTypeId achievementTypeId, float currentValue)
+        private void UpdateValue(AchievementTypeId achievementTypeId, float currentValue)
         {
-            if (achievementTypeId != AchievementTypeId.Gold)
+            if (achievementTypeId != Id)
                 return;
-            
-            Amount.text = $"{currentValue}/{_achievementService.GetAchievementTargetAmount(achievementTypeId)}";
+
+            ShowValue(achievementTypeId, currentValue);
         }
 
         private void SetNextAchievementOnCompleted(AchievementTypeId id, AchievementConfig config)
         {
-            if (id == AchievementTypeId.Gold && _achievementService.HasNext(id)) 
-                UpdateGold(id, 0);
-            else
+            if (id == Id && _achievementService.HasNext(Id)) 
+                UpdateValue(id, 0);
+            
+            if(id == Id && !_achievementService.HasNext(Id))
                 gameObject.SetActive(false);
+        }
+
+        protected virtual void ShowValue(AchievementTypeId achievementTypeId, float currentValue)
+        {
+            Amount.text = $"{currentValue}/{_achievementService.GetAchievementTargetAmount(achievementTypeId)}";
         }
     }
 }

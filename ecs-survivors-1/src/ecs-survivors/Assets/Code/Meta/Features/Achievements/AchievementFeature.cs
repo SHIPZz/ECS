@@ -9,7 +9,8 @@ namespace Code.Meta.Features.Achievements
         {
             Add(systems.Create<InitializeAchievementsSystem>());
             
-            Add(systems.Create<UpdateGoldCollectAchievementSystem>());
+            Add(systems.Create<UpdateGoldCollectAchievementByTickSystem>());
+            Add(systems.Create<UpdateKillEnemyAchievementSystem>());
             
             Add(systems.Create<CleanupAchievementOnCompletedSystem>());
         }

@@ -26,6 +26,8 @@ namespace Code.Gameplay.Features.Enemies
     
     [Game] public class EnemyWave : IComponent { public int Value; }
     
+    [Game] public class EnemyDeadCount : IComponent { public int Value; }
+    
     [Game] public class Healer : IComponent { }
     
     [Game] public class HealMask : IComponent { public int Value; }

@@ -13,6 +13,8 @@ namespace Code.Meta.Features.Achievements.Services
         public event Action<AchievementTypeId, AchievementConfig> OnAchievementCompleted;
         public event Action<AchievementTypeId, float> OnAchievementChanged;
 
+        public AchievementsConfig AchievementsConfig => _achievementsConfig;
+
         public AchievementService(AchievementsConfig achievementsConfig)
         {
             _achievementsConfig = achievementsConfig;

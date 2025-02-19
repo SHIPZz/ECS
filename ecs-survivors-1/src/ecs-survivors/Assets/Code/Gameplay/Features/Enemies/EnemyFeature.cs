@@ -24,6 +24,7 @@ namespace Code.Gameplay.Features.Enemies
             Add(systemses.Create<SpeedUpOnEnemyDeadAbilitySystem>());
             Add(systemses.Create<EnemyDropLootSystem>());
             Add(systemses.Create<FinishEnemyDeathProcessingSystem>());
+            Add(systemses.Create<CountEnemyDeadSystem>());
             Add(systemses.Create<FinalizeEnemySpawnAvailabilitySystem>());
             Add(systemses.Create<FinalizeEnemyAppearTimeSystem>());
         }

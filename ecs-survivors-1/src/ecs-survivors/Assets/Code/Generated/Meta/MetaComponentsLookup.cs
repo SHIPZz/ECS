@@ -11,37 +11,45 @@ public static class MetaComponentsLookup {
     public const int Destructed = 0;
     public const int Id = 1;
     public const int Achievement = 2;
-    public const int AchievementTypeId = 3;
-    public const int Completed = 4;
-    public const int CurrentAmount = 5;
-    public const int TargetAmount = 6;
-    public const int AppearChance = 7;
-    public const int Duration = 8;
-    public const int GoldGainBoost = 9;
-    public const int Roll = 10;
-    public const int RollTime = 11;
-    public const int RollTimeLeft = 12;
-    public const int RollTimeUp = 13;
-    public const int Tick = 14;
-    public const int Energy = 15;
-    public const int EnergyPerRoll = 16;
-    public const int Gold = 17;
-    public const int GoldPerSecond = 18;
-    public const int Storage = 19;
-    public const int BuyRequest = 20;
-    public const int Purchased = 21;
-    public const int ShopItemId = 22;
+    public const int AchievementTimer = 3;
+    public const int AchievementTypeId = 4;
+    public const int Completed = 5;
+    public const int CurrentAmount = 6;
+    public const int GoldCollectAchievement = 7;
+    public const int KillEnemyAchievement = 8;
+    public const int TargetAmount = 9;
+    public const int UpdateAchievementAvailable = 10;
+    public const int AppearChance = 11;
+    public const int Duration = 12;
+    public const int GoldGainBoost = 13;
+    public const int Roll = 14;
+    public const int RollTime = 15;
+    public const int RollTimeLeft = 16;
+    public const int RollTimeUp = 17;
+    public const int Tick = 18;
+    public const int Energy = 19;
+    public const int EnergyPerRoll = 20;
+    public const int Gold = 21;
+    public const int GoldPerSecond = 22;
+    public const int Storage = 23;
+    public const int BuyRequest = 24;
+    public const int Purchased = 25;
+    public const int ShopItemId = 26;
 
-    public const int TotalComponents = 23;
+    public const int TotalComponents = 27;
 
     public static readonly string[] componentNames = {
         "Destructed",
         "Id",
         "Achievement",
+        "AchievementTimer",
         "AchievementTypeId",
         "Completed",
-        "Amount",
+        "CurrentAmount",
+        "GoldCollectAchievement",
+        "KillEnemyAchievement",
         "TargetAmount",
+        "UpdateAchievementAvailable",
         "AppearChance",
         "Duration",
         "GoldGainBoost",
@@ -64,10 +72,14 @@ public static class MetaComponentsLookup {
         typeof(Code.Common.Destructed),
         typeof(Code.Gameplay.Common.Id),
         typeof(Code.Meta.Features.Achievements.Achievement),
+        typeof(Code.Meta.Features.Achievements.AchievementTimer),
         typeof(Code.Meta.Features.Achievements.AchievementTypeIdComponent),
         typeof(Code.Meta.Features.Achievements.Completed),
         typeof(Code.Meta.Features.Achievements.CurrentAmount),
+        typeof(Code.Meta.Features.Achievements.GoldCollectAchievement),
+        typeof(Code.Meta.Features.Achievements.KillEnemyAchievement),
         typeof(Code.Meta.Features.Achievements.TargetAmount),
+        typeof(Code.Meta.Features.Achievements.UpdateAchievementAvailable),
         typeof(Code.Meta.Features.Simulation.AppearChance),
         typeof(Code.Meta.Features.Simulation.Duration),
         typeof(Code.Meta.Features.Simulation.GoldGainBoost),

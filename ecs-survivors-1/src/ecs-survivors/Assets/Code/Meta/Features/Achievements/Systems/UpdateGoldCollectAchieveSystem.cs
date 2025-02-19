@@ -3,23 +3,35 @@ using Entitas;
 
 namespace Code.Meta.Features.Achievements.Systems
 {
-    public class UpdateGoldCollectAchievementSystem : IExecuteSystem
+    public class UpdateGoldCollectAchievementByTickSystem : IExecuteSystem
     {
         private readonly IGroup<MetaEntity> _golds;
         private readonly IAchievementService _achievementService;
+        private readonly IGroup<MetaEntity> _goldAchievement;
+        private readonly IGroup<MetaEntity> _tick;
 
-        public UpdateGoldCollectAchievementSystem(MetaContext meta, IAchievementService achievementService)
+        public UpdateGoldCollectAchievementByTickSystem(MetaContext meta, IAchievementService achievementService)
         {
             _achievementService = achievementService;
-            
+
             _golds = meta.GetGroup(MetaMatcher.Gold);
+            _tick = meta.GetGroup(MetaMatcher.Tick);
+
+            _goldAchievement = meta.GetGroup(MetaMatcher
+                .AllOf(
+                    MetaMatcher.AchievementTypeId,
+                    MetaMatcher.GoldCollectAchievement));
         }
 
         public void Execute()
         {
-            foreach (MetaEntity entity in _golds)
+            foreach (MetaEntity tick in _tick)
+            foreach (MetaEntity gold in _golds)
             {
-                _achievementService.UpdateAchievement(AchievementTypeId.Gold, entity.Gold);
+                _achievementService.UpdateAchievement(AchievementTypeId.Gold, gold.Gold);
+
+                foreach (MetaEntity goldCollectAchievement in _goldAchievement)
+                    goldCollectAchievement.ReplaceCurrentAmount(gold.Gold);
             }
         }
     }

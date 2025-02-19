@@ -7,7 +7,8 @@ namespace Code.Meta.Features.Achievements.Services
     {
         event Action<AchievementTypeId, AchievementConfig> OnAchievementCompleted;
         event Action<AchievementTypeId, float> OnAchievementChanged;
-        
+        AchievementsConfig AchievementsConfig { get; }
+
         void InitializeAchievements();
         
         void UpdateAchievement(AchievementTypeId id, float value);

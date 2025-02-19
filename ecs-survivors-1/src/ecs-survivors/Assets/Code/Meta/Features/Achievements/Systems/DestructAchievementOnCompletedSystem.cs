@@ -15,7 +15,7 @@ namespace Code.Meta.Features.Achievements.Systems
         {
             foreach (MetaEntity entity in _entities)
             {
-                entity.isDestructed = true;
+                // entity.isDestructed = true;
             }
         }
     }

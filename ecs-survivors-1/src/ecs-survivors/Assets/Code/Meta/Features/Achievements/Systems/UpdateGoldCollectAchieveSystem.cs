@@ -20,6 +20,7 @@ namespace Code.Meta.Features.Achievements.Systems
             _goldAchievement = meta.GetGroup(MetaMatcher
                 .AllOf(
                     MetaMatcher.AchievementTypeId,
+                    MetaMatcher.Achievement,
                     MetaMatcher.GoldCollectAchievement));
         }
 
@@ -27,11 +28,11 @@ namespace Code.Meta.Features.Achievements.Systems
         {
             foreach (MetaEntity tick in _tick)
             foreach (MetaEntity gold in _golds)
+            foreach (MetaEntity goldCollectAchievement in _goldAchievement)
             {
                 _achievementService.UpdateAchievement(AchievementTypeId.Gold, gold.Gold);
 
-                foreach (MetaEntity goldCollectAchievement in _goldAchievement)
-                    goldCollectAchievement.ReplaceCurrentAmount(gold.Gold);
+                goldCollectAchievement.ReplaceCurrentAmount(gold.Gold);
             }
         }
     }

@@ -4,6 +4,7 @@ using Code.Infrastructure.Identifiers;
 using Code.Meta.Features.Achievements.Services;
 using Code.Meta.SaveLoad;
 using Entitas;
+using UnityEngine;
 
 namespace Code.Meta.Features.Achievements.Systems
 {
@@ -12,11 +13,14 @@ namespace Code.Meta.Features.Achievements.Systems
         private readonly IAchievementService _achievementService;
         private readonly IIdentifierService _identifierService;
         private readonly ISaveLoadService _saveLoadService;
+        private readonly MetaContext _meta;
 
         public InitializeAchievementsSystem(IAchievementService achievementService,
             IIdentifierService identifierService,
+            MetaContext meta,
             ISaveLoadService saveLoadService)
         {
+            _meta = meta;
             _saveLoadService = saveLoadService;
             _identifierService = identifierService;
             _achievementService = achievementService;
@@ -24,10 +28,16 @@ namespace Code.Meta.Features.Achievements.Systems
 
         public void Initialize()
         {
+            Debug.Log($"init");
             _achievementService.InitializeAchievements();
 
-            if (_saveLoadService.HasSavedProgress)
+            if (_saveLoadService.HasSavedProgress && _meta.GetGroup(MetaMatcher.Achievement).count > 0)
+            {
+                Debug.Log($"has save");
+                ActualizeAchievements();
+
                 return;
+            }
 
             //todo refactor:
 
@@ -35,37 +45,53 @@ namespace Code.Meta.Features.Achievements.Systems
                 .Empty()
                 .AddEnemyDeadCount(99);
 
-            InitGoldCollectAchievement();
-            InitKillEnemyAchievement();
+            CreateGoldCollectAchievement();
+            CreateKillEnemyAchievement();
         }
 
-        private void InitGoldCollectAchievement()
+        private void ActualizeAchievements()
+        {
+            var achievements = _meta.GetGroup(MetaMatcher
+                .AllOf(
+                    MetaMatcher.Achievement,
+                    MetaMatcher.AchievementTypeId,
+                    MetaMatcher.CurrentAmount));
+
+            foreach (MetaEntity achievement in achievements)
+            {
+                _achievementService.UpdateAchievement(achievement.AchievementTypeId, achievement.CurrentAmount);
+            }
+        }
+
+        private MetaEntity CreateGoldCollectAchievement()
         {
             AchievementProgress achievementProgress =
                 _achievementService.GetAchievementProgress(AchievementTypeId.Gold);
 
-            CreateAchievementEntity(achievementProgress)
-                .With(x => x.isGoldCollectAchievement = true)
+            return CreateAchievementEntity(achievementProgress)
+                    .With(x => x.isGoldCollectAchievement = true)
                 ;
         }
 
-        private void InitKillEnemyAchievement()
+        private MetaEntity CreateKillEnemyAchievement()
         {
             AchievementProgress achievementProgress =
                 _achievementService.GetAchievementProgress(AchievementTypeId.KillEnemy);
 
-            CreateAchievementEntity(achievementProgress)
-                .With(x => x.isKillEnemyAchievement = true)
+            return CreateAchievementEntity(achievementProgress)
+                    .With(x => x.isKillEnemyAchievement = true)
                 ;
         }
 
         private MetaEntity CreateAchievementEntity(AchievementProgress achievementProgress)
         {
             return CreateMetaEntity.Empty()
-                .AddId(_identifierService.Next())
-                .AddAchievementTypeId(achievementProgress.Id)
-                .AddCurrentAmount(achievementProgress.CurrentValue)
-                .AddTargetAmount(achievementProgress.TargetAmount);
+                    .AddId(_identifierService.Next())
+                    .AddAchievementTypeId(achievementProgress.Id)
+                    .AddCurrentAmount(achievementProgress.CurrentValue)
+                    .AddTargetAmount(achievementProgress.TargetAmount)
+                    .With(x => x.isAchievement = true)
+                ;
         }
     }
 }

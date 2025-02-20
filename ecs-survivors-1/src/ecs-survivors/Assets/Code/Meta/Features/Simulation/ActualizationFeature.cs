@@ -9,7 +9,6 @@ namespace Code.Meta.Features.Simulation
         public ActualizationFeature(ISystemFactory systems)
         {
             Add(systems.Create<SimulationFeature>());
-            Add(systems.Create<AchievementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
         }
     }

@@ -13,15 +13,14 @@ namespace Code.Meta.UI
         public HomeScreenFeature(ISystemFactory systemFactory)
         {
             Add(systemFactory.Create<HomeScreenUIFeature>());
-            
+
             Add(systemFactory.Create<EmitTickSystem>(1f));
-            Add(systemFactory.Create<AchievementFeature>());
             Add(systemFactory.Create<CalculateRollTimeSystem>());
             Add(systemFactory.Create<EmitRollSystem>());
-            Add(systemFactory.Create<PeriodicallySaveProgressSystem>(3f));
+            Add(systemFactory.Create<PeriodicallySaveProgressSystem>(10f));
             
             Add(systemFactory.Create<SimulationFeature>());
-
+            Add(systemFactory.Create<AchievementFeature>());
             Add(systemFactory.Create<CleanupTickSystem>());
             
             Add(systemFactory.Create<CleanUpRollSystem>());

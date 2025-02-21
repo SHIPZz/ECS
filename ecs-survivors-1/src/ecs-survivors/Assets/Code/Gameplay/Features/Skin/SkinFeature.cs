@@ -1,13 +1,13 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
+﻿using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Skin
 {
     public sealed class SkinFeature : Feature
     {
-        public SkinFeature(ISystemFactory systems)
+        public SkinFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<ChangeAnimatorOnTargetSkinSystem>());
-            Add(systems.Create<ChangeSkinSystem>());
+            Add(systemses.Create<ChangeAnimatorOnTargetSkinSystem>());
+            Add(systemses.Create<ChangeSkinSystem>());
         }
     }
 }

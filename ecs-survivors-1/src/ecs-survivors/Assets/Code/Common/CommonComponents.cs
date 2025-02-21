@@ -10,7 +10,7 @@ namespace Code.Common
     
     [Game] public class ViewPrefab : IComponent { public EntityBehaviour Value; }
 
-    [Game] public class Destructed : IComponent { }
+    [Game, Meta] public class Destructed : IComponent { }
     
     [Game] public class Active : IComponent { }
     

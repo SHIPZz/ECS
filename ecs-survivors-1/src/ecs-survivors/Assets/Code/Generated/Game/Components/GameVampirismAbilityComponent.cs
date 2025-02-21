@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.VampirismAbility vampirismAbilityComponent = new Code.Gameplay.Features.Ability.VampirismAbility();
+    static readonly Code.Gameplay.Features.Abilities.VampirismAbility vampirismAbilityComponent = new Code.Gameplay.Features.Abilities.VampirismAbility();
 
     public bool isVampirismAbility {
         get { return HasComponent(GameComponentsLookup.VampirismAbility); }

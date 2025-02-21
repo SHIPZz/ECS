@@ -1,24 +1,22 @@
 ﻿using Code.Gameplay.Features.LevelUp.Systems;
 using Code.Gameplay.Features.Loot.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Loot
 {
     public sealed class LootingFeature : Feature
     {
-        public LootingFeature(ISystemFactory systems)
+        public LootingFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<CastForPullableSystem>());
-            Add(systems.Create<PullTowardsHeroSystem>());
-            Add(systems.Create<CollectWhenNearSystem>());
+            Add(systemses.Create<CollectWhenNearSystem>());
             
-            Add(systems.Create<CollectExperienceSystem>());
-            Add(systems.Create<CollectStatusItemSystem>());
-            Add(systems.Create<CollectEffectItemSystem>());
+            Add(systemses.Create<CollectExperienceSystem>());
+            Add(systemses.Create<CollectStatusItemSystem>());
+            Add(systemses.Create<CollectEffectItemSystem>());
             
-            Add(systems.Create<UpdateExperienceMeterSystem>());
+            Add(systemses.Create<UpdateExperienceMeterSystem>());
 
-            Add(systems.Create<CleanupCollectedSystem>());
+            Add(systemses.Create<CleanupCollectedSystem>());
         }
     }
 }

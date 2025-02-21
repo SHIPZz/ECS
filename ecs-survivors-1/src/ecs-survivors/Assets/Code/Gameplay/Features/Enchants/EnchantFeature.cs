@@ -1,18 +1,18 @@
 ﻿using Code.Gameplay.Features.Enchants.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Enchants
 {
     public sealed class EnchantFeature : Feature
     {
-        public EnchantFeature(ISystemFactory systems)
+        public EnchantFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<HexEnchantSystem>());
-            Add(systems.Create<PoisonEnchantSystem>());
-            Add(systems.Create<ExplosiveEnchantSystem>());
+            Add(systemses.Create<HexEnchantSystem>());
+            Add(systemses.Create<PoisonEnchantSystem>());
+            Add(systemses.Create<ExplosiveEnchantSystem>());
             
-            Add(systems.Create<ApplyPoisonEnchantVisualSystem>());
-            Add(systems.Create<ApplyEnchantToHolderSystem>());
+            Add(systemses.Create<ApplyPoisonEnchantVisualSystem>());
+            Add(systemses.Create<ApplyEnchantToHolderSystem>());
         }
     }
 }

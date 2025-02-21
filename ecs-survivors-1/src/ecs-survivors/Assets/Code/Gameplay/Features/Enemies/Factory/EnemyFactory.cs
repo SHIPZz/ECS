@@ -126,6 +126,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .With(x => x.isEnemy = true)
                     .With(x => x.isAlive = true)
                     .With(x => x.isMovingAvailable = true)
+                    .With(x => x.isDontDestroyOnGameOver = true)
                 ;
         }
     }

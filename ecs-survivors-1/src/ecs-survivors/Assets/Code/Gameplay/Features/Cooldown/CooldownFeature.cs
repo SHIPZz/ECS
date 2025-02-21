@@ -1,14 +1,13 @@
 ﻿using Code.Gameplay.Features.Cooldown.Systems;
-using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Cooldown
 {
     public sealed class CooldownFeature : Feature
     {
-        public CooldownFeature(ISystemFactory systems)
+        public CooldownFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<CalculateCooldownSystem>());
+            Add(systemses.Create<CalculateCooldownSystem>());
         }
     }
 }

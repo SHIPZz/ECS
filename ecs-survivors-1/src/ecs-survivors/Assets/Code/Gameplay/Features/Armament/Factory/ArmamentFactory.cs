@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Entity;
 using Code.Common.Extensions;
-using Code.Gameplay.Features.Ability.Config;
+using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enchants;
@@ -23,33 +23,34 @@ namespace Code.Gameplay.Features.Armament.Factory
             _identifierService = identifierService;
             _staticDataService = staticDataService;
         }
+        
+        public GameEntity CreateSpecialBomb(int level, Vector3 at)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.SpecialBomb, level);
+            ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
+
+            return CreateProjectile(at, projectileSetup, abilityLevel)
+                    .AddParentAbility(AbilityTypeId.SpecialBomb)
+                    .With(x => x.AddIgnoreBuffer(new List<int>(32)))
+                    .AddScatteringCount(projectileSetup.ScatteringCount)
+                    .With(x => x.AddAbilityHolder(new List<AbilityTypeId>(32)))
+                    .With(x => x.AbilityHolder.Add(AbilityTypeId.FireAura))
+                    .With(x => x.isReadyToCollectOnMovingFinished = true)
+                    .With(x => x.isCollectingAvailable = false)
+                ;
+        }
 
         public GameEntity CreateScatteringBolt(int level, Vector3 at)
         {
             AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Scattering, level);
             ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
 
-            return CreateEntity
-                    .Empty()
-                    .AddId(_identifierService.Next())
-                    .AddDamage(projectileSetup.Damage)
-                    .AddSpeed(projectileSetup.Speed)
-                    .AddTargetLimit(projectileSetup.Pierce)
+            return CreateProjectile(at, projectileSetup, abilityLevel)
+                    .AddParentAbility(AbilityTypeId.Scattering)
                     .AddScale(Vector3.one)
-                    .AddContactRadius(projectileSetup.ContactRadius)
-                    .AddRadius(projectileSetup.ContactRadius)
+                    .With(x => x.AddIgnoreBuffer(new List<int>(32)))
                     .AddScatteringCount(projectileSetup.ScatteringCount)
-                    .AddViewPrefab(abilityLevel.Prefab)
-                    .AddWorldPosition(at)
-                    .AddSelfDestructTimer(projectileSetup.Lifetime)
-                    .AddFollowMaxDistance(0.1f)
-                    .AddProcessedTargetsBuffer(new List<int>(16))
-                    .SetupTargetCollectionComponents(projectileSetup.Mask,
-                        projectileSetup.CollectTargetInterval)
                     .With(x => x.isScatteringArmament = true)
-                    .With(x => x.isArmament = true)
-                    .With(x => x.isFollowNewCloseTarget = true)
-                    .With(x => x.isRotateAlongDirection = true)
                 ;
         }
 
@@ -87,24 +88,9 @@ namespace Code.Gameplay.Features.Armament.Factory
             AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.Radial, level);
             ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
 
-            return CreateEntity
-                    .Empty()
-                    .AddId(_identifierService.Next())
-                    .AddDamage(projectileSetup.Damage)
-                    .AddSpeed(projectileSetup.Speed)
-                    .AddContactRadius(projectileSetup.ContactRadius)
-                    .AddRadius(projectileSetup.ContactRadius)
-                    .AddTargetLimit(projectileSetup.Pierce)
-                    .AddSelfDestructTimer(projectileSetup.Lifetime)
-                    .AddViewPrefab(abilityLevel.Prefab)
-                    .AddWorldPosition(at)
-                    .AddProcessedTargetsBuffer(new List<int>(16))
-                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(),
-                        projectileSetup.CollectTargetInterval)
+            return CreateProjectile(at, projectileSetup, abilityLevel)
+                    .AddParentAbility(AbilityTypeId.Radial)
                     .With(x => x.isRadialBoltArmament = true)
-                    .With(x => x.isArmament = true)
-                    .With(x => x.isCollectingTargetsContinuously = true)
-                    .With(x => x.isRotateAlongDirection = true)
                 ;
         }
 
@@ -127,6 +113,29 @@ namespace Code.Gameplay.Features.Armament.Factory
                 .With(x => x.isCollectingTargetsContinuously = true)
                 .With(x => x.isAura = true)
                 .With(x => x.isFollowingProducer = true);
+        }
+        
+        public GameEntity CreateFireAura(AbilityTypeId parentAbilityId, int producerId, int level)
+        {
+            AbilityLevel abilityLevel = _staticDataService.GetAbilityLevel(AbilityTypeId.FireAura, level);
+            AuraSetup auraSetup = abilityLevel.AuraSetup;
+
+            return CreateEntity
+                    .Empty()
+                    .AddId(_identifierService.Next())
+                    .AddContactRadius(auraSetup.Radius)
+                    .AddProducerId(producerId)
+                    .AddParentAbility(parentAbilityId)
+                    .AddWorldPosition(Vector3.zero)
+                    .AddRadius(auraSetup.Radius)
+                    .AddViewPrefab(abilityLevel.Prefab)
+                    .AddLayerMask(CollisionLayer.Enemy.AsMask())
+                    .SetupTargetCollectionComponents(CollisionLayer.Enemy.AsMask(), auraSetup.Interval)
+                    .With(x => x.AddEffectSetups(new List<EffectSetup>(abilityLevel.EffectSetups)), when: !abilityLevel.EffectSetups.IsNullOrEmpty())
+                    .With(x => x.AddStatusSetups(new List<StatusSetup>(abilityLevel.StatusSetups)), when: !abilityLevel.StatusSetups.IsNullOrEmpty())
+                    .With(x => x.isCollectingTargetsContinuously = true)
+                    .With(x => x.isFollowingProducer = true)
+                ;
         }
 
         public GameEntity CreateEffectAura(AbilityTypeId parentAbilityId, int producerId, int level)

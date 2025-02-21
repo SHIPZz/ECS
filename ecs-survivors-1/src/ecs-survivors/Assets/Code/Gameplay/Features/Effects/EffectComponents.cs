@@ -5,6 +5,10 @@ namespace Code.Gameplay.Features.Effects
     [Game] public class Effect : IComponent { }
     
     [Game] public class HealEffect : IComponent { }
+
+    [Game] public class ApplyEffectOnEndPointReached : IComponent {  }
+    
+    [Game] public class ApplyStatusOnEndPointReached : IComponent {  }
     
     [Game] public class PullEffect : IComponent { }
     

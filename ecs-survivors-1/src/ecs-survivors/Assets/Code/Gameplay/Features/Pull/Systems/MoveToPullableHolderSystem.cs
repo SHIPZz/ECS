@@ -1,5 +1,4 @@
-﻿using Code.Gameplay.Features.CharacterStats;
-using Entitas;
+﻿using Entitas;
 
 namespace Code.Gameplay.Features.Pull.Systems
 {
@@ -13,7 +12,9 @@ namespace Code.Gameplay.Features.Pull.Systems
             _game = game;
             _pullableHolders = game.GetGroup(GameMatcher.AllOf(
                 GameMatcher.PullTargetList,
-                GameMatcher.MinCountToPullTargets));
+                GameMatcher.PullTargetHolder,
+                GameMatcher.MinCountToPullTargets
+                ).NoneOf(GameMatcher.PullTargetConsistently));
         }
 
         public void Execute()
@@ -29,19 +30,31 @@ namespace Code.Gameplay.Features.Pull.Systems
 
                 GameEntity target = _game.GetEntityWithId(targetId);
 
-                if (target == null || target.isPulling)
+                if (!SetUpPullingAvailable(target, pullTargetsHolder))
                     continue;
 
-                if (pullTargetsHolder.Id != target.PullProducerId)
-                    continue;
-
-                target.isPulling = true;
+                SetUpPulling(target);
 
                 target.AddFollowTargetId(pullTargetsHolder.Id);
-                
-                if (target.hasBaseStats)
-                    target.BaseStats[Stats.Speed] = 20; //todo refactor
             }
+        }
+        
+        private static bool SetUpPullingAvailable(GameEntity target, GameEntity pullTargetsHolder)
+        {
+            if (target == null || target.isPulling)
+                return false;
+
+            if (pullTargetsHolder.Id != target.PullProducerId)
+                return false;
+
+            return true;
+        }
+
+        private static void SetUpPulling(GameEntity target)
+        {
+            target.isPulling = true;
+            target.isMoving = true;
+            target.isMovingAvailable = true;
         }
     }
 }

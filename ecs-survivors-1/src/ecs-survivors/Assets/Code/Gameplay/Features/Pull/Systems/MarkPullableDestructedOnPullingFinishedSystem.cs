@@ -14,7 +14,7 @@ namespace Code.Gameplay.Features.Pull.Systems
                     GameMatcher.Pullable,
                     GameMatcher.FollowingUp,
                     GameMatcher.Pulling
-                    ));
+                    ).NoneOf(GameMatcher.CurrentHp));
         }
 
         public void Execute()

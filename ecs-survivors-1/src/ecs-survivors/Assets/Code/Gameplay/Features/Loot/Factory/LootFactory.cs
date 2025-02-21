@@ -1,5 +1,7 @@
-﻿using Code.Common.Entity;
+﻿using System.Collections.Generic;
+using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Loot.Configs;
 using Code.Gameplay.StaticData;
 using Code.Infrastructure.Identifiers;
@@ -22,16 +24,28 @@ namespace Code.Gameplay.Features.Loot.Factory
         {
             LootConfig lootConfig = _staticDataService.GetLootConfig(lootTypeId);
 
+            var baseStats = InitStats.EmptyStatDictionary()
+                .With( x=> x[Stats.Speed] = 3)
+                ;
+            
            return  CreateEntity
                 .Empty()
                 .AddId(_identifierService.Next())
                 .AddWorldPosition(at)
+                .AddSpeed(baseStats[Stats.Speed])
+                .AddBaseStats(baseStats)
+                .AddStatModifiers(InitStats.EmptyStatDictionary())
                 .AddLootTypeId(lootTypeId)
                 .AddViewPrefab(lootConfig.ViewPrefab)
+                .AddAnimationDuration(lootConfig.AnimationDuration)
+                .AddAnimationCurve(lootConfig.AnimationCurve)
+                .AddElapsedTime(0f)
+                .With(x => x.AddStartHeight(x.WorldPosition.y))
                 .With(x => x.AddExperience(lootConfig.Experience), when: lootConfig.Experience > 0)
                 .With(x => x.AddEffectSetups(lootConfig.EffectSetups), when: !lootConfig.EffectSetups.IsNullOrEmpty())
                 .With(x => x.AddStatusSetups(lootConfig.StatusSetups), when: !lootConfig.StatusSetups.IsNullOrEmpty())
                 .With(x => x.isPullable = true)
+                .With(x => x.isUpdateHeightBySinCurve = true)
                 
                 ;
         }

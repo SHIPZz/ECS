@@ -1,24 +1,24 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
-using Code.Gameplay.Features.Statuses.Systems;
+﻿using Code.Gameplay.Features.Statuses.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Statuses
 {
     public sealed class StatusFeature : Feature
     {
-        public StatusFeature(ISystemFactory systems)
+        public StatusFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<StatusDurationSystem>());
-            Add(systems.Create<PeriodicDamageStatusSystem>());
-            Add(systems.Create<ApplyStatusesOnTargetsSystem>());
-            Add(systems.Create<ApplyFreezeStatusSystem>());
-            Add(systems.Create<ApplyMaxHpIncreaseStatusSystem>());
-            Add(systems.Create<ApplyScaleStatusSystem>());
-            Add(systems.Create<ApplyInvurnableStatusSystem>());
-            Add(systems.Create<ApplySpeedUpStatusSystem>());
-            Add(systems.Create<ApplyVampirismStatusSystem>());
+            Add(systemses.Create<StatusDurationSystem>());
+            Add(systemses.Create<PeriodicDamageStatusSystem>());
+            Add(systemses.Create<ApplyStatusesOnTargetsSystem>());
+            Add(systemses.Create<ApplyFreezeStatusSystem>());
+            Add(systemses.Create<ApplyMaxHpIncreaseStatusSystem>());
+            Add(systemses.Create<ApplyScaleStatusSystem>());
+            Add(systemses.Create<ApplyInvurnableStatusSystem>());
+            Add(systemses.Create<ApplySpeedUpStatusSystem>());
+            Add(systemses.Create<ApplyVampirismStatusSystem>());
 
-            Add(systems.Create<CleanupUnappliedStatusLinkedChanges>());
-            Add(systems.Create<CleanupUnappliedStatuses>());
+            Add(systemses.Create<CleanupUnappliedStatusLinkedChanges>());
+            Add(systemses.Create<CleanupUnappliedStatuses>());
         }
     }
 }

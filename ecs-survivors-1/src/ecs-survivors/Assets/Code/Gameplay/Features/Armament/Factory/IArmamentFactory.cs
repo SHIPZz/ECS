@@ -1,4 +1,4 @@
-﻿using Code.Gameplay.Features.Ability.Config;
+﻿using Code.Gameplay.Features.Abilities.Config;
 using UnityEngine;
 
 namespace Code.Gameplay.Features.Armament.Factory
@@ -15,5 +15,7 @@ namespace Code.Gameplay.Features.Armament.Factory
         GameEntity CreateAura(AbilityTypeId parentAbilityId, AuraSetup auraSetup, int producerId);
         GameEntity CreateMagnificentBolt(int level, Vector3 at);
         GameEntity CreatePullBolt(int level, Vector3 at);
+        GameEntity CreateSpecialBomb(int level, Vector3 at);
+        GameEntity CreateFireAura(AbilityTypeId parentAbilityId, int producerId, int level);
     }
 }

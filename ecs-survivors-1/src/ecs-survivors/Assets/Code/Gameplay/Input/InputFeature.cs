@@ -1,15 +1,14 @@
-﻿using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
-using Code.Gameplay.Input.Systems;
+﻿using Code.Gameplay.Input.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Input
 {
     public sealed class InputFeature : Feature
     {
-        public InputFeature(ISystemFactory systems)
+        public InputFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<InitializeInputSystem>());
-            Add(systems.Create<EmitInputSystem>());
+            Add(systemses.Create<InitializeInputSystem>());
+            Add(systemses.Create<EmitInputSystem>());
         }
     }
 }

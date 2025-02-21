@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerMask:
     serializedVersion: 2
-    m_Bits: 7041
+    m_Bits: 7040
   EnemyMask:
     serializedVersion: 2
     m_Bits: 64

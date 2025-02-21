@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4426e5c55b4b61b42a0ec8a8ae5b89, type: 3}
+  m_Name: EnemySpawnConfig
+  m_EditorClassIdentifier: 
+  _waveDatas:
+  - Cooldown: 60
+    SpawnInterval: 4
+    Count: 2
+    Enemies: 01000000
+    EnemyAppearTime: 0
+    EnemiesToAppear: 

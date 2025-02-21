@@ -1,14 +1,14 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
+﻿using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Lifetime
 {
     public sealed class LifetimeFeature : Feature
     {
-        public LifetimeFeature(ISystemFactory systems)
+        public LifetimeFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<MarkIsAliveSystem>());
-            Add(systems.Create<RestoreHpSystem>());
-            Add(systems.Create<CleanUpHpRestoredSystem>());
+            Add(systemses.Create<MarkIsAliveSystem>());
+            Add(systemses.Create<RestoreHpSystem>());
+            Add(systemses.Create<CleanUpHpRestoredSystem>());
         }
     }
     

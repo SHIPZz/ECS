@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Ability.TargetLimit targetLimit { get { return (Code.Gameplay.Features.Ability.TargetLimit)GetComponent(GameComponentsLookup.TargetLimit); } }
+    public Code.Gameplay.Features.Abilities.TargetLimit targetLimit { get { return (Code.Gameplay.Features.Abilities.TargetLimit)GetComponent(GameComponentsLookup.TargetLimit); } }
     public int TargetLimit { get { return targetLimit.Value; } }
     public bool hasTargetLimit { get { return HasComponent(GameComponentsLookup.TargetLimit); } }
 
     public GameEntity AddTargetLimit(int newValue) {
         var index = GameComponentsLookup.TargetLimit;
-        var component = (Code.Gameplay.Features.Ability.TargetLimit)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.TargetLimit));
+        var component = (Code.Gameplay.Features.Abilities.TargetLimit)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.TargetLimit));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceTargetLimit(int newValue) {
         var index = GameComponentsLookup.TargetLimit;
-        var component = (Code.Gameplay.Features.Ability.TargetLimit)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.TargetLimit));
+        var component = (Code.Gameplay.Features.Abilities.TargetLimit)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.TargetLimit));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

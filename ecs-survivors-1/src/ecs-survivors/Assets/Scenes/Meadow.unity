@@ -554,6 +554,11 @@ Transform:
   - {fileID: 508569002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &744554118 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 445637680388909683, guid: 1be5b602c5a7b2c40a29e9050b2b7a00, type: 3}
+  m_PrefabInstance: {fileID: 550428327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &782900810
 GameObject:
   m_ObjectHideFlags: 0
@@ -6696,6 +6701,7 @@ GameObject:
   - component: {fileID: 1036772625}
   - component: {fileID: 1036772629}
   - component: {fileID: 1036772627}
+  - component: {fileID: 1036772630}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -6778,6 +6784,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Initializers:
   - {fileID: 1036772627}
+  - {fileID: 1036772630}
+--- !u!114 &1036772630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036772624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca16c4797e064100ac5ef36b2595f29b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRoot: {fileID: 744554118}
 --- !u!1 &1173565473
 GameObject:
   m_ObjectHideFlags: 0
@@ -46012,7 +46032,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1619025463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46092,13 +46112,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MaxPullTargets: 5
   MinPullTargets: 1
   Layer: 7
   PullInRadius: 10
+  StatusSetups:
+  - StatusTypeId: 3
+    Value: 25
+    Duration: 25
+    Period: 0
+    TargetSkinSetup:
+      TargetSkin: {fileID: 0}
+      AnimatorController: {fileID: 0}
+    Stackable: 0
   _createTime: 0
-  LootTypeId: 0
+  LootTypeId: 3
   _lastTime: 0
+  ScaleFactor: 1.5
+  _animationDuration: 1
 --- !u!4 &1632601165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8305601375823714350, guid: 87c34b8ef28b26c46adaa760fed03aca, type: 3}
@@ -46153,7 +46190,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2021503339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -46233,57 +46270,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1539d1d6f61447a1983bd6256ee8ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 5
+      outSlope: 5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 2.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -5
+      outSlope: -5
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MaxPullTargets: 5
   MinPullTargets: 1
   Layer: 9
   PullInRadius: 15
+  StatusSetups:
+  - StatusTypeId: 3
+    Value: 25
+    Duration: 25
+    Period: 0
+    TargetSkinSetup:
+      TargetSkin: {fileID: 0}
+      AnimatorController: {fileID: 0}
+    Stackable: 0
   _createTime: 3
   LootTypeId: 1
   _lastTime: 0
---- !u!1 &2034133083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2034133084}
-  - component: {fileID: 2034133085}
-  m_Layer: 0
-  m_Name: EcsRunner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2034133084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034133083}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2034133085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034133083}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e7431fdb50643e18268bdb07d18ffc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  ScaleFactor: 1.5
+  _animationDuration: 1
 --- !u!1 &2090599417
 GameObject:
   m_ObjectHideFlags: 0
@@ -46573,7 +46610,6 @@ SceneRoots:
   - {fileID: 1696471448}
   - {fileID: 1036772626}
   - {fileID: 2090599420}
-  - {fileID: 2034133084}
   - {fileID: 2021503340}
   - {fileID: 1619025464}
   - {fileID: 550428327}

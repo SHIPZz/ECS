@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.VegetableBoltAbility vegetableBoltAbilityComponent = new Code.Gameplay.Features.Ability.VegetableBoltAbility();
+    static readonly Code.Gameplay.Features.Abilities.VegetableBoltAbility vegetableBoltAbilityComponent = new Code.Gameplay.Features.Abilities.VegetableBoltAbility();
 
     public bool isVegetableBoltAbility {
         get { return HasComponent(GameComponentsLookup.VegetableBoltAbility); }

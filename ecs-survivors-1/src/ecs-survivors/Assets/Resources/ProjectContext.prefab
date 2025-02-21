@@ -74,3 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03a15d180736a764881eb63ee983604a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemySpawnConfig: {fileID: 11400000, guid: 9dd2b6c3a0b53b743b81938714054439, type: 2}
+  RollConfig: {fileID: 11400000, guid: eb642327b76ea2246887178fff28cc43, type: 2}
+  AchievementsConfig: {fileID: 11400000, guid: 8c0118eebbc1d9341b554da03c27f915, type: 2}

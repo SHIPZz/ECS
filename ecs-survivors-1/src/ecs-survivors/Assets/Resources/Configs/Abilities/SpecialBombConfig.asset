@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a703d749157a4695baee46cac12f76fd, type: 3}
+  m_Name: SpecialBombConfig
+  m_EditorClassIdentifier: 
+  AbilityTypeId: 11
+  AbilityLevels:
+  - Cooldown: 2
+    Prefab: {fileID: 4349110862679315362, guid: deed734865f7f944593a9d10ea339b6a, type: 3}
+    EffectSetups: []
+    StatusSetups: []
+    ProjectileSetup:
+      StatusesContainer: []
+      Mask:
+        serializedVersion: 2
+        m_Bits: 128
+      Speed: 6
+      Pierce: 1
+      ContactRadius: 0.1
+      CollectTargetInterval: 0.1
+      Lifetime: 8
+      Damage: 100
+      AdditionalProjectileCount: 0
+      AdditionalProjectileHitCount: 0
+      BouncingCount: 1
+      ScatteringCount: 0
+      RadialRadius: 2
+      RadialCount: 4
+      ProjectileCount: 1
+      OrbitRadius: 1
+      MinCountToPullTargets: 1
+      MaxCountToPullTargets: 3
+      DestructOnMaxPullTargetReached: 1
+    AuraSetup:
+      AuraTypeId: 0
+      Radius: 1
+      Interval: 1
+      Cooldown: 2
+      Lifetime: 2
+      EffectSetups: []
+      StatusSetups: []
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      Prefab: {fileID: 0}
+    Icon: {fileID: 0}
+    Description: Vegetable bolt
+  - Cooldown: 1
+    Prefab: {fileID: 4349110862679315362, guid: deed734865f7f944593a9d10ea339b6a, type: 3}
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 100
+    StatusSetups: []
+    ProjectileSetup:
+      StatusesContainer: []
+      Mask:
+        serializedVersion: 2
+        m_Bits: 128
+      Speed: 6
+      Pierce: 1
+      ContactRadius: 0.1
+      CollectTargetInterval: 0.1
+      Lifetime: 8
+      Damage: 100
+      AdditionalProjectileCount: 0
+      AdditionalProjectileHitCount: 0
+      BouncingCount: 1
+      ScatteringCount: 0
+      RadialRadius: 2
+      RadialCount: 4
+      ProjectileCount: 1
+      OrbitRadius: 1
+      MinCountToPullTargets: 1
+      MaxCountToPullTargets: 3
+      DestructOnMaxPullTargetReached: 1
+    AuraSetup:
+      AuraTypeId: 0
+      Radius: 1
+      Interval: 1
+      Cooldown: 2
+      Lifetime: 2
+      EffectSetups: []
+      StatusSetups: []
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 0
+      Prefab: {fileID: 0}
+    Icon: {fileID: -219949570, guid: d5b38a44d661b59469b9795112af70db, type: 3}
+    Description: Reduced cooldown

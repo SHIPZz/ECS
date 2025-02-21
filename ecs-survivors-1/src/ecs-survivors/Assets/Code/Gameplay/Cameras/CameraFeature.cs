@@ -1,13 +1,12 @@
-﻿using Code.Gameplay.Features.Movement;
-using Code.Gameplay.Features.Movement.Factory;
+﻿using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Cameras
 {
     public sealed class CameraFeature : Feature
     {
-        public CameraFeature(ISystemFactory systems)
+        public CameraFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<CameraFollowHeroSystem>());
+            Add(systemses.Create<CameraFollowHeroSystem>());
         }
     }
 }

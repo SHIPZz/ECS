@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
-using Code.Gameplay.Features.Ability.Config;
+using Code.Common.Extensions;
+using Code.Gameplay.Features.Abilities.Config;
+using Code.Gameplay.Features.Cooldown;
+using Code.Gameplay.Features.Statuses;
 using Code.Gameplay.StaticData;
 using Entitas;
 
@@ -36,10 +39,15 @@ namespace Code.Gameplay.Features.Pull.Systems
                ProjectileSetup projectileSetup = abilityLevel.ProjectileSetup;
                
                target.isPullTargetHolder = true;
+               target.isPullTargetConsistently = true;
+               target.PutOnCooldown(0.2f); //todo refactor
+               
                target.isDestructOnMaxPullTargetReached = projectileSetup.DestructOnMaxPullTargetReached;
                target.AddPullTargetList(new List<int>(32));
                target.AddMaxPullTargetHold(projectileSetup.MaxCountToPullTargets); 
                target.AddMinCountToPullTargets(projectileSetup.MinCountToPullTargets);
+               target.AddPullTargetHolderStatuses(new List<StatusSetup>(32))
+                   .With(x => x.PullTargetHolderStatuses.AddRange(projectileSetup.StatusesContainer));
             }
         }
     }

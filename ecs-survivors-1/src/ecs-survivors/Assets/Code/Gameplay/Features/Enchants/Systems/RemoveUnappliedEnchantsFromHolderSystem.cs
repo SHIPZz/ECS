@@ -18,7 +18,7 @@ namespace Code.Gameplay.Features.Enchants.Systems
                     GameMatcher.EnchantTypeId, 
                 GameMatcher.Unapplied).Added());
 
-        protected override bool Filter(GameEntity entity) => true;
+        protected override bool Filter(GameEntity entity) => entity.hasEnchantTypeId;
 
         protected override void Execute(List<GameEntity> entities)
         {

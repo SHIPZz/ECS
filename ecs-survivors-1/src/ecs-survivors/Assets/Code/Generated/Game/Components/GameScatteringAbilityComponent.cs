@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.ScatteringAbility scatteringAbilityComponent = new Code.Gameplay.Features.Ability.ScatteringAbility();
+    static readonly Code.Gameplay.Features.Abilities.ScatteringAbility scatteringAbilityComponent = new Code.Gameplay.Features.Abilities.ScatteringAbility();
 
     public bool isScatteringAbility {
         get { return HasComponent(GameComponentsLookup.ScatteringAbility); }

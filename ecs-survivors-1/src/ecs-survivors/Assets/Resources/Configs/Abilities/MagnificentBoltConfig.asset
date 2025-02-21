@@ -16,9 +16,20 @@ MonoBehaviour:
   AbilityLevels:
   - Cooldown: 1
     Prefab: {fileID: 4349110862679315362, guid: 08ce9f5922001044d87f0b92a159a8c4, type: 3}
-    EffectSetups: []
+    EffectSetups:
+    - EffectTypeId: 1
+      Value: 35
     StatusSetups: []
     ProjectileSetup:
+      StatusesContainer:
+      - StatusTypeId: 3
+        Value: 20
+        Duration: 100
+        Period: 0
+        TargetSkinSetup:
+          TargetSkin: {fileID: 0}
+          AnimatorController: {fileID: 0}
+        Stackable: 0
       Mask:
         serializedVersion: 2
         m_Bits: 128
@@ -51,3 +62,5 @@ MonoBehaviour:
         serializedVersion: 2
         m_Bits: 0
       Prefab: {fileID: 0}
+    Icon: {fileID: 21300000, guid: e42d4921f3ad07542bf67e911bb9bb07, type: 3}
+    Description: MagnificentBolt

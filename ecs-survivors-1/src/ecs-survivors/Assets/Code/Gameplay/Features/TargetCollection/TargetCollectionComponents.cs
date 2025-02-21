@@ -19,6 +19,8 @@ namespace Code.Gameplay.Features.TargetCollection
     
     [Game] public class Reached : IComponent {  }
     
+    [Game] public class ReadyToCollectOnMovingFinished : IComponent {  }
+    
     [Game] public class Ignored : IComponent {  }
     
     [Game] public class OverflowProcessedTargetsBuffer : IComponent {  }

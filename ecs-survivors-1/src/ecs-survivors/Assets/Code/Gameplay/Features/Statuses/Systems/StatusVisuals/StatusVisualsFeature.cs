@@ -1,5 +1,5 @@
 ﻿using Code.Gameplay.Features.Enchants.Systems;
-using Code.Gameplay.Features.Movement.Factory;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Statuses.Systems.StatusVisuals
 {

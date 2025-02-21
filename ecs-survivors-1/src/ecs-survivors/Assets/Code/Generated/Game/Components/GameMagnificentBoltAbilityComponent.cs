@@ -33,7 +33,7 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    static readonly Code.Gameplay.Features.Ability.MagnificentBoltAbility magnificentBoltAbilityComponent = new Code.Gameplay.Features.Ability.MagnificentBoltAbility();
+    static readonly Code.Gameplay.Features.Abilities.MagnificentBoltAbility magnificentBoltAbilityComponent = new Code.Gameplay.Features.Abilities.MagnificentBoltAbility();
 
     public bool isMagnificentBoltAbility {
         get { return HasComponent(GameComponentsLookup.MagnificentBoltAbility); }

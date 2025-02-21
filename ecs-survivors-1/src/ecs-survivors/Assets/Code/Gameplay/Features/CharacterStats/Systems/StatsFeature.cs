@@ -1,15 +1,15 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
+﻿using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.CharacterStats.Systems
 {
     public sealed class StatsFeature : Feature
     {
-        public StatsFeature(ISystemFactory systems)
+        public StatsFeature(ISystemFactory systemses)
         {
-            Add(systems.Create<StatChangeSystem>());
-            Add(systems.Create<ApplySpeedFromStatsSystem>());
-            Add(systems.Create<ApplyScaleFromStatsSystem>());
-            Add(systems.Create<ApplyMaxHpFromStatsSystem>());
+            Add(systemses.Create<StatChangeSystem>());
+            Add(systemses.Create<ApplySpeedFromStatsSystem>());
+            Add(systemses.Create<ApplyScaleFromStatsSystem>());
+            Add(systemses.Create<ApplyMaxHpFromStatsSystem>());
         }
     }
 }

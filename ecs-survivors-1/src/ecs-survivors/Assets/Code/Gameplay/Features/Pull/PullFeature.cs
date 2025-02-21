@@ -1,23 +1,27 @@
-﻿using Code.Gameplay.Features.Movement.Factory;
-using Code.Gameplay.Features.Pull.Systems;
+﻿using Code.Gameplay.Features.Pull.Systems;
+using Code.Infrastructure.Systems;
 
 namespace Code.Gameplay.Features.Pull
 {
     public sealed class PullFeature : Feature
     {
-        public PullFeature(ISystemFactory systems)
+        public PullFeature(ISystemFactory system)
         {
-            Add(systems.Create<CastInPullRadiusSystem>());
-            Add(systems.Create<SetPullableHolderOnMagnificentBoltHitSystem>());
+            Add(system.Create<CastInPullRadiusSystem>());
+            Add(system.Create<SetPullableHolderOnMagnificentBoltHitSystem>());
             
-            Add(systems.Create<MarkHolderDestructedWhenTargetsDestroyedSystem>());   
-            Add(systems.Create<MarkTargetPullableOnHitSystem>());   
+            Add(system.Create<MarkHolderDestructedWhenTargetsDestroyedSystem>());   
+            Add(system.Create<MarkTargetPullableOnHitSystem>());   
             
-            Add(systems.Create<AddPullableToPullableHolderWithLimitSystem>());
-            Add(systems.Create<AddPullableToPullableHolderWithNoLimitSystem>());
+            Add(system.Create<AddPullableToPullableHolderWithLimitSystem>());
+            Add(system.Create<AddPullableToPullableHolderWithNoLimitSystem>());
             
-            Add(systems.Create<MoveToPullableHolderSystem>());   
-            Add(systems.Create<MarkPullableDestructedOnPullingFinishedSystem>());   
+            Add(system.Create<MoveToPullableHolderSystem>());   
+            Add(system.Create<SequentialMoveToPullableHolderSystem>());   
+            Add(system.Create<ApplySpeedUpStatusOnPullingSystem>());   
+            
+            Add(system.Create<MarkPullableDeadOnPullingFinishedSystem>());   
+            Add(system.Create<MarkPullableDestructedOnPullingFinishedSystem>());   
         }
     }
 }

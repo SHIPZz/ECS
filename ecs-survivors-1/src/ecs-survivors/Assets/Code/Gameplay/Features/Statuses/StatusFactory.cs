@@ -65,6 +65,10 @@ namespace Code.Gameplay.Features.Statuses
                     status = CreateVampirismStatus(statusSetup, targetId, producerId, statusSetup.Value);
                     break;
                 
+                case StatusTypeId.PeriodicDamage:
+                    status = CreatePeriodicDamageStatus(statusSetup, targetId, producerId, statusSetup.Value);
+                    break;
+                
                 default:
                     throw new ArgumentException("no status");
             }
@@ -76,6 +80,20 @@ namespace Code.Gameplay.Features.Statuses
                     .With(x => x.AddTimeSinceLastTick(0), when: statusSetup.Period > 0)
                 ;
         }
+        
+        private GameEntity CreatePeriodicDamageStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
+        {
+            return CreateEntity
+                .Empty()
+                .AddId(_identifierService.Next())
+                .AddTargetId(targetId)
+                .AddEffectValue(value)
+                .AddStatusTypeId(statusSetup.StatusTypeId)
+                .AddProducerId(producerId)
+                .With(x => x.isStatus = true)
+                .With(x => x.isPeriodicDamageStatus = true);
+        }
+
         
         private GameEntity CreateVampirismStatus(StatusSetup statusSetup, int targetId, int producerId, float value)
         {

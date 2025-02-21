@@ -33,13 +33,13 @@ public sealed partial class GameMatcher {
 //------------------------------------------------------------------------------
 public partial class GameEntity {
 
-    public Code.Gameplay.Features.Ability.RadialRadius radialRadius { get { return (Code.Gameplay.Features.Ability.RadialRadius)GetComponent(GameComponentsLookup.RadialRadius); } }
+    public Code.Gameplay.Features.Abilities.RadialRadius radialRadius { get { return (Code.Gameplay.Features.Abilities.RadialRadius)GetComponent(GameComponentsLookup.RadialRadius); } }
     public float RadialRadius { get { return radialRadius.Value; } }
     public bool hasRadialRadius { get { return HasComponent(GameComponentsLookup.RadialRadius); } }
 
     public GameEntity AddRadialRadius(float newValue) {
         var index = GameComponentsLookup.RadialRadius;
-        var component = (Code.Gameplay.Features.Ability.RadialRadius)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.RadialRadius));
+        var component = (Code.Gameplay.Features.Abilities.RadialRadius)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.RadialRadius));
         component.Value = newValue;
         AddComponent(index, component);
         return this;
@@ -47,7 +47,7 @@ public partial class GameEntity {
 
     public GameEntity ReplaceRadialRadius(float newValue) {
         var index = GameComponentsLookup.RadialRadius;
-        var component = (Code.Gameplay.Features.Ability.RadialRadius)CreateComponent(index, typeof(Code.Gameplay.Features.Ability.RadialRadius));
+        var component = (Code.Gameplay.Features.Abilities.RadialRadius)CreateComponent(index, typeof(Code.Gameplay.Features.Abilities.RadialRadius));
         component.Value = newValue;
         ReplaceComponent(index, component);
         return this;

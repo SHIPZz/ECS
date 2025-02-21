@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Extensions;
+using Code.Gameplay.Common;
 using Code.Gameplay.Features.Armament.Factory;
-using Code.Gameplay.Features.Enemies.Services;
 using Entitas;
 
 namespace Code.Gameplay.Features.Armament.Systems
@@ -13,13 +13,11 @@ namespace Code.Gameplay.Features.Armament.Systems
         private readonly IGroup<GameEntity> _enemies;
         private readonly IArmamentFactory _armamentFactory;
         private readonly List<int> _targetedEnemies = new();
-        private GameContext _game;
 
         public ProcessMagnificentBoltOnHitSystem(GameContext game,
             IGetClosestEntityService getClosestEntityService,
             IArmamentFactory armamentFactory)
         {
-            _game = game;
             _armamentFactory = armamentFactory;
             _getClosestEntityService = getClosestEntityService;
 

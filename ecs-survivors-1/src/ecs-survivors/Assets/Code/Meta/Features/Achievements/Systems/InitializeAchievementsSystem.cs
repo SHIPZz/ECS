@@ -28,12 +28,10 @@ namespace Code.Meta.Features.Achievements.Systems
 
         public void Initialize()
         {
-            Debug.Log($"init");
             _achievementService.InitializeAchievements();
 
             if (_saveLoadService.HasSavedProgress && _meta.GetGroup(MetaMatcher.Achievement).count > 0)
             {
-                Debug.Log($"has save");
                 ActualizeAchievements();
 
                 return;

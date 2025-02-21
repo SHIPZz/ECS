@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Extensions;
+using Code.Gameplay.Common;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
-using Code.Gameplay.Features.Enemies.Services;
 using Entitas;
 
 namespace Code.Gameplay.Features.Abilities.Systems

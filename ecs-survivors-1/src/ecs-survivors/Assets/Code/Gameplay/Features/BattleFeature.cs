@@ -10,6 +10,7 @@ using Code.Gameplay.Features.Effects;
 using Code.Gameplay.Features.Enchants;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Follow;
+using Code.Gameplay.Features.GameOver;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.LevelUp;
 using Code.Gameplay.Features.Lifetime;
@@ -30,42 +31,43 @@ namespace Code.Gameplay.Features
     public sealed class 
         BattleFeature : Feature
     {
-        public BattleFeature(ISystemFactory systemses)
+        public BattleFeature(ISystemFactory systems)
         {
-            Add(systemses.Create<InputFeature>());
-            Add(systemses.Create<BindViewFeature>());
+            Add(systems.Create<InputFeature>());
+            Add(systems.Create<BindViewFeature>());
             
-            Add(systemses.Create<ScaleFeature>());
-            Add(systemses.Create<HeroFeature>());
+            Add(systems.Create<ScaleFeature>());
+            Add(systems.Create<HeroFeature>());
             
-            Add(systemses.Create<CameraFeature>());
-            Add(systemses.Create<EnemyFeature>());
+            Add(systems.Create<CameraFeature>());
+            Add(systems.Create<EnemyFeature>());
             
             
-            Add(systemses.Create<CooldownFeature>());
-            Add(systemses.Create<EnchantFeature>());
+            Add(systems.Create<CooldownFeature>());
+            Add(systems.Create<EnchantFeature>());
             
-            Add(systemses.Create<LootingFeature>());
+            Add(systems.Create<LootingFeature>());
             
-            Add(systemses.Create<CollectTargetsFeature>());
-            Add(systemses.Create<PullFeature>());
-            Add(systemses.Create<LevelUpFeature>());
-            Add(systemses.Create<AbilityFeature>());
+            Add(systems.Create<CollectTargetsFeature>());
+            Add(systems.Create<PullFeature>());
+            Add(systems.Create<LevelUpFeature>());
+            Add(systems.Create<AbilityFeature>());
             
-            Add(systemses.Create<StatusFeature>());
-            Add(systemses.Create<EffectApplicationFeature>());
-            Add(systemses.Create<StatusVisualsFeature>());
-            Add(systemses.Create<ArmamentFeature>());
-            Add(systemses.Create<EffectFeature>());
-            Add(systemses.Create<StatsFeature>());
-            Add(systemses.Create<FollowTargetFeature>());
-            Add(systemses.Create<SkinFeature>());
+            Add(systems.Create<StatusFeature>());
+            Add(systems.Create<EffectApplicationFeature>());
+            Add(systems.Create<StatusVisualsFeature>());
+            Add(systems.Create<ArmamentFeature>());
+            Add(systems.Create<EffectFeature>());
+            Add(systems.Create<StatsFeature>());
+            Add(systems.Create<FollowTargetFeature>());
+            Add(systems.Create<SkinFeature>());
             
-            Add(systemses.Create<MovementFeature>());
-            Add(systemses.Create<ProcessDestructedFeature>());
+            Add(systems.Create<MovementFeature>());
+            Add(systems.Create<ProcessDestructedFeature>());
             
-            Add(systemses.Create<DeathFeature>());
-            Add(systemses.Create<LifetimeFeature>());
+            Add(systems.Create<DeathFeature>());
+            Add(systems.Create<GameOverOnHeroDeathSystem>());
+            Add(systems.Create<LifetimeFeature>());
         }
     }
 }

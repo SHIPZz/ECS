@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Entitas;
 
-namespace Code.Gameplay.Features.Enemies.Services
+namespace Code.Gameplay.Common
 {
     public interface IGetClosestEntityService
     {

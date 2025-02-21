@@ -1,10 +1,9 @@
 ﻿using System.Collections.Generic;
 using Code.Common.Extensions;
+using Code.Gameplay.Common;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
-using Code.Gameplay.Features.Enemies.Services;
 using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.Features.Abilities.Systems
 {
@@ -16,7 +15,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
         private readonly IGroup<GameEntity> _enemies;
         private readonly List<GameEntity> _buffer = new(32);
         private readonly IGroup<GameEntity> _targets;
-        private IGetClosestEntityService _getClosestEntityService;
+        private readonly IGetClosestEntityService _getClosestEntityService;
 
         public ScatteringAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IGetClosestEntityService getClosestEntityService)
         {

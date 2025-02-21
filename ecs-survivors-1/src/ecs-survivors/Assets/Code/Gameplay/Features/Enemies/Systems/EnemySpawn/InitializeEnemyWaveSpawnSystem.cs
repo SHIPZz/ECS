@@ -24,6 +24,8 @@ namespace Code.Gameplay.Features.Enemies.Systems.EnemySpawn
             
             WaveData waveData = _enemySpawnConfig.GetWave(stage);
 
+            InitEnemyDeadCount();
+
             CreateEntity
                 .Empty()
                 .AddId(_identifierService.Next())
@@ -38,6 +40,14 @@ namespace Code.Gameplay.Features.Enemies.Systems.EnemySpawn
                 .PutOnCooldown()
                 .With(x=> x.isEnemySpawnAvailable = true)
                 .With(x=> x.isAddingNewEnemyAvailable = true)
+                ;
+        }
+
+        private void InitEnemyDeadCount()
+        {
+            CreateEntity.Empty()
+                .AddId(_identifierService.Next())
+                .AddEnemyDeadCount(0)
                 ;
         }
     }

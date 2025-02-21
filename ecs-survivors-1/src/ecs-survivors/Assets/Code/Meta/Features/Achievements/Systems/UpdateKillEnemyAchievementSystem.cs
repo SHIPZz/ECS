@@ -18,6 +18,7 @@ namespace Code.Meta.Features.Achievements.Systems
             _enemyKillAchievement = meta.GetGroup(MetaMatcher
                 .AllOf(
                     MetaMatcher.KillEnemyAchievement, 
+                    MetaMatcher.Achievement, 
                 MetaMatcher.CurrentAmount));
             
             _enemyDeadCounter = game.GetGroup(GameMatcher.EnemyDeadCount);

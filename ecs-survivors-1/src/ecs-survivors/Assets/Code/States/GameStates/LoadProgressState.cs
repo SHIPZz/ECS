@@ -4,7 +4,7 @@ using Code.States.StateMachine;
 
 namespace Code.States.GameStates
 {
-    public class LoadProgressState : IState
+    public class LoadProgressState : SimpleState
     {
         private readonly IGameStateMachine _stateMachine;
         private readonly ISaveLoadService _saveLoadService;
@@ -18,7 +18,7 @@ namespace Code.States.GameStates
             _stateMachine = stateMachine;
         }
 
-        public void Enter()
+        public override void Enter()
         {
             InitializeProgress();
 
@@ -36,11 +36,6 @@ namespace Code.States.GameStates
         private void CreateNewProgress()
         {
             _saveLoadService.CreateProgress();
-        }
-
-        public void Exit()
-        {
-            
         }
     }
 }

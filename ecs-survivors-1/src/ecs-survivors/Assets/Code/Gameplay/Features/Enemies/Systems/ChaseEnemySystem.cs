@@ -1,4 +1,4 @@
-﻿using Code.Gameplay.Features.Enemies.Services;
+﻿using Code.Gameplay.Common;
 using Entitas;
 
 namespace Code.Gameplay.Features.Enemies.Systems
@@ -33,8 +33,9 @@ namespace Code.Gameplay.Features.Enemies.Systems
             {
                 GameEntity closestEnemy = _getClosestEntityService.GetClosestEntity(enemyChaseEnemy, _enemiesChaseHero);
 
-                if(closestEnemy != null)
-                enemyChaseEnemy?.ReplaceDirection((closestEnemy.WorldPosition - enemyChaseEnemy.WorldPosition).normalized);
+                if (closestEnemy != null)
+                    enemyChaseEnemy?.ReplaceDirection((closestEnemy.WorldPosition - enemyChaseEnemy.WorldPosition)
+                        .normalized);
             }
         }
     }

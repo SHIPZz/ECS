@@ -119,95 +119,96 @@ public static class GameComponentsLookup {
     public const int FollowNewCloseTarget = 108;
     public const int FollowTargetId = 109;
     public const int LastFollowTargets = 110;
-    public const int Hero = 111;
-    public const int HeroAnimator = 112;
-    public const int ExperienceMeter = 113;
-    public const int LevelUp = 114;
-    public const int Alive = 115;
-    public const int CurrentHp = 116;
-    public const int HpRestored = 117;
-    public const int MaxHp = 118;
-    public const int RestoreHp = 119;
-    public const int Collected = 120;
-    public const int Experience = 121;
-    public const int LootTypeId = 122;
-    public const int PickupRadius = 123;
-    public const int Pullable = 124;
-    public const int Pulling = 125;
-    public const int AnimationCurve = 126;
-    public const int AnimationDuration = 127;
-    public const int DestructOnMovingFinished = 128;
-    public const int ElapsedTime = 129;
-    public const int EndPoint = 130;
-    public const int EndPointReached = 131;
-    public const int HeightUpdated = 132;
-    public const int Moving = 133;
-    public const int MovingAvailable = 134;
-    public const int NeedRandomEndPoint = 135;
-    public const int OrbitCenterFollowTarget = 136;
-    public const int OrbitCenterPosition = 137;
-    public const int OrbitPhase = 138;
-    public const int OrbitRadius = 139;
-    public const int RotateAlongDirection = 140;
-    public const int Speed = 141;
-    public const int StartHeight = 142;
-    public const int TurnAlongDirection = 143;
-    public const int UpdateHeightBySinCurve = 144;
-    public const int DestructOnMaxPullTargetReached = 145;
-    public const int MaxPullTargetHold = 146;
-    public const int MinCountToPullTargets = 147;
-    public const int PullAnchorTargetId = 148;
-    public const int PullingDetector = 149;
-    public const int PullInRadius = 150;
-    public const int PullTargetConsistently = 151;
-    public const int PullTargetHolder = 152;
-    public const int PullTargetHolderStatuses = 153;
-    public const int PullTargetLayerMask = 154;
-    public const int PullTargetList = 155;
-    public const int Scale = 156;
-    public const int ScaleTransform = 157;
-    public const int NewSkinAnimator = 158;
-    public const int SkinChanged = 159;
-    public const int TargetSprite = 160;
-    public const int Affected = 161;
-    public const int Applied = 162;
-    public const int ApplierStatusLink = 163;
-    public const int CurrentHpStatus = 164;
-    public const int Duration = 165;
-    public const int Freeze = 166;
-    public const int Invulnerable = 167;
-    public const int InvulnerableStatus = 168;
-    public const int MaxHpIncrease = 169;
-    public const int Period = 170;
-    public const int PeriodicDamageStatus = 171;
-    public const int Poison = 172;
-    public const int ScaleIncrease = 173;
-    public const int SpeedUp = 174;
-    public const int Status = 175;
-    public const int StatusCreator = 176;
-    public const int StatusSetups = 177;
-    public const int StatusTypeId = 178;
-    public const int TimeLeft = 179;
-    public const int TimeSinceLastTick = 180;
-    public const int Unapplied = 181;
-    public const int Vampirism = 182;
-    public const int CollectingAvailable = 183;
-    public const int CollectingTargetsContinuously = 184;
-    public const int CollectTargetsInterval = 185;
-    public const int CollectTargetsLayerMask = 186;
-    public const int CollectTargetsTimer = 187;
-    public const int IgnoreBuffer = 188;
-    public const int Ignored = 189;
-    public const int LastCollectedId = 190;
-    public const int OverflowProcessedTargetsBuffer = 191;
-    public const int ProcessedTargetsBuffer = 192;
-    public const int Radius = 193;
-    public const int Reached = 194;
-    public const int ReadyToCollectOnMovingFinished = 195;
-    public const int ReadyToCollectTargets = 196;
-    public const int TargetsBuffer = 197;
+    public const int DontDestroyOnGameOver = 111;
+    public const int Hero = 112;
+    public const int HeroAnimator = 113;
+    public const int ExperienceMeter = 114;
+    public const int LevelUp = 115;
+    public const int Alive = 116;
+    public const int CurrentHp = 117;
+    public const int HpRestored = 118;
+    public const int MaxHp = 119;
+    public const int RestoreHp = 120;
+    public const int Collected = 121;
+    public const int Experience = 122;
+    public const int LootTypeId = 123;
+    public const int PickupRadius = 124;
+    public const int Pullable = 125;
+    public const int Pulling = 126;
+    public const int AnimationCurve = 127;
+    public const int AnimationDuration = 128;
+    public const int DestructOnMovingFinished = 129;
+    public const int ElapsedTime = 130;
+    public const int EndPoint = 131;
+    public const int EndPointReached = 132;
+    public const int HeightUpdated = 133;
+    public const int Moving = 134;
+    public const int MovingAvailable = 135;
+    public const int NeedRandomEndPoint = 136;
+    public const int OrbitCenterFollowTarget = 137;
+    public const int OrbitCenterPosition = 138;
+    public const int OrbitPhase = 139;
+    public const int OrbitRadius = 140;
+    public const int RotateAlongDirection = 141;
+    public const int Speed = 142;
+    public const int StartHeight = 143;
+    public const int TurnAlongDirection = 144;
+    public const int UpdateHeightBySinCurve = 145;
+    public const int DestructOnMaxPullTargetReached = 146;
+    public const int MaxPullTargetHold = 147;
+    public const int MinCountToPullTargets = 148;
+    public const int PullAnchorTargetId = 149;
+    public const int PullingDetector = 150;
+    public const int PullInRadius = 151;
+    public const int PullTargetConsistently = 152;
+    public const int PullTargetHolder = 153;
+    public const int PullTargetHolderStatuses = 154;
+    public const int PullTargetLayerMask = 155;
+    public const int PullTargetList = 156;
+    public const int Scale = 157;
+    public const int ScaleTransform = 158;
+    public const int NewSkinAnimator = 159;
+    public const int SkinChanged = 160;
+    public const int TargetSprite = 161;
+    public const int Affected = 162;
+    public const int Applied = 163;
+    public const int ApplierStatusLink = 164;
+    public const int CurrentHpStatus = 165;
+    public const int Duration = 166;
+    public const int Freeze = 167;
+    public const int Invulnerable = 168;
+    public const int InvulnerableStatus = 169;
+    public const int MaxHpIncrease = 170;
+    public const int Period = 171;
+    public const int PeriodicDamageStatus = 172;
+    public const int Poison = 173;
+    public const int ScaleIncrease = 174;
+    public const int SpeedUp = 175;
+    public const int Status = 176;
+    public const int StatusCreator = 177;
+    public const int StatusSetups = 178;
+    public const int StatusTypeId = 179;
+    public const int TimeLeft = 180;
+    public const int TimeSinceLastTick = 181;
+    public const int Unapplied = 182;
+    public const int Vampirism = 183;
+    public const int CollectingAvailable = 184;
+    public const int CollectingTargetsContinuously = 185;
+    public const int CollectTargetsInterval = 186;
+    public const int CollectTargetsLayerMask = 187;
+    public const int CollectTargetsTimer = 188;
+    public const int IgnoreBuffer = 189;
+    public const int Ignored = 190;
+    public const int LastCollectedId = 191;
+    public const int OverflowProcessedTargetsBuffer = 192;
+    public const int ProcessedTargetsBuffer = 193;
+    public const int Radius = 194;
+    public const int Reached = 195;
+    public const int ReadyToCollectOnMovingFinished = 196;
+    public const int ReadyToCollectTargets = 197;
+    public const int TargetsBuffer = 198;
 
-    public const int TotalComponents = 198;
+    public const int TotalComponents = 199;
 
     public static readonly string[] componentNames = {
         "Active",
@@ -321,6 +322,7 @@ public static class GameComponentsLookup {
         "FollowNewCloseTarget",
         "FollowTargetId",
         "LastFollowTargets",
+        "DontDestroyOnGameOver",
         "Hero",
         "HeroAnimator",
         "ExperienceMeter",
@@ -522,6 +524,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Follow.FollowNewCloseTarget),
         typeof(Code.Gameplay.Features.Follow.FollowTargetId),
         typeof(Code.Gameplay.Features.Follow.LastFollowTargets),
+        typeof(Code.Gameplay.Features.GameOver.DontDestroyOnGameOver),
         typeof(Code.Gameplay.Features.Hero.Hero),
         typeof(Code.Gameplay.Features.Hero.HeroAnimatorComponent),
         typeof(Code.Gameplay.Features.LevelUp.ExperienceMeterComponent),

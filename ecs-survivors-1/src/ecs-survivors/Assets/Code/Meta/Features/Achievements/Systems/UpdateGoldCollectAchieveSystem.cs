@@ -21,6 +21,7 @@ namespace Code.Meta.Features.Achievements.Systems
                 .AllOf(
                     MetaMatcher.AchievementTypeId,
                     MetaMatcher.Achievement,
+                    MetaMatcher.CurrentAmount,
                     MetaMatcher.GoldCollectAchievement));
         }
 

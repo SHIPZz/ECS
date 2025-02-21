@@ -1,5 +1,6 @@
 using Code.Common.EntityIndicies;
 using Code.Gameplay.Cameras.Provider;
+using Code.Gameplay.Common;
 using Code.Gameplay.Common.Collisions;
 using Code.Gameplay.Common.Physics;
 using Code.Gameplay.Common.Position;
@@ -12,7 +13,6 @@ using Code.Gameplay.Features.Effects.Factory;
 using Code.Gameplay.Features.Enchants.UIFactories;
 using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Enemies.Factory;
-using Code.Gameplay.Features.Enemies.Services;
 using Code.Gameplay.Features.Hero;
 using Code.Gameplay.Features.Hero.Factory;
 using Code.Gameplay.Features.LevelUp.Services;
@@ -32,7 +32,6 @@ using Code.Meta.Factory;
 using Code.Meta.Features.Achievements.Services;
 using Code.Meta.Features.Simulation.Roll;
 using Code.Meta.SaveLoad;
-using Code.Meta.UI.GoldHolders.Behaviours;
 using Code.Meta.UI.GoldHolders.Service;
 using Code.Meta.UI.Shop;
 using Code.Meta.UI.Shop.Factory;
@@ -41,6 +40,8 @@ using Code.States.Factory;
 using Code.States.GameStates;
 using Code.States.StateMachine;
 using Entitas;
+using RSG;
+using UnityEngine;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -99,6 +100,8 @@ namespace Code.Infrastructure.Installers
             Container.BindInterfacesAndSelfTo<LoadingBattleState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleEnterState>().AsSingle();
             Container.BindInterfacesAndSelfTo<BattleLoopState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameOverState>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AfterGameOverState>().AsSingle();
         }
 
         private void BindUiFactories()
@@ -195,7 +198,13 @@ namespace Code.Infrastructure.Installers
 
         public void Initialize()
         {
+            Promise.UnhandledException += LogPromiseException;
             Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+        }
+
+        private void LogPromiseException(object sender, ExceptionEventArgs e)
+        {
+            Debug.LogError(e.Exception);
         }
     }
 }

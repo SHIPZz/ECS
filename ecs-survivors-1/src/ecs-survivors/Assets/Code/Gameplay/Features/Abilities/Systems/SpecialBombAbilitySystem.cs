@@ -5,7 +5,6 @@ using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armament.Factory;
 using Code.Gameplay.Features.Cooldown;
-using Code.Gameplay.Features.Enemies.Services;
 using Entitas;
 using UnityEngine;
 

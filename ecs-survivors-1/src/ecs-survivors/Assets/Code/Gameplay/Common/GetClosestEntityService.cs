@@ -2,7 +2,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Code.Gameplay.Features.Enemies.Services
+namespace Code.Gameplay.Common
 {
     public class GetClosestEntityService : IGetClosestEntityService
     {

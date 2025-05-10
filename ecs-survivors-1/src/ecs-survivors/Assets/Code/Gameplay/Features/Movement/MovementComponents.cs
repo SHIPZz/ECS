@@ -5,6 +5,8 @@ namespace Code.Gameplay.Features.Movement
 {
     [Game] public class Speed : IComponent { public float Value; }
     
+    [Game] public class InitialSpeed : IComponent { public float Value; }
+    
     [Game] public class AnimationDuration : IComponent { public float Value; }
     
     [Game] public class ElapsedTime : IComponent { public float Value; }

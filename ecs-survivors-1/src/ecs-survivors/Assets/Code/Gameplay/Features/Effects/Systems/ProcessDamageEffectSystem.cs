@@ -1,5 +1,4 @@
 ﻿using Entitas;
-using UnityEngine;
 
 namespace Code.Gameplay.Features.Effects.Systems
 {
@@ -32,6 +31,8 @@ namespace Code.Gameplay.Features.Effects.Systems
                 
                 if(target.hasDamageTakenAnimator)
                     target.DamageTakenAnimator.PlayDamageTaken();
+
+                // target.AppliedEffectTypeIdsOnTarget.Add(EffectTypeId.Damage);
             }
         }
     }

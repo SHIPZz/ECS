@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waveDatas:
   - Cooldown: 60
-    SpawnInterval: 4
-    Count: 2
+    SpawnInterval: 8
+    Count: 1
     Enemies: 01000000
     EnemyAppearTime: 0
     EnemiesToAppear: 

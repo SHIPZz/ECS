@@ -12,10 +12,12 @@ using Code.Gameplay.Features.Enemies;
 using Code.Gameplay.Features.Follow;
 using Code.Gameplay.Features.GameOver;
 using Code.Gameplay.Features.Hero.Factory;
+using Code.Gameplay.Features.KickingBacks;
 using Code.Gameplay.Features.LevelUp;
 using Code.Gameplay.Features.Lifetime;
 using Code.Gameplay.Features.Loot;
 using Code.Gameplay.Features.Movement;
+using Code.Gameplay.Features.BleedingTrails;
 using Code.Gameplay.Features.Pull;
 using Code.Gameplay.Features.Scale;
 using Code.Gameplay.Features.Skin;
@@ -43,12 +45,16 @@ namespace Code.Gameplay.Features
             Add(systems.Create<EnemyFeature>());
             
             
+            
             Add(systems.Create<CooldownFeature>());
             Add(systems.Create<EnchantFeature>());
             
             Add(systems.Create<LootingFeature>());
             
             Add(systems.Create<CollectTargetsFeature>());
+            Add(systems.Create<BleedingTrailFeature>());
+            Add(systems.Create<KickingBackFeature>());
+            Add(systems.Create<MovementFeature>());
             Add(systems.Create<PullFeature>());
             Add(systems.Create<LevelUpFeature>());
             Add(systems.Create<AbilityFeature>());
@@ -62,7 +68,6 @@ namespace Code.Gameplay.Features
             Add(systems.Create<FollowTargetFeature>());
             Add(systems.Create<SkinFeature>());
             
-            Add(systems.Create<MovementFeature>());
             Add(systems.Create<ProcessDestructedFeature>());
             
             Add(systems.Create<DeathFeature>());

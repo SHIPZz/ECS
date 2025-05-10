@@ -21,3 +21,57 @@ MonoBehaviour:
   CollisionLayer: 6
   Radius: 0.1
   ViewPrefab: {fileID: 6909503884090576820, guid: 5aa0f6aecef0da643b3ff98e1dc91c2e, type: 3}
+  TrailSpawnCooldown: 0.1
+  TrailView: {fileID: 0}
+  MovementSpeed: 0.2
+  KickingBackCooldown: 1
+  KickingBackForce: 6
+  FinalBleedingTrails:
+  - Prefab: {fileID: 2030778995447395579, guid: 8c4a032e464090d49927fa4bcc19795a, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 4673ee9aeff36114aa44b8856230325b, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  InitialBleedingTrails:
+  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 3e113c7b33a105f4ca3fb5e93e0769d7, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 4673ee9aeff36114aa44b8856230325b, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: b7aaef484ede56e438bba51704ab6a5a, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: dc12b81cf5f19864c85c9b836c6754ab, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 58f0c453162751143bdc25dc35065359, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  - Prefab: {fileID: 2030778995447395579, guid: 14c2da1ae15de3a48b8db0671561a7e7, type: 3}
+    SpawnInterval: 0
+    Layer: 1
+  LongBleedingTrails:
+  - Prefab: {fileID: 2030778995447395579, guid: 82f2b829897f51942bd1cac1f2bdef36, type: 3}
+    SpawnInterval: 0
+    Layer: 0
+  - Prefab: {fileID: 2030778995447395579, guid: 8c4a032e464090d49927fa4bcc19795a, type: 3}
+    SpawnInterval: 0
+    Layer: 0
+  - Prefab: {fileID: 2030778995447395579, guid: 1ca45e453811c4a458400c1d8321d805, type: 3}
+    SpawnInterval: 0
+    Layer: 0
+  Hp: 1000
+  MaxHp: 1000
+  TrailSpawnInterval: 0.02
+  BleedTrailOffset: 2

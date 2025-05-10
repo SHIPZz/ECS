@@ -1,7 +1,5 @@
-﻿using Code.Common.Extensions;
-using Code.Gameplay.Features.Abilities.Config;
+﻿using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Abilities.Upgrade;
-using Code.Gameplay.Features.Statuses;
 using Entitas;
 
 namespace Code.Gameplay.Features.Hero.Systems
@@ -18,7 +16,6 @@ namespace Code.Gameplay.Features.Hero.Systems
         public void Initialize()
         {
             _abilityUpgradeService.InitializeAbility(AbilityTypeId.VegetableBolt);
-            _abilityUpgradeService.InitializeAbility(AbilityTypeId.SpecialBomb);
         }
     }
 }

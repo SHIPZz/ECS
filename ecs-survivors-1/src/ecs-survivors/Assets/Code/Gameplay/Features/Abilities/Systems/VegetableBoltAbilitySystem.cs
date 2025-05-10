@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Extensions;
+using Code.Gameplay.Common;
 using Code.Gameplay.Features.Abilities.Config;
 using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armament.Factory;
@@ -19,10 +20,13 @@ namespace Code.Gameplay.Features.Abilities.Systems
         private readonly IStaticDataService _staticDataService;
         private readonly List<GameEntity> _buffer = new(64);
         private IAbilityUpgradeService _abilityUpgradeService;
+        private IGetClosestEntityService _getClosestEntityService;
 
         public VegetableBoltAbilitySystem(GameContext game, IArmamentFactory armamentFactory, IStaticDataService staticDataService,
+            IGetClosestEntityService getClosestEntityService,
             IAbilityUpgradeService abilityUpgradeService)
         {
+            _getClosestEntityService = getClosestEntityService;
             _abilityUpgradeService = abilityUpgradeService;
             _staticDataService = staticDataService;
             _armamentFactory = armamentFactory;
@@ -43,7 +47,7 @@ namespace Code.Gameplay.Features.Abilities.Systems
                 if(_enemies.count <= 0)
                     continue;
                 
-                var target = _enemies.AsEnumerable().First();
+                var target = _getClosestEntityService.GetClosestEntity(hero,_enemies);
                 
                 if(target == null || _enemies.count <= 0)
                     continue;

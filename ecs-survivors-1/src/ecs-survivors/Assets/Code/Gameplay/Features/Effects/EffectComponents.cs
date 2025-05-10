@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using System.Collections.Generic;
+using Entitas;
 
 namespace Code.Gameplay.Features.Effects
 {
@@ -9,6 +10,8 @@ namespace Code.Gameplay.Features.Effects
     [Game] public class ApplyEffectOnEndPointReached : IComponent {  }
     
     [Game] public class ApplyStatusOnEndPointReached : IComponent {  }
+    
+    [Game] public class AppliedEffectTypeIdsOnTarget : IComponent { public List<EffectTypeId> Value; }
     
     [Game] public class PullEffect : IComponent { }
     

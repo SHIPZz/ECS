@@ -1,4 +1,5 @@
-﻿using Entitas;
+﻿using Code.Gameplay.Features.Movement;
+using Entitas;
 
 namespace Code.Gameplay.Features.Enemies.Systems
 {
@@ -15,7 +16,8 @@ namespace Code.Gameplay.Features.Enemies.Systems
                 .AllOf(
                     GameMatcher.Enemy, 
                     GameMatcher.ChaseHero, 
-                    GameMatcher.WorldPosition));
+                    GameMatcher.WorldPosition)
+                .NoneOf(GameMatcher.KickingBacking));
         }
 
         public void Execute()

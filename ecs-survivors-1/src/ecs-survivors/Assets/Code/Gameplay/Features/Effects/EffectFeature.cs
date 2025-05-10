@@ -14,6 +14,7 @@ namespace Code.Gameplay.Features.Effects
             Add(systemses.Create<ProcessVampirismOnDamageEffectSystem>());
             Add(systemses.Create<ProcessDamageEffectSystem>());
             Add(systemses.Create<CleanupProcessedEffectsSystem>());
+            Add(systemses.Create<CleanupAppliedEffectTypeIdOnTarget>());
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
         
                 Vector3 startPosition = entity.WorldPosition - direction * entity.LongBleedTrailOffset;
                 
-                Vector3 endPosition = entity.WorldPosition - direction * entity.BleedTrailOffset;
+                Vector3 endPosition = startPosition * entity.BleedTrailOffset;
 
                 var trailView = _instantiator.InstantiatePrefabForComponent<BleedingTrailView>(
                     initalTrail.Prefab, 

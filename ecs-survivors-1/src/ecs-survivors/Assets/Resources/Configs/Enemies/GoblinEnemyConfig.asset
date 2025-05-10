@@ -25,7 +25,7 @@ MonoBehaviour:
   TrailView: {fileID: 0}
   MovementSpeed: 0.2
   KickingBackCooldown: 1
-  KickingBackForce: 6
+  KickingBackForce: 14
   FinalBleedingTrails:
   - Prefab: {fileID: 2030778995447395579, guid: 8c4a032e464090d49927fa4bcc19795a, type: 3}
     SpawnInterval: 0
@@ -75,3 +75,4 @@ MonoBehaviour:
   MaxHp: 1000
   TrailSpawnInterval: 0.02
   BleedTrailOffset: 2
+  LongBleedTrailOffset: 0.25

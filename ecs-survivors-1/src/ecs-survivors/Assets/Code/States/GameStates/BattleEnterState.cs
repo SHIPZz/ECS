@@ -14,7 +14,6 @@ namespace Code.States.GameStates
         private readonly IHeroFactory _heroFactory;
         private readonly ISystemFactory _systems;
         private readonly GameContext _gameContext;
-        private BattleFeature _battleFeature;
 
         public BattleEnterState(
             IGameStateMachine stateMachine,

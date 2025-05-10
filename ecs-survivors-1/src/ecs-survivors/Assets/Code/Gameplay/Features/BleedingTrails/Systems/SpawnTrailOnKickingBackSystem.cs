@@ -7,13 +7,13 @@ using Zenject;
 
 namespace Code.Gameplay.Features.BleedingTrails.Systems
 {
-    public class SpawnTrailOnMovingSystem : IExecuteSystem
+    public class SpawnTrailOnKickingBackSystem : IExecuteSystem
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly IInstantiator _instantiator;
         private float _lastTrailSpawnTime;
 
-        public SpawnTrailOnMovingSystem(GameContext game, IInstantiator instantiator)
+        public SpawnTrailOnKickingBackSystem(GameContext game, IInstantiator instantiator)
         {
             _instantiator = instantiator;
             _entities = game.GetGroup(GameMatcher
@@ -41,8 +41,7 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
                 
                 BleedingTrailData trailData = entity.InitialBleedingTrails.PickRandom();
 
-                float offsetDistance = 0.2f;
-                Vector3 spawnPosition = entity.WorldPosition - direction * offsetDistance;
+                Vector3 spawnPosition = entity.WorldPosition - direction * entity.LongBleedTrailOffset;
 
                 _instantiator.InstantiatePrefabForComponent<BleedingTrailView>(
                     BleedingTrailData.Prefab,

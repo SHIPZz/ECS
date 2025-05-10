@@ -67,9 +67,6 @@ namespace Code.Meta.Features.Achievements.Services
 
             var achievementCurrentId = GetAchievementId(id);
 
-            Debug.Log($"{achievementCurrentId}");
-            Debug.Log($"{achievementProgresses.Count}");
-            
             return achievementCurrentId >= achievementProgresses.Count
                 ? null
                 : achievementProgresses[achievementCurrentId];

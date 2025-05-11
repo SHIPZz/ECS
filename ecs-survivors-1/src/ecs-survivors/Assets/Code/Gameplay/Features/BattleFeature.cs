@@ -52,8 +52,8 @@ namespace Code.Gameplay.Features
             Add(systems.Create<LootingFeature>());
             
             Add(systems.Create<CollectTargetsFeature>());
-            Add(systems.Create<BleedingTrailFeature>());
             Add(systems.Create<KickingBackFeature>());
+            Add(systems.Create<BleedingTrailFeature>());
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<PullFeature>());
             Add(systems.Create<LevelUpFeature>());

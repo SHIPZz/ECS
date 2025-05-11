@@ -11,21 +11,19 @@ namespace Code.Gameplay.Features.BleedingTrails
     
     [Game] public class BleedingTrailSpawnCooldownUp : IComponent {  }
     
-    [Game] public class BleedingTrailSpawnSprite : IComponent { public Sprite Value;  }
-    
     [Game] public class BleedTrailOffset : IComponent { public float Value;  }
     
     [Game] public class LongBleedTrailOffset : IComponent { public float Value;  }
     
-    [Game] public class InitialBleedingTrails : IComponent { public List<BleedingTrailData> Value;  }
+    [Game] public class LongBleedTrailSpeed : IComponent { public float Value;  }
     
-    [Game] public class MovingBleedingTrails : IComponent { public List<BleedingTrailData> Value;  }
-    
-    [Game] public class FinalBleedingTrails : IComponent { public List<BleedingTrailData> Value;  }
+    [Game] public class SplashBleedTrailSpeed : IComponent { public float Value;  }
     
     [Game] public class BleedingTrailTypeIdComponent : IComponent { public BleedingTrailTypeId Value;  }
     
     [Game] public class BleedingTrailViewComponent : IComponent { public BleedingTrailView Value;  }
+    
+    [Game] public class BleedingTrails : IComponent { public Dictionary<BleedingTrailTypeId, List<BleedingTrailData>> Value;  }
     
     [Game] public class BleedingTrailSpawnCooldownLeft : IComponent { public float Value; }
     
@@ -33,9 +31,9 @@ namespace Code.Gameplay.Features.BleedingTrails
     
     [Game] public class BleedingTrailSpawnRotation : IComponent { public Quaternion Value; }
     
-    [Game] public class LastTrailSpawnTime : IComponent { public float Value; }
+    [Game] public class LastBleedTrailSpawnTime : IComponent { public float Value; }
 
-    [Game] public class TrailSpawnInterval : IComponent { public float Value; }
+    [Game] public class BleedTrailSpawnInterval : IComponent { public float Value; }
     
     [Game] public class BleedingTrailSpawnScale : IComponent { public Vector3 Value; }
 }

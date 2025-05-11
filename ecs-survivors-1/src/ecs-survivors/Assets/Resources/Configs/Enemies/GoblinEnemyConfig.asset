@@ -12,6 +12,185 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807b9536a7f64ee3864eea231d6ee804, type: 3}
   m_Name: GoblinEnemyConfig
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 2030778995447395579, guid: 5da5eb113b980f1419ae5df39fe071e9, type: 3}
+    - {fileID: 2030778995447395579, guid: 3e113c7b33a105f4ca3fb5e93e0769d7, type: 3}
+    - {fileID: 2030778995447395579, guid: 04569fe57affc7c42bd887418a5c2140, type: 3}
+    - {fileID: 2030778995447395579, guid: b7aaef484ede56e438bba51704ab6a5a, type: 3}
+    - {fileID: 2030778995447395579, guid: a851a0e5209ddca41b0e7879d68d5595, type: 3}
+    - {fileID: 2030778995447395579, guid: 2a51a0f5ffb765c4fa2607b01b9b84c9, type: 3}
+    - {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
+    - {fileID: 2030778995447395579, guid: 82f2b829897f51942bd1cac1f2bdef36, type: 3}
+    - {fileID: 2030778995447395579, guid: 1ca45e453811c4a458400c1d8321d805, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: BleedingTrails
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Code.Gameplay.Features.BleedingTrails.Enums.BleedingTrailTypeId,
+        Assembly-CSharp],[System.Collections.Generic.List`1[[Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData,
+        Assembly-CSharp]], mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Code.Gameplay.Features.BleedingTrails.Enums.BleedingTrailTypeId,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 8
+    - Name: 
+      Entry: 7
+      Data: 3|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 6|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 8|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 12|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
+    - Name: Prefab
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   EnemyTypeId: 1
   EffectSetups:
   - EffectTypeId: 1
@@ -23,56 +202,15 @@ MonoBehaviour:
   ViewPrefab: {fileID: 6909503884090576820, guid: 5aa0f6aecef0da643b3ff98e1dc91c2e, type: 3}
   TrailSpawnCooldown: 0.1
   TrailView: {fileID: 0}
-  MovementSpeed: 0.2
-  KickingBackCooldown: 1
-  KickingBackForce: 14
-  FinalBleedingTrails:
-  - Prefab: {fileID: 2030778995447395579, guid: 8c4a032e464090d49927fa4bcc19795a, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 4673ee9aeff36114aa44b8856230325b, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  InitialBleedingTrails:
-  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 3e113c7b33a105f4ca3fb5e93e0769d7, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 4673ee9aeff36114aa44b8856230325b, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: b7aaef484ede56e438bba51704ab6a5a, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: dc12b81cf5f19864c85c9b836c6754ab, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 32cd3024f8b631a4e9d562e5742303fb, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 58f0c453162751143bdc25dc35065359, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  - Prefab: {fileID: 2030778995447395579, guid: 14c2da1ae15de3a48b8db0671561a7e7, type: 3}
-    SpawnInterval: 0
-    Layer: 1
-  LongBleedingTrails:
-  - Prefab: {fileID: 2030778995447395579, guid: 82f2b829897f51942bd1cac1f2bdef36, type: 3}
-    SpawnInterval: 0
-    Layer: 0
-  - Prefab: {fileID: 2030778995447395579, guid: 8c4a032e464090d49927fa4bcc19795a, type: 3}
-    SpawnInterval: 0
-    Layer: 0
-  - Prefab: {fileID: 2030778995447395579, guid: 1ca45e453811c4a458400c1d8321d805, type: 3}
-    SpawnInterval: 0
-    Layer: 0
+  LongBleedingSpeed: 2
+  SplashBleedingSpeed: 1
+  MovementSpeed: 2
+  KickingBackCooldown: 0.1
+  KickingBackForce: 1.5
   Hp: 1000
   MaxHp: 1000
-  TrailSpawnInterval: 0.02
-  BleedTrailOffset: 2
+  TrailSpawnInterval: 0.1
+  BleedTrailOffset: 1.3
   LongBleedTrailOffset: 0.25
+  KickingBackDamping: 3
+  KickingBackStopForce: 0.5

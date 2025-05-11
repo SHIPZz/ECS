@@ -1,5 +1,6 @@
 ﻿using Code.Common.Extensions;
 using Code.Gameplay.Features.BleedingTrails.Configs;
+using Code.Gameplay.Features.BleedingTrails.Enums;
 using Code.Gameplay.Features.BleedingTrails.Visuals;
 using Entitas;
 using UnityEngine;
@@ -11,7 +12,6 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
     {
         private readonly IGroup<GameEntity> _entities;
         private readonly IInstantiator _instantiator;
-        private float _lastTrailSpawnTime;
 
         public SpawnTrailOnKickingBackSystem(GameContext game, IInstantiator instantiator)
         {
@@ -21,7 +21,7 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
                     GameMatcher.WorldPosition,
                     GameMatcher.Alive,
                     GameMatcher.KickingBacking,
-                    GameMatcher.MovingBleedingTrails
+                    GameMatcher.BleedingTrails
                 ));
         }
 
@@ -29,33 +29,43 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
         {
             foreach (GameEntity entity in _entities)
             {
-                if(Time.time < _lastTrailSpawnTime + entity.TrailSpawnInterval)
+                if (Time.time < entity.LastBleedTrailSpawnTime + entity.BleedTrailSpawnInterval)
                     return;
-                
+
                 Vector3 direction = entity.Direction;
 
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
                 Quaternion rotationAlignDirection = Quaternion.Euler(0, 0, angle);
 
-                BleedingTrailData BleedingTrailData = entity.MovingBleedingTrails.PickRandom();
-                
-                BleedingTrailData trailData = entity.InitialBleedingTrails.PickRandom();
+                BleedingTrailData longTrailData = null;
+                BleedingTrailData splashData = null;
 
-                Vector3 spawnPosition = entity.WorldPosition - direction * entity.LongBleedTrailOffset;
+                if (entity.Speed >= entity.LongBleedTrailSpeed)
+                {
+                    longTrailData = entity.BleedingTrails[BleedingTrailTypeId.Long].PickRandom();
+                    splashData = entity.BleedingTrails[BleedingTrailTypeId.Splash].PickRandom();
+                }
+                else
+                {
+                    splashData = entity.BleedingTrails[BleedingTrailTypeId.Splash].PickRandom();
+                }
+
+                Vector3 spawnPosition = entity.WorldPosition + direction * entity.LongBleedTrailOffset;
+
+                if (longTrailData != null)
+                    _instantiator.InstantiatePrefabForComponent<BleedingTrailView>(
+                        longTrailData.Prefab,
+                        spawnPosition,
+                        rotationAlignDirection,
+                        null);
 
                 _instantiator.InstantiatePrefabForComponent<BleedingTrailView>(
-                    BleedingTrailData.Prefab,
+                    splashData.Prefab,
                     spawnPosition,
                     rotationAlignDirection,
                     null);
-                
-                _instantiator.InstantiatePrefabForComponent<BleedingTrailView>(
-                    trailData.Prefab,
-                    spawnPosition,
-                    rotationAlignDirection,
-                    null);
-                
-                _lastTrailSpawnTime = Time.time;
+
+                entity.ReplaceLastBleedTrailSpawnTime(Time.time);
             }
         }
     }

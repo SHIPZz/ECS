@@ -14,17 +14,18 @@ namespace Code.Gameplay.Features.KickingBacks.Systems
             _entities = game.GetGroup(GameMatcher
                 .AllOf(
                     GameMatcher.Direction,
-                    GameMatcher.Speed,
-                    GameMatcher.KickingBackCooldownUp,
-                    GameMatcher.KickingBacking));
+                    GameMatcher.InitialSpeed,
+                    GameMatcher.KickingBackAvailable,
+                    GameMatcher.Speed)
+                .NoneOf(GameMatcher.KickingBacking));
         }
 
         public void Execute()
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                entity.isKickingBackCooldownUp = true;
                 entity.isKickingBacking = false;
+                entity.isMovingAvailable = true;
                 entity.BaseStats[Stats.Speed] = entity.InitialSpeed;
             }
         }

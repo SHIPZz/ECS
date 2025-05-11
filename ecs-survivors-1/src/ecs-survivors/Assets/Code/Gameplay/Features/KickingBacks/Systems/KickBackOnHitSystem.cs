@@ -15,22 +15,19 @@ namespace Code.Gameplay.Features.KickingBacks.Systems
                 .AllOf(
                     GameMatcher.Direction,
                     GameMatcher.Speed,
-                    GameMatcher.GotHit,
-                    GameMatcher.KickingBackCooldown,
-                    GameMatcher.KickingBackCooldownUp,
-                    GameMatcher.GotHit));
+                    GameMatcher.KickingBackForce,
+                    GameMatcher.KickingBackAvailable,
+                    GameMatcher.GotHit
+                    ));
         }
 
         public void Execute()
         {
             foreach (GameEntity entity in _entities.GetEntities(_buffer))
             {
-                entity.ReplaceDirection(-entity.Direction);
-                entity.ReplaceKickingBackDirection(entity.Direction);
-                entity.BaseStats[Stats.Speed] = entity.KickingBackForce;
-                entity.ReplaceKickingBackCooldownLeft(entity.KickingBackCooldown);
                 entity.isKickingBacking = true;
-                entity.isKickingBackCooldownUp = false;
+                entity.BaseStats[Stats.Speed] = entity.KickingBackForce;
+                entity.ReplaceDirection(-entity.Direction);
             }
         }
     }

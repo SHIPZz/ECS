@@ -3,6 +3,7 @@
     public enum BleedingTrailTypeId
     {
         Unknown = 0,
-        Blood = 1,
+        Splash = 1,
+        Long = 2,
     }
 }

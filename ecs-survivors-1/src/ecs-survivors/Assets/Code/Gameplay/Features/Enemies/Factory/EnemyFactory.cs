@@ -95,7 +95,8 @@ namespace Code.Gameplay.Features.Enemies.Factory
             var scale = baseStats[Stats.Scale];
             
             return CreateEnemy(enemyTypeId, at, baseStats, scale)
-                .With(x => x.isChaseHero = true);
+                .With(x => x.isChaseHero = true)
+                ;
         }
 
         private GameEntity CreateEnemy(EnemyTypeId enemyTypeId, Vector2 at, Dictionary<Stats, float> baseStats, float scale)
@@ -115,14 +116,16 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddBleedingTrailView(enemyConfig.TrailView)
                     .AddBleedingTrailSpawnCooldown(enemyConfig.TrailSpawnCooldown)
                     .AddBleedingTrailSpawnCooldownLeft(enemyConfig.TrailSpawnCooldown)
+                    .AddLongBleedTrailSpeed(enemyConfig.LongBleedingSpeed)
+                    .AddSplashBleedTrailSpeed(enemyConfig.SplashBleedingSpeed)
                     .AddScale(new Vector3(scale, scale, scale))
                     .AddDirection(Vector3.zero)
+                    .AddKickingBackDamping(enemyConfig.KickingBackDamping)
+                    .AddKickingBackStopForce(enemyConfig.KickingBackStopForce)
+                    .ReplaceKickingBackInitialForce(enemyConfig.KickingBackForce)
                     .AddKickingBackForce(enemyConfig.KickingBackForce)
-                    .AddKickingBackCooldown(enemyConfig.KickingBackCooldown)
-                    .AddFinalBleedingTrails(enemyConfig.FinalBleedingTrails)
-                    .AddInitialBleedingTrails(enemyConfig.InitialBleedingTrails)
-                    .AddMovingBleedingTrails(enemyConfig.LongBleedingTrails)
-                    .AddTrailSpawnInterval(enemyConfig.TrailSpawnInterval)
+                    .AddBleedingTrails(enemyConfig.BleedingTrails)
+                    .AddBleedTrailSpawnInterval(enemyConfig.TrailSpawnInterval)
                     .AddBleedTrailOffset(enemyConfig.BleedTrailOffset)
                     .AddLongBleedTrailOffset(enemyConfig.LongBleedTrailOffset)
                     .AddStatModifiers(InitStats.EmptyStatDictionary())
@@ -132,6 +135,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddMaxHp(baseStats[Stats.MaxHp])
                     .AddViewPrefab(enemyConfig.ViewPrefab)
                     .AddDeathAnimationDuration(3f)
+                    .AddLastBleedTrailSpawnTime(0)
                     .ReplaceInitialSpeed(enemyConfig.MovementSpeed)
                     .SetupTargetCollectionComponents(enemyConfig.CollisionLayer.AsMask())
                     .AddRadius(enemyConfig.Radius)
@@ -141,9 +145,9 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .With(x => x.AddStatusSetups(enemyConfig.StatusSetups.ToList()),when: enemyConfig.StatusSetups.Count > 0)
                     .With(x => x.isEnemy = true)
                     .With(x => x.isAlive = true)
+                    .With(x => x.isKickingBackAvailable = true)
                     .With(x => x.isBleedingTrailSpawnCooldownUp = true)
                     .With(x => x.isMovingAvailable = true)
-                    .With(x => x.isKickingBackCooldownUp = true)
                     .With(x => x.isDontDestroyOnGameOver = true)
                 ;
         }

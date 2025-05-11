@@ -9,8 +9,8 @@ namespace Code.Gameplay.Features.BleedingTrails
         {
             Add(systems.Create<PutOnBleedingTrailSpawnCooldownOnHitSystem>());
             Add(systems.Create<CalculateBleedingTrailSpawnCooldownSystem>());
-            Add(systems.Create<SpawnInitialTrailOnHitSystem>());
-            Add(systems.Create<SpawnTrailOnKickingBackSystem>());
+            Add(systems.Create<SpawnInitialTrailOnKickingBackStartedSystem>());
+             Add(systems.Create<SpawnTrailOnKickingBackSystem>());
         }
     }
 }

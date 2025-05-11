@@ -7,8 +7,8 @@ namespace Code.Gameplay.Features.KickingBacks
     {
         public KickingBackFeature(ISystemFactory systems)
         {
-            Add(systems.Create<CalculateKickingBackCooldownSystem>());
             Add(systems.Create<KickBackOnHitSystem>());
+            Add(systems.Create<KickingBackMovementSystem>());
             Add(systems.Create<CleanupKickingBackSystem>());
         }
     }

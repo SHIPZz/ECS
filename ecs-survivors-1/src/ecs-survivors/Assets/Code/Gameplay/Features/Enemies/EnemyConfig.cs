@@ -29,30 +29,27 @@ namespace Code.Gameplay.Features.Enemies
         public float Radius = 1f;
 
         public EntityBehaviour ViewPrefab;
-        
-        [SerializeField] public float TrailSpawnCooldown;
-        
-        public BleedingTrailView TrailView;
+
+        [Space]
+        [Header("Bleeding trail settings")] public float TrailSpawnCooldown;
         public float LongBleedingSpeed = 5f;
         public float SplashBleedingSpeed = 1f;
-        
-        
-        public float MovementSpeed = 0.2f;
-        
-        [SerializeField] public float KickingBackCooldown = 1f;
-        [SerializeField] public float KickingBackForce = 10f;
-        
-     [OdinSerialize]   public Dictionary<BleedingTrailTypeId, List<BleedingTrailData>> BleedingTrails = new();
-
-        public float Hp = 1000;
-        public float MaxHp = 1000;
         public float TrailSpawnInterval = 0.5f;
         public float BleedTrailOffset = 0.5f;
         public float LongBleedTrailOffset = 0.25f;
+        [OdinSerialize] public Dictionary<BleedingTrailTypeId, List<BleedingTrailData>> BleedingTrails = new();
+
+        
+        [Space]
+        [Header("Kicking back settings")]
+         public float KickingBackForce = 10f;
         public float KickingBackDamping = 3f;
         public float KickingBackStopForce = 0.1f;
 
-        public AuraSetup GetAura(AuraTypeId auraTypeId) => AuraSetups.FirstOrDefault(x => x.AuraTypeId == auraTypeId);
+        public float MovementSpeed = 0.2f;
+        public float Hp = 1000;
+        public float MaxHp = 1000;
 
+        public AuraSetup GetAura(AuraTypeId auraTypeId) => AuraSetups.FirstOrDefault(x => x.AuraTypeId == auraTypeId);
     }
 }

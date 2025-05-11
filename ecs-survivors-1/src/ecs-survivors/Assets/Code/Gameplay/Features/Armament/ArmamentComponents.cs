@@ -15,6 +15,8 @@ namespace Code.Gameplay.Features.Armament
     
     [Game] public class BouncingArmament : IComponent {  }
     
+    [Game] public class BleedingProvocateurArmament : IComponent {  }
+    
     [Game] public class ScatteringArmament : IComponent {  }
     
     [Game] public class OrbitalMushroomArmament : IComponent {  }

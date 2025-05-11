@@ -53,6 +53,7 @@ namespace Code.Gameplay.Features
             
             Add(systems.Create<CollectTargetsFeature>());
             Add(systems.Create<KickingBackFeature>());
+            Add(systems.Create<ArmamentFeature>());
             Add(systems.Create<BleedingTrailFeature>());
             Add(systems.Create<MovementFeature>());
             Add(systems.Create<PullFeature>());
@@ -62,7 +63,6 @@ namespace Code.Gameplay.Features
             Add(systems.Create<StatusFeature>());
             Add(systems.Create<EffectApplicationFeature>());
             Add(systems.Create<StatusVisualsFeature>());
-            Add(systems.Create<ArmamentFeature>());
             Add(systems.Create<EffectFeature>());
             Add(systems.Create<StatsFeature>());
             Add(systems.Create<FollowTargetFeature>());

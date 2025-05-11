@@ -51,189 +51,191 @@ public static class GameComponentsLookup {
     public const int ArmamentProducerId = 40;
     public const int Aura = 41;
     public const int AuraTypeId = 42;
-    public const int BouncingArmament = 43;
-    public const int BouncingCount = 44;
-    public const int ContactRadius = 45;
-    public const int EffectSetups = 46;
-    public const int FollowingProducer = 47;
-    public const int HealAura = 48;
-    public const int MagnificentBoltArmament = 49;
-    public const int MaxBouncingCount = 50;
-    public const int OrbitalMushroomArmament = 51;
-    public const int Poisoned = 52;
-    public const int Processed = 53;
-    public const int PullingArmament = 54;
-    public const int PullProducerId = 55;
-    public const int PullTargetId = 56;
-    public const int RadialBoltArmament = 57;
-    public const int ScatteringArmament = 58;
-    public const int VegetableBoltArmament = 59;
-    public const int BleedingTrails = 60;
-    public const int BleedingTrailSpawnCooldown = 61;
-    public const int BleedingTrailSpawnCooldownLeft = 62;
-    public const int BleedingTrailSpawnCooldownUp = 63;
-    public const int BleedingTrailSpawnPosition = 64;
-    public const int BleedingTrailSpawnRotation = 65;
-    public const int BleedingTrailSpawnScale = 66;
-    public const int BleedingTrailTypeId = 67;
-    public const int BleedingTrailView = 68;
-    public const int BleedTrailOffset = 69;
-    public const int BleedTrailSpawnInterval = 70;
-    public const int LastBleedTrailSpawnTime = 71;
-    public const int LongBleedTrailOffset = 72;
-    public const int LongBleedTrailSpeed = 73;
-    public const int SplashBleedTrailSpeed = 74;
-    public const int BaseStats = 75;
-    public const int StatChange = 76;
-    public const int StatModifiers = 77;
-    public const int Cooldown = 78;
-    public const int CooldownLeft = 79;
-    public const int CooldownUp = 80;
-    public const int Dead = 81;
-    public const int DeathAnimationDuration = 82;
-    public const int DeathProcessing = 83;
-    public const int AppliedEffectTypeIdsOnTarget = 84;
-    public const int ApplyEffectOnEndPointReached = 85;
-    public const int ApplyStatusOnEndPointReached = 86;
-    public const int DamageEffect = 87;
-    public const int Effect = 88;
-    public const int EffectTypeId = 89;
-    public const int EffectValue = 90;
-    public const int HealEffect = 91;
-    public const int ProducerId = 92;
-    public const int PullEffect = 93;
-    public const int TargetId = 94;
-    public const int EnchantHolder = 95;
-    public const int EnchantTypeId = 96;
-    public const int EnchantVisuals = 97;
-    public const int ExplosiveEnchant = 98;
-    public const int HexEnchant = 99;
-    public const int PoisonEnchant = 100;
-    public const int AddingNewEnemyAvailable = 101;
-    public const int Buffer = 102;
-    public const int ChaseHero = 103;
-    public const int Enemy = 104;
-    public const int EnemyAnimator = 105;
-    public const int EnemyAppearTime = 106;
-    public const int EnemyAppearTimeLeft = 107;
-    public const int EnemyAppearTimeUp = 108;
-    public const int EnemyDeadCount = 109;
-    public const int EnemySpawnAvailable = 110;
-    public const int EnemySpawnCount = 111;
-    public const int EnemySpawnIds = 112;
-    public const int EnemySpawnInterval = 113;
-    public const int EnemySpawnMaxInterval = 114;
-    public const int EnemyTypeId = 115;
-    public const int EnemyWave = 116;
-    public const int Healer = 117;
-    public const int HealMask = 118;
-    public const int NeedFindClosestEnemy = 119;
-    public const int SpawnTimer = 120;
-    public const int FollowDistanceLeft = 121;
-    public const int FollowingUp = 122;
-    public const int FollowMaxDistance = 123;
-    public const int FollowNewCloseTarget = 124;
-    public const int FollowTargetId = 125;
-    public const int LastFollowTargets = 126;
-    public const int DontDestroyOnGameOver = 127;
-    public const int Hero = 128;
-    public const int HeroAnimator = 129;
-    public const int KickingBackAvailable = 130;
-    public const int KickingBackDamping = 131;
-    public const int KickingBackDirection = 132;
-    public const int KickingBackForce = 133;
-    public const int KickingBacking = 134;
-    public const int KickingBackInitialForce = 135;
-    public const int KickingBackStopForce = 136;
-    public const int ExperienceMeter = 137;
-    public const int LevelUp = 138;
-    public const int Alive = 139;
-    public const int CurrentHp = 140;
-    public const int HpRestored = 141;
-    public const int MaxHp = 142;
-    public const int RestoreHp = 143;
-    public const int Collected = 144;
-    public const int Experience = 145;
-    public const int LootTypeId = 146;
-    public const int PickupRadius = 147;
-    public const int Pullable = 148;
-    public const int Pulling = 149;
-    public const int AnimationCurve = 150;
-    public const int AnimationDuration = 151;
-    public const int DestructOnMovingFinished = 152;
-    public const int ElapsedTime = 153;
-    public const int EndPoint = 154;
-    public const int EndPointReached = 155;
-    public const int HeightUpdated = 156;
-    public const int InitialSpeed = 157;
-    public const int Moving = 158;
-    public const int MovingAvailable = 159;
-    public const int NeedRandomEndPoint = 160;
-    public const int OrbitCenterFollowTarget = 161;
-    public const int OrbitCenterPosition = 162;
-    public const int OrbitPhase = 163;
-    public const int OrbitRadius = 164;
-    public const int RotateAlongDirection = 165;
-    public const int Speed = 166;
-    public const int StartHeight = 167;
-    public const int TurnAlongDirection = 168;
-    public const int UpdateHeightBySinCurve = 169;
-    public const int DestructOnMaxPullTargetReached = 170;
-    public const int MaxPullTargetHold = 171;
-    public const int MinCountToPullTargets = 172;
-    public const int PullAnchorTargetId = 173;
-    public const int PullingDetector = 174;
-    public const int PullInRadius = 175;
-    public const int PullTargetConsistently = 176;
-    public const int PullTargetHolder = 177;
-    public const int PullTargetHolderStatuses = 178;
-    public const int PullTargetLayerMask = 179;
-    public const int PullTargetList = 180;
-    public const int Scale = 181;
-    public const int ScaleTransform = 182;
-    public const int NewSkinAnimator = 183;
-    public const int SkinChanged = 184;
-    public const int TargetSprite = 185;
-    public const int Affected = 186;
-    public const int Applied = 187;
-    public const int ApplierStatusLink = 188;
-    public const int CurrentHpStatus = 189;
-    public const int Duration = 190;
-    public const int Freeze = 191;
-    public const int Invulnerable = 192;
-    public const int InvulnerableStatus = 193;
-    public const int MaxHpIncrease = 194;
-    public const int Period = 195;
-    public const int PeriodicDamageStatus = 196;
-    public const int Poison = 197;
-    public const int ScaleIncrease = 198;
-    public const int SpeedUp = 199;
-    public const int Status = 200;
-    public const int StatusCreator = 201;
-    public const int StatusSetups = 202;
-    public const int StatusTypeId = 203;
-    public const int TimeLeft = 204;
-    public const int TimeSinceLastTick = 205;
-    public const int Unapplied = 206;
-    public const int Vampirism = 207;
-    public const int CollectingAvailable = 208;
-    public const int CollectingTargetsContinuously = 209;
-    public const int CollectTargetsInterval = 210;
-    public const int CollectTargetsLayerMask = 211;
-    public const int CollectTargetsTimer = 212;
-    public const int GotHit = 213;
-    public const int IgnoreBuffer = 214;
-    public const int Ignored = 215;
-    public const int LastCollectedId = 216;
-    public const int OverflowProcessedTargetsBuffer = 217;
-    public const int ProcessedTargetsBuffer = 218;
-    public const int Radius = 219;
-    public const int Reached = 220;
-    public const int ReadyToCollectOnMovingFinished = 221;
-    public const int ReadyToCollectTargets = 222;
-    public const int TargetsBuffer = 223;
+    public const int BleedingProvocateurArmament = 43;
+    public const int BouncingArmament = 44;
+    public const int BouncingCount = 45;
+    public const int ContactRadius = 46;
+    public const int EffectSetups = 47;
+    public const int FollowingProducer = 48;
+    public const int HealAura = 49;
+    public const int MagnificentBoltArmament = 50;
+    public const int MaxBouncingCount = 51;
+    public const int OrbitalMushroomArmament = 52;
+    public const int Poisoned = 53;
+    public const int Processed = 54;
+    public const int PullingArmament = 55;
+    public const int PullProducerId = 56;
+    public const int PullTargetId = 57;
+    public const int RadialBoltArmament = 58;
+    public const int ScatteringArmament = 59;
+    public const int VegetableBoltArmament = 60;
+    public const int Bleeding = 61;
+    public const int BleedingAvailable = 62;
+    public const int BleedingRequested = 63;
+    public const int BleedingTrail = 64;
+    public const int BleedingTrails = 65;
+    public const int BleedingTrailSpawnAvailable = 66;
+    public const int BleedingTrailSpawnScale = 67;
+    public const int BleedingTrailTypeId = 68;
+    public const int BleedSpawnList = 69;
+    public const int BleedTrailOffset = 70;
+    public const int BleedTrailSpawnInterval = 71;
+    public const int BleedTrailView = 72;
+    public const int LastBleedTrailSpawnTime = 73;
+    public const int LongBleedTrailOffset = 74;
+    public const int LongBleedTrailSpeed = 75;
+    public const int SplashBleedTrailSpeed = 76;
+    public const int BaseStats = 77;
+    public const int StatChange = 78;
+    public const int StatModifiers = 79;
+    public const int Cooldown = 80;
+    public const int CooldownLeft = 81;
+    public const int CooldownUp = 82;
+    public const int Dead = 83;
+    public const int DeathAnimationDuration = 84;
+    public const int DeathProcessing = 85;
+    public const int AppliedEffectTypeIdsOnTarget = 86;
+    public const int ApplyEffectOnEndPointReached = 87;
+    public const int ApplyStatusOnEndPointReached = 88;
+    public const int DamageEffect = 89;
+    public const int Effect = 90;
+    public const int EffectTypeId = 91;
+    public const int EffectValue = 92;
+    public const int HealEffect = 93;
+    public const int ProducerId = 94;
+    public const int PullEffect = 95;
+    public const int TargetId = 96;
+    public const int EnchantHolder = 97;
+    public const int EnchantTypeId = 98;
+    public const int EnchantVisuals = 99;
+    public const int ExplosiveEnchant = 100;
+    public const int HexEnchant = 101;
+    public const int PoisonEnchant = 102;
+    public const int AddingNewEnemyAvailable = 103;
+    public const int Buffer = 104;
+    public const int ChaseHero = 105;
+    public const int Enemy = 106;
+    public const int EnemyAnimator = 107;
+    public const int EnemyAppearTime = 108;
+    public const int EnemyAppearTimeLeft = 109;
+    public const int EnemyAppearTimeUp = 110;
+    public const int EnemyDeadCount = 111;
+    public const int EnemySpawnAvailable = 112;
+    public const int EnemySpawnCount = 113;
+    public const int EnemySpawnIds = 114;
+    public const int EnemySpawnInterval = 115;
+    public const int EnemySpawnMaxInterval = 116;
+    public const int EnemyTypeId = 117;
+    public const int EnemyWave = 118;
+    public const int Healer = 119;
+    public const int HealMask = 120;
+    public const int NeedFindClosestEnemy = 121;
+    public const int SpawnTimer = 122;
+    public const int FollowDistanceLeft = 123;
+    public const int FollowingUp = 124;
+    public const int FollowMaxDistance = 125;
+    public const int FollowNewCloseTarget = 126;
+    public const int FollowTargetId = 127;
+    public const int LastFollowTargets = 128;
+    public const int DontDestroyOnGameOver = 129;
+    public const int Hero = 130;
+    public const int HeroAnimator = 131;
+    public const int KickingBackAvailable = 132;
+    public const int KickingBackDamping = 133;
+    public const int KickingBackDirection = 134;
+    public const int KickingBackForce = 135;
+    public const int KickingBacking = 136;
+    public const int KickingBackInitialForce = 137;
+    public const int KickingBackStopForce = 138;
+    public const int ExperienceMeter = 139;
+    public const int LevelUp = 140;
+    public const int Alive = 141;
+    public const int CurrentHp = 142;
+    public const int HpRestored = 143;
+    public const int MaxHp = 144;
+    public const int RestoreHp = 145;
+    public const int Collected = 146;
+    public const int Experience = 147;
+    public const int LootTypeId = 148;
+    public const int PickupRadius = 149;
+    public const int Pullable = 150;
+    public const int Pulling = 151;
+    public const int AnimationCurve = 152;
+    public const int AnimationDuration = 153;
+    public const int DestructOnMovingFinished = 154;
+    public const int ElapsedTime = 155;
+    public const int EndPoint = 156;
+    public const int EndPointReached = 157;
+    public const int HeightUpdated = 158;
+    public const int InitialSpeed = 159;
+    public const int Moving = 160;
+    public const int MovingAvailable = 161;
+    public const int NeedRandomEndPoint = 162;
+    public const int OrbitCenterFollowTarget = 163;
+    public const int OrbitCenterPosition = 164;
+    public const int OrbitPhase = 165;
+    public const int OrbitRadius = 166;
+    public const int RotateAlongDirection = 167;
+    public const int Speed = 168;
+    public const int StartHeight = 169;
+    public const int TurnAlongDirection = 170;
+    public const int UpdateHeightBySinCurve = 171;
+    public const int DestructOnMaxPullTargetReached = 172;
+    public const int MaxPullTargetHold = 173;
+    public const int MinCountToPullTargets = 174;
+    public const int PullAnchorTargetId = 175;
+    public const int PullingDetector = 176;
+    public const int PullInRadius = 177;
+    public const int PullTargetConsistently = 178;
+    public const int PullTargetHolder = 179;
+    public const int PullTargetHolderStatuses = 180;
+    public const int PullTargetLayerMask = 181;
+    public const int PullTargetList = 182;
+    public const int Scale = 183;
+    public const int ScaleTransform = 184;
+    public const int NewSkinAnimator = 185;
+    public const int SkinChanged = 186;
+    public const int TargetSprite = 187;
+    public const int Affected = 188;
+    public const int Applied = 189;
+    public const int ApplierStatusLink = 190;
+    public const int CurrentHpStatus = 191;
+    public const int Duration = 192;
+    public const int Freeze = 193;
+    public const int Invulnerable = 194;
+    public const int InvulnerableStatus = 195;
+    public const int MaxHpIncrease = 196;
+    public const int Period = 197;
+    public const int PeriodicDamageStatus = 198;
+    public const int Poison = 199;
+    public const int ScaleIncrease = 200;
+    public const int SpeedUp = 201;
+    public const int Status = 202;
+    public const int StatusCreator = 203;
+    public const int StatusSetups = 204;
+    public const int StatusTypeId = 205;
+    public const int TimeLeft = 206;
+    public const int TimeSinceLastTick = 207;
+    public const int Unapplied = 208;
+    public const int Vampirism = 209;
+    public const int CollectingAvailable = 210;
+    public const int CollectingTargetsContinuously = 211;
+    public const int CollectTargetsInterval = 212;
+    public const int CollectTargetsLayerMask = 213;
+    public const int CollectTargetsTimer = 214;
+    public const int GotHit = 215;
+    public const int IgnoreBuffer = 216;
+    public const int Ignored = 217;
+    public const int LastCollectedId = 218;
+    public const int OverflowProcessedTargetsBuffer = 219;
+    public const int ProcessedTargetsBuffer = 220;
+    public const int Radius = 221;
+    public const int Reached = 222;
+    public const int ReadyToCollectOnMovingFinished = 223;
+    public const int ReadyToCollectTargets = 224;
+    public const int TargetsBuffer = 225;
 
-    public const int TotalComponents = 224;
+    public const int TotalComponents = 226;
 
     public static readonly string[] componentNames = {
         "Active",
@@ -279,6 +281,7 @@ public static class GameComponentsLookup {
         "ArmamentProducerId",
         "Aura",
         "AuraTypeId",
+        "BleedingProvocateurArmament",
         "BouncingArmament",
         "BouncingCount",
         "ContactRadius",
@@ -296,17 +299,18 @@ public static class GameComponentsLookup {
         "RadialBoltArmament",
         "ScatteringArmament",
         "VegetableBoltArmament",
+        "Bleeding",
+        "BleedingAvailable",
+        "BleedingRequested",
+        "BleedingTrail",
         "BleedingTrails",
-        "BleedingTrailSpawnCooldown",
-        "BleedingTrailSpawnCooldownLeft",
-        "BleedingTrailSpawnCooldownUp",
-        "BleedingTrailSpawnPosition",
-        "BleedingTrailSpawnRotation",
+        "BleedingTrailSpawnAvailable",
         "BleedingTrailSpawnScale",
         "BleedingTrailTypeId",
-        "BleedingTrailView",
+        "BleedSpawnList",
         "BleedTrailOffset",
         "BleedTrailSpawnInterval",
+        "BleedTrailView",
         "LastBleedTrailSpawnTime",
         "LongBleedTrailOffset",
         "LongBleedTrailSpeed",
@@ -506,6 +510,7 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Armament.ArmamentProducerId),
         typeof(Code.Gameplay.Features.Armament.Aura),
         typeof(Code.Gameplay.Features.Armament.AuraTypeIdComponent),
+        typeof(Code.Gameplay.Features.Armament.BleedingProvocateurArmament),
         typeof(Code.Gameplay.Features.Armament.BouncingArmament),
         typeof(Code.Gameplay.Features.Armament.BouncingCount),
         typeof(Code.Gameplay.Features.Armament.ContactRadius),
@@ -523,17 +528,18 @@ public static class GameComponentsLookup {
         typeof(Code.Gameplay.Features.Armament.RadialBoltArmament),
         typeof(Code.Gameplay.Features.Armament.ScatteringArmament),
         typeof(Code.Gameplay.Features.Armament.VegetableBoltArmament),
+        typeof(Code.Gameplay.Features.BleedingTrails.Bleeding),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedingAvailable),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedingRequested),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrail),
         typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrails),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnCooldown),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnCooldownLeft),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnCooldownUp),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnPosition),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnRotation),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnAvailable),
         typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailSpawnScale),
         typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailTypeIdComponent),
-        typeof(Code.Gameplay.Features.BleedingTrails.BleedingTrailViewComponent),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedSpawnList),
         typeof(Code.Gameplay.Features.BleedingTrails.BleedTrailOffset),
         typeof(Code.Gameplay.Features.BleedingTrails.BleedTrailSpawnInterval),
+        typeof(Code.Gameplay.Features.BleedingTrails.BleedTrailViewComponent),
         typeof(Code.Gameplay.Features.BleedingTrails.LastBleedTrailSpawnTime),
         typeof(Code.Gameplay.Features.BleedingTrails.LongBleedTrailOffset),
         typeof(Code.Gameplay.Features.BleedingTrails.LongBleedTrailSpeed),

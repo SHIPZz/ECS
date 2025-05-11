@@ -216,6 +216,7 @@ namespace Code.Gameplay.Features.Armament.Factory
             return CreateProjectile(at, projectileSetup, abilityLevel)
                     .AddParentAbility(AbilityTypeId.VegetableBolt)
                     .With(x => x.isVegetableBoltArmament = true)
+                    .With(x => x.isBleedingProvocateurArmament = true)
                     .With(x => x.isRotateAlongDirection = true)
                 ;
         }

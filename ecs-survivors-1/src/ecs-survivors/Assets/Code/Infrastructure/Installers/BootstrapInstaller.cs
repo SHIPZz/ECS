@@ -9,6 +9,7 @@ using Code.Gameplay.Common.Time;
 using Code.Gameplay.Features.Abilities.Factory;
 using Code.Gameplay.Features.Abilities.Upgrade;
 using Code.Gameplay.Features.Armament.Factory;
+using Code.Gameplay.Features.BleedingTrails.Factory;
 using Code.Gameplay.Features.Effects.Factory;
 using Code.Gameplay.Features.Enchants.UIFactories;
 using Code.Gameplay.Features.Enemies;
@@ -161,6 +162,7 @@ namespace Code.Infrastructure.Installers
         private void BindGameplayFactories()
         {
             Container.Bind<IHeroFactory>().To<HeroFactory>().AsSingle();
+            Container.Bind<IBleedingTrailEntityFactory>().To<BleedingTrailEntityFactory>().AsSingle();
             Container.Bind<IEnemyFactory>().To<EnemyFactory>().AsSingle();
             Container.Bind<IEntityViewFactory>().To<EntityViewFactory>().AsSingle();
             Container.Bind<IAbilityFactory>().To<AbilityFactory>().AsSingle();

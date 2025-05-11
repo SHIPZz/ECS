@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Code.Common.Entity;
 using Code.Common.Extensions;
+using Code.Gameplay.Features.BleedingTrails.Configs;
 using Code.Gameplay.Features.CharacterStats;
 using Code.Gameplay.Features.Cooldown;
 using Code.Gameplay.Features.Effects;
@@ -113,13 +114,11 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .AddWorldPosition(at)
                     .AddEnemyTypeId(enemyTypeId)
                     .AddSpeed(baseStats[Stats.Speed])
-                    .AddBleedingTrailView(enemyConfig.TrailView)
-                    .AddBleedingTrailSpawnCooldown(enemyConfig.TrailSpawnCooldown)
-                    .AddBleedingTrailSpawnCooldownLeft(enemyConfig.TrailSpawnCooldown)
                     .AddLongBleedTrailSpeed(enemyConfig.LongBleedingSpeed)
                     .AddSplashBleedTrailSpeed(enemyConfig.SplashBleedingSpeed)
                     .AddScale(new Vector3(scale, scale, scale))
                     .AddDirection(Vector3.zero)
+                    .AddBleedSpawnList(new List<BleedingTrailData>(32))
                     .AddKickingBackDamping(enemyConfig.KickingBackDamping)
                     .AddKickingBackStopForce(enemyConfig.KickingBackStopForce)
                     .ReplaceKickingBackInitialForce(enemyConfig.KickingBackForce)
@@ -146,7 +145,7 @@ namespace Code.Gameplay.Features.Enemies.Factory
                     .With(x => x.isEnemy = true)
                     .With(x => x.isAlive = true)
                     .With(x => x.isKickingBackAvailable = true)
-                    .With(x => x.isBleedingTrailSpawnCooldownUp = true)
+                    .With(x => x.isBleedingAvailable = true)
                     .With(x => x.isMovingAvailable = true)
                     .With(x => x.isDontDestroyOnGameOver = true)
                 ;

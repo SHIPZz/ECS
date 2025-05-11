@@ -12,6 +12,7 @@ namespace Code.Gameplay.Features.Armament
             Add(systemses.Create<MarkArmamentProcessedOnTargetLimitReachedSystem>());
             Add(systemses.Create<ProcessMagnificentBoltOnHitSystem>());
             Add(systemses.Create<ScatterOnHitSystem>());
+            Add(systemses.Create<ProvokeBleedingOnHitSystem>());
             Add(systemses.Create<FollowProducerSystem>());
             Add(systemses.Create<FinalizeProcessedArmamentSystem>());
         }

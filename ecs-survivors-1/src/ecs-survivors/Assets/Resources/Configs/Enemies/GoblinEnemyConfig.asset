@@ -70,6 +70,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 0
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -79,6 +82,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 1
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -88,6 +94,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 2
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -97,6 +106,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 3
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -106,6 +118,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 2
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -115,6 +130,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 4
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -123,6 +141,9 @@ MonoBehaviour:
       Data: 9|Code.Gameplay.Features.BleedingTrails.Configs.BleedingTrailData, Assembly-CSharp
     - Name: Prefab
       Entry: 10
+      Data: 5
+    - Name: DestroyTime
+      Entry: 4
       Data: 5
     - Name: 
       Entry: 8
@@ -133,6 +154,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 6
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -164,6 +188,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 7
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -173,6 +200,9 @@ MonoBehaviour:
     - Name: Prefab
       Entry: 10
       Data: 8
+    - Name: DestroyTime
+      Entry: 4
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -206,7 +236,7 @@ MonoBehaviour:
   SplashBleedingSpeed: 1
   MovementSpeed: 2
   KickingBackCooldown: 0.1
-  KickingBackForce: 1.5
+  KickingBackForce: 6
   Hp: 1000
   MaxHp: 1000
   TrailSpawnInterval: 0.1

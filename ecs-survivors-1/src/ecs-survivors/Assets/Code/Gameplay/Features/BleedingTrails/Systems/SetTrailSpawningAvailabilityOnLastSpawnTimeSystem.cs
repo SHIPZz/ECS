@@ -17,10 +17,8 @@ namespace Code.Gameplay.Features.BleedingTrails.Systems
 
         public void Execute()
         {
-            foreach (GameEntity entity in _entities)
-            {
+            foreach (GameEntity entity in _entities) 
                 entity.isBleedingTrailSpawnAvailable = Time.time > entity.LastBleedTrailSpawnTime + entity.BleedTrailSpawnInterval;
-            }
         }
     }
 }

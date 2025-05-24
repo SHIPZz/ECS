@@ -36,6 +36,10 @@ namespace Code.Gameplay.Features.BleedingTrails
     [Game] public class BleedSpawnList : IComponent { public List<BleedingTrailData> Value; }
 
     [Game] public class BleedTrailSpawnInterval : IComponent { public float Value; }
-    
-    [Game] public class BleedingTrailSpawnScale : IComponent { public Vector3 Value; }
+
+    [Game] public class CreateBloodTrailRequest : IComponent { public BleedingTrailTypeId TypeId; public Vector3 Position; public Quaternion Rotation; }
+
+    [Game] public class PreviousWorldPosition : IComponent { public Vector3 Value; }
+
+    [Game] public class BloodTrailRequestComponent : IComponent { public BloodTrailRequest Value; }
 }

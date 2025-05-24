@@ -231,16 +231,14 @@ MonoBehaviour:
   Radius: 0.1
   ViewPrefab: {fileID: 6909503884090576820, guid: 5aa0f6aecef0da643b3ff98e1dc91c2e, type: 3}
   TrailSpawnCooldown: 0.1
-  TrailView: {fileID: 0}
   LongBleedingSpeed: 2
   SplashBleedingSpeed: 1
-  MovementSpeed: 2
-  KickingBackCooldown: 0.1
-  KickingBackForce: 6
-  Hp: 1000
-  MaxHp: 1000
   TrailSpawnInterval: 0.1
   BleedTrailOffset: 1.3
   LongBleedTrailOffset: 0.25
+  KickingBackForce: 6
   KickingBackDamping: 3
   KickingBackStopForce: 0.5
+  MovementSpeed: 2
+  Hp: 1
+  MaxHp: 100

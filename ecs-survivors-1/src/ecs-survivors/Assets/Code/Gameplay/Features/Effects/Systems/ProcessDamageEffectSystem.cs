@@ -1,4 +1,5 @@
 ﻿using Entitas;
+using UnityEngine;
 
 namespace Code.Gameplay.Features.Effects.Systems
 {
@@ -27,12 +28,12 @@ namespace Code.Gameplay.Features.Effects.Systems
                 if(target.isDead)
                     continue;
 
+                Debug.Log($"{target.View.gameObject.name}: ProcessDamageEffectSystem");
+                
                 target.ReplaceCurrentHp(target.CurrentHp - effect.EffectValue);
                 
                 if(target.hasDamageTakenAnimator)
                     target.DamageTakenAnimator.PlayDamageTaken();
-
-                // target.AppliedEffectTypeIdsOnTarget.Add(EffectTypeId.Damage);
             }
         }
     }
